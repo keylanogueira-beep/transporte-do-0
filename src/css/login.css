@@ -24,7 +24,7 @@ body {
 
 .auth-page {
     width: 100%;
-    max-width: 420px;
+    max-width: 558px;
 }
 
 .auth-card {
@@ -154,6 +154,23 @@ body {
 .form-field input:focus {
     border-color: #93c5fd;
     box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.12);
+}
+
+.forgot-password {
+    display: flex;
+    justify-content: center;
+    margin-top: -4px;
+    margin-bottom: 12px;
+}
+
+.forgot-password a {
+    color: #2563eb;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.forgot-password a:hover {
+    text-decoration: underline;
 }
 
 .info-card {
