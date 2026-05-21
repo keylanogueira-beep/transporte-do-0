@@ -1,17 +1,23 @@
 <!DOCTYPE html>
-<html lang="PT-BR">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>interface inicial - Leandro</title>
+    <title>TransCamaçari - Home</title>
     <link rel="stylesheet" href="../css/index.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- Leaflet -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
 </head>
 <body>
 
-<div id="paginaHome">
+
 <!--NAVBAR-->
 <header class="navbar">
     <div class="container nav-wrapper">
+
         <div class="logo-area">
             <div class="logo-icon-placeholder">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="white" viewBox="0 0 16 16">
@@ -27,7 +33,7 @@
 
         <nav class="nav-menu">
             <ul>
-                <li><a href="#" onclick="irParaHome()">Início</a></li>
+                <li><a href="#">Início</a></li>
                 <li><a href="#sobre">Sobre o Projeto</a></li>
                 <li><a href="#funcionalidades">Funcionalidades</a></li>
                 <li><a href="#equipe">Equipe SENAI</a></li>
@@ -36,8 +42,10 @@
         </nav>
 
         <button class="btn-black" onclick="abrirModalPlanos()">Acessar Rotas Privadas</button>
+
     </div>
 </header>
+
 
 <!--HERO SLIDER-->
 <div class="hero-slider-container">
@@ -51,8 +59,8 @@
                     <h1>Revolucionando o Transporte Público de Camaçari</h1>
                     <p>Nunca mais perca seu ônibus! Acompanhe em tempo real a localização dos ônibus públicos e privados de Camaçari direto do seu celular.</p>
                     <div class="hero-actions">
-                        <button class="btn-primary-white" style="color: #2563eb;">Começar Agora - Grátis</button>
-                        <button class="btn-outline-white">Saber Mais</button>
+                        <button class="btn-primary-white" style="color: #2563eb;" onclick="scrollToSearch()">Começar Agora - Grátis</button>
+                        <button class="btn-outline-white" onclick="scrollToSobre()">Saber Mais</button>
                     </div>
                 </div>
 
@@ -81,6 +89,7 @@
                         </li>
                     </ul>
                 </div>
+
             </div>
         </div>
 
@@ -93,7 +102,7 @@
                     <p>Cadastre seus funcionários ou se cadastre no plano de empresa privada! Acompanhe onde está seu transporte e não perca mais suas conduções.</p>
                     <div class="hero-actions">
                         <button class="btn-primary-white" style="color: #e67e22;" onclick="abrirModalPlanos()">Cadastre sua empresa</button>
-                        <button class="btn-outline-white">Sou funcionário</button>
+                        <button class="btn-outline-white" onclick="scrollToContato()">Sou funcionário</button>
                     </div>
                 </div>
 
@@ -126,11 +135,141 @@
                         </li>
                     </ul>
                 </div>
+
             </div>
         </div>
 
     </main>
 </div>
+
+
+<!--MODAL DE LOGIN / CADASTRO-->
+<div id="modalLogin" class="modal-overlay">
+    <div class="modal-login-content">
+
+        <button class="modal-close-dark" onclick="fecharModalLogin()">&times;</button>
+
+        <!-- ── TELA PRINCIPAL (login / criar conta) ── -->
+        <div id="telaLogin">
+
+            <div class="login-header">
+                <h3>Acesso às Rotas privadas</h3>
+                <p>Entrar ou crie uma conta para gerenciar suas rotas privadas</p>
+            </div>
+
+            <div class="login-plano-badge">
+                <span>Plano selecionado: <strong id="loginPlanoTexto">mensal (R$ 26,90/mês)</strong></span>
+            </div>
+
+            <!-- Abas -->
+            <div class="login-tabs">
+                <button class="login-tab active" id="tabEntrar" onclick="trocarAba('entrar')">Entrar</button>
+                <button class="login-tab" id="tabCriar" onclick="trocarAba('criar')">Criar conta</button>
+            </div>
+
+            <!-- Formulário Entrar -->
+            <form id="formEntrar" class="login-form" onsubmit="submitEntrar(event);">
+                <div class="login-field">
+                    <label>Email</label>
+                    <input id="entrarEmail" type="email" placeholder="seu@email.com">
+                    <span class="field-error" id="errEntrarEmail"></span>
+                </div>
+                <div class="login-field">
+                    <label>Senha</label>
+                    <input id="entrarSenha" type="password" placeholder="••••••••••••••••">
+                    <span class="field-error" id="errEntrarSenha"></span>
+                </div>
+                <button type="submit" class="btn-login-submit">Entrar</button>
+                <div style="text-align:center; margin-top:10px;">
+                    <button type="button" class="link-esqueceu" onclick="abrirRecuperacao()">Esqueceu a senha?</button>
+                </div>
+            </form>
+
+            <!-- Formulário Criar Conta -->
+            <form id="formCriar" class="login-form" style="display:none;" onsubmit="submitCriar(event);">
+                <div class="login-field">
+                    <label>Nome completo</label>
+                    <input id="criarNome" type="text" placeholder="Ana Paula">
+                    <span class="field-error" id="errCriarNome"></span>
+                </div>
+                <div class="login-field">
+                    <label>CPF</label>
+                    <input id="criarCpf" type="text" placeholder="000.000.000-00">
+                    <span class="field-error" id="errCriarCpf"></span>
+                </div>
+                <div class="login-field">
+                    <label>Email</label>
+                    <input id="criarEmail" type="email" placeholder="seu@email.com">
+                    <span class="field-error" id="errCriarEmail"></span>
+                </div>
+                <div class="login-field">
+                    <label>Senha</label>
+                    <input id="criarSenha" type="password" placeholder="••••••••••••••••">
+                    <span class="field-error" id="errCriarSenha"></span>
+                </div>
+                <div class="login-info-box">
+                    <p><strong>Conta para Instituição:</strong> Cadastre sua empresa, escola ou organizações para gerenciar rotas privadas e veículos.</p>
+                    <p><strong>Funcionários/Alunos:</strong> Não precisa de uma conta, use a busca por CPF na página inicial.</p>
+                </div>
+                <button type="submit" class="btn-login-submit">Criar Conta</button>
+            </form>
+
+        </div><!-- /telaLogin -->
+
+        <!-- ── TELA RECUPERAÇÃO — passo 1: digitar e-mail ── -->
+        <div id="telaRecuperacao" style="display:none;">
+            <button type="button" class="btn-voltar" onclick="voltarLogin()">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8"/>
+                </svg>
+                Voltar
+            </button>
+
+            <div class="login-header" style="margin-top:10px;">
+                <h3>Recuperar senha</h3>
+                <p>Digite o e-mail cadastrado e enviaremos um código de verificação</p>
+            </div>
+
+            <form id="formRecuperacao" class="login-form" onsubmit="submitRecuperacao(event);">
+                <div class="login-field">
+                    <label>E-mail cadastrado</label>
+                    <input id="recEmail" type="email" placeholder="seu@email.com">
+                    <span class="field-error" id="errRecEmail"></span>
+                </div>
+                <button type="submit" class="btn-login-submit">Enviar código</button>
+            </form>
+        </div>
+
+        <!-- ── TELA RECUPERAÇÃO — passo 2: inserir código ── -->
+        <div id="telaCodigo" style="display:none;">
+            <button type="button" class="btn-voltar" onclick="voltarRecuperacao()">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8"/>
+                </svg>
+                Voltar
+            </button>
+
+            <div class="login-header" style="margin-top:10px;">
+                <h3>Insira o código</h3>
+                <p id="codigoDescricao">Enviamos um código de 6 dígitos para <strong id="emailDestino"></strong></p>
+            </div>
+
+            <form id="formCodigo" class="login-form" onsubmit="submitCodigo(event);">
+                <div class="login-field">
+                    <label>Código de verificação</label>
+                    <input id="recCodigo" type="text" placeholder="000000" maxlength="6" style="letter-spacing:6px; font-size:1.3rem; text-align:center;">
+                    <span class="field-error" id="errRecCodigo"></span>
+                </div>
+                <button type="submit" class="btn-login-submit">Verificar código</button>
+                <div style="text-align:center; margin-top:10px;">
+                    <button type="button" class="link-esqueceu" onclick="reenviarCodigo()">Reenviar código</button>
+                </div>
+            </form>
+        </div>
+
+    </div>
+</div>
+
 
 <!--BUSCA DE LINHAS-->
 <section class="search-section">
@@ -174,17 +313,12 @@
 
         <!-- ── ÁREA DE RESULTADOS ── -->
         <div id="searchResults" style="display:none; margin-top: 28px;">
-
-            <!-- Cabeçalho dos resultados -->
             <div class="sr-header">
                 <span id="srContagem" class="sr-contagem"></span>
                 <span id="srTotal"    class="sr-total"></span>
             </div>
-
-            <!-- Lista de linhas encontradas (gerada via JS) -->
             <div id="srLista"></div>
-
-        </div><!-- /searchResults -->
+        </div>
 
     </div>
 </section>
@@ -199,13 +333,14 @@
     </div>
 </div>
 
+
 <!--SOBRE O PROJETO-->
 <section id="sobre" class="about-section">
     <div class="container">
 
         <div class="section-header">
-            <h2>Sobre o Projeto</h2>
-            <p>Uma solução desenvolvida por estudantes do SENAI Camaçari para melhorar a mobilidade urbana e a qualidade de vida dos cidadãos</p>
+                <h2>Sobre o Projeto</h2>
+            <p>Uma solução desenvolvida pela equipe da LinkaTech para melhorar a mobilidade urbana e a qualidade de vida dos cidadãos</p>
         </div>
 
         <div class="about-grid">
@@ -213,7 +348,7 @@
             <div class="about-text">
                 <h3>Nossa Missão</h3>
                 <p>O <strong>TransCamaçari</strong> nasceu da necessidade real de milhares de cidadãos que enfrentam diariamente o desafio de não saber quando o ônibus vai chegar. Perdemos compromissos, chegamos atrasados ao trabalho e ficamos expostos ao sol e à chuva esperando sem previsão.</p>
-                <p>Desenvolvido como <strong>Trabalho de Conclusão de Curso (TCC)</strong> por estudantes do <strong>SENAI Camaçari</strong>, este projeto visa revolucionar o transporte público da nossa cidade através da tecnologia.</p>
+                <p>Desenvolvido pela equipe da <strong>LinkaTech</strong>, este projeto visa revolucionar o transporte público da nossa cidade através da tecnologia.</p>
                 <p>Nosso sistema utiliza <strong>rastreamento GPS via Bluetooth</strong> para fornecer informações em tempo real sobre a localização dos ônibus, permitindo que os usuários planejem melhor seu tempo e evitem esperas desnecessárias.</p>
             </div>
 
@@ -269,9 +404,11 @@
                     </div>
                 </div>
             </div>
+
         </div>
     </div>
 </section>
+
 
 <!--FUNCIONALIDADES-->
 <section id="funcionalidades" class="features-section">
@@ -352,13 +489,14 @@
     </div>
 </section>
 
-<!--EQUIPE SENAI-->
+
+<!--EQUIPE LINKATECH-->
 <section id="equipe" class="team-section">
     <div class="container">
 
         <div class="section-header">
-            <h2>Equipe SENAI Camaçari</h2>
-            <p>Estudantes dedicados em transformar Camaçari através da tecnologia</p>
+            <h2>Equipe LinkaTech</h2>
+            <p>Profissionais dedicados em transformar Camaçari através da tecnologia</p>
         </div>
 
         <div class="main-team-card">
@@ -372,12 +510,12 @@
                         </svg>
                     </div>
                     <div>
-                        <strong style="display:block; font-size:1.25rem;">SENAI Camaçari</strong>
-                        <span style="opacity:0.9; font-size:0.9rem;">Excelência em Educação Profissional</span>
+                        <strong style="display:block; font-size:1.25rem;">LinkaTech</strong>
+                        <span style="opacity:0.9; font-size:0.9rem;">Excelência em Tecnologia e Inovação</span>
                     </div>
                 </div>
-                <p>Este projeto é o resultado de meses de pesquisa, desenvolvimento e dedicação da nossa equipe de estudantes do curso técnico em Desenvolvimento de Sistemas do SENAI Camaçari.</p>
-                <p>Orientados por professores especializados, aplicamos conhecimentos em programação, banco de dados, design de interfaces e gestão de projetos para criar uma solução real para um problema real da nossa cidade.</p>
+                <p>Este projeto é o resultado de meses de pesquisa, desenvolvimento e dedicação da nossa equipe de especialistas em desenvolvimento de sistemas da LinkaTech.</p>
+                <p>Com orientação de profissionais especializados, aplicamos conhecimentos em programação, banco de dados, design de interfaces e gestão de projetos para criar uma solução real para um problema real da nossa cidade.</p>
             </div>
 
             <div class="tech-side">
@@ -401,6 +539,7 @@
                     </div>
                 </div>
             </div>
+
         </div>
 
         <div class="values-grid">
@@ -443,142 +582,42 @@
     </div>
 </section>
 
-<!-- BUSCAR ROTAS PRIVADAS -->
-<section id="buscarRotasPrivadas" class="search-section">
-  <div class="container" style="max-width: 900px;">
-    <div class="search-card">
-      <div class="search-header">
-        <h2>Buscar Rotas Privadas</h2>
-      </div>
-      <p class="search-description">
-        Digite seu CPF para verificar se sua empresa cadastrou você em uma rota privada.
-      </p>
-      <div class="input-group">
-        <div>
-          <input type="text" id="inputCpf" placeholder="000.000.000-00">
-        </div>
-        <button class="btn-search" onclick="buscarRotasPrivadas()">Buscar</button>
-      </div>
-    </div>
 
-    <!-- Resultados -->
-    <div id="rotasPrivadasResultado" style="display:none; margin-top:28px;">
-      <div class="sr-header">
-        <span id="empresaNome"></span>
-        <span id="veiculoInfo"></span>
-      </div>
-      <div id="mapaRotaPrivada" style="height:300px; border-radius:12px; margin-top:20px;"></div>
+<!--BUSCAR ROTAS PRIVADAS (por CPF)-->
+<section id="buscarRotasPrivadas" class="search-section">
+    <div class="container" style="max-width: 900px;">
+        <div class="search-card">
+            <div class="search-header">
+                <h2>Buscar Rotas Privadas</h2>
+            </div>
+            <p class="search-description">
+                Digite seu CPF para verificar se sua empresa cadastrou você em uma rota privada.
+            </p>
+            <div class="input-group">
+                <div>
+                    <input type="text" id="inputCpf" placeholder="000.000.000-00">
+                </div>
+                <button class="btn-search" onclick="buscarRotasPrivadas()">Buscar</button>
+            </div>
+        </div>
+
+        <div id="rotasPrivadasResultado" style="display:none; margin-top:28px;">
+            <div class="sr-header">
+                <span id="empresaNome"></span>
+                <span id="veiculoInfo"></span>
+            </div>
+            <div id="mapaRotaPrivada" style="height:300px; border-radius:12px; margin-top:20px;"></div>
+        </div>
     </div>
-  </div>
 </section>
 
+
 <!--FOOTER-->
-<!--TELA DO DASHBOARD (oculta por padrão)-->
-<div id="paginaDashboard" style="display:none; min-height:100vh; background:#f9fafb;">
-
-    <!-- Navbar do dashboard -->
-    <header class="navbar">
-        <div class="container nav-wrapper">
-            <div class="logo-area">
-                <div class="logo-icon-placeholder">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="white" viewBox="0 0 16 16">
-                        <path d="M5 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0m8 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0m-6-1a1 1 0 1 0 0 2h2a1 1 0 1 0 0-2zm1-6c-1.876 0-3.426.109-4.552.226A.5.5 0 0 0 3 4.723v3.554a.5.5 0 0 0 .448.497C4.574 8.891 6.124 9 8 9s3.426-.109 4.552-.226A.5.5 0 0 0 13 8.277V4.723a.5.5 0 0 0-.448-.497A44 44 0 0 0 8 4m0-1c-1.837 0-3.353.107-4.448.22a.5.5 0 1 1-.104-.994A44 44 0 0 1 8 2c1.837 0 3.426.109 4.552.226a.5.5 0 1 1-.104.994A43 43 0 0 0 8 3"/>
-                        <path d="M15 8a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1V2.64c0-1.188-.845-2.232-2.064-2.372A44 44 0 0 0 8 0C5.9 0 4.208.136 3.064.268 1.845.408 1 1.452 1 2.64V4a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1v3.5c0 .818.393 1.544 1 2v2a.5.5 0 0 0 .5.5h2a.5.5 0 0 0 .5-.5V14h6v1.5a.5.5 0 0 0 .5.5h2a.5.5 0 0 0 .5-.5v-2c.607-.456 1-1.182 1-2zM8 1c2.056 0 3.71.134 4.822.261.676.078 1.178.66 1.178 1.379v8.86a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 11.5V2.64c0-.72.502-1.301 1.178-1.379A43 43 0 0 1 8 1"/>
-                    </svg>
-                </div>
-                <div class="brand-text-wrapper">
-                    <span class="brand-name">TransCamaçari</span>
-                    <span class="brand-sub">Rápida mobilidade</span>
-                </div>
-            </div>
-            <nav class="nav-menu">
-                <ul>
-                    <li><a href="#" onclick="irParaHome(); return false;">início</a></li>
-                    <li><a href="#">funcionalidades</a></li>
-                    <li><a href="#">sobre o projeto</a></li>
-                    <li><a href="#">Instituições</a></li>
-                    <li><a href="#">equipe LinkaTech</a></li>
-                    <li><a href="#" style="color:#2563eb; font-weight:700;">Rota Privada</a></li>
-                </ul>
-            </nav>
-            <button class="btn-black" onclick="irParaHome()">Sair</button>
-        </div>
-    </header>
-
-    <!-- Banner azul -->
-    <div class="dash-hero">
-        <div class="container dash-hero-inner">
-            <div>
-                <h1 class="dash-titulo">Gerenciamento de Rotas Privadas</h1>
-                <p class="dash-handle">@EmpresaResponsavel</p>
-            </div>
-            <button class="dash-btn-config" title="Configurações">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
-                    <path d="M8 4.754a3.246 3.246 0 1 0 0 6.492 3.246 3.246 0 0 0 0-6.492M5.754 8a2.246 2.246 0 1 1 4.492 0 2.246 2.246 0 0 1-4.492 0"/>
-                    <path d="M9.796 1.343c-.527-1.79-3.065-1.79-3.592 0l-.094.319a.873.873 0 0 1-1.255.52l-.292-.16c-1.64-.892-3.433.902-2.54 2.541l.159.292a.873.873 0 0 1-.52 1.255l-.319.094c-1.79.527-1.79 3.065 0 3.592l.319.094a.873.873 0 0 1 .52 1.255l-.16.292c-.892 1.64.901 3.434 2.541 2.54l.292-.159a.873.873 0 0 1 1.255.52l.094.319c.527 1.79 3.065 1.79 3.592 0l.094-.319a.873.873 0 0 1 1.255-.52l.292.16c1.64.893 3.434-.902 2.54-2.541l-.159-.292a.873.873 0 0 1 .52-1.255l.319-.094c1.79-.527 1.79-3.065 0-3.592l-.319-.094a.873.873 0 0 1-.52-1.255l.16-.292c.893-1.64-.902-3.433-2.541-2.54l-.292.159a.873.873 0 0 1-1.255-.52zm-2.633.283c.246-.835 1.428-.835 1.674 0l.094.319a1.873 1.873 0 0 0 2.693 1.115l.291-.16c.764-.415 1.6.42 1.184 1.185l-.159.292a1.873 1.873 0 0 0 1.116 2.692l.318.094c.835.246.835 1.428 0 1.674l-.319.094a1.873 1.873 0 0 0-1.115 2.693l.16.291c.415.764-.42 1.6-1.185 1.184l-.291-.159a1.873 1.873 0 0 0-2.693 1.116l-.094.318c-.246.835-1.428.835-1.674 0l-.094-.319a1.873 1.873 0 0 0-2.692-1.115l-.292.16c-.764.415-1.6-.42-1.184-1.185l.159-.291A1.873 1.873 0 0 0 1.945 8.93l-.319-.094c-.835-.246-.835-1.428 0-1.674l.319-.094A1.873 1.873 0 0 0 3.06 4.377l-.16-.292c-.415-.764.42-1.6 1.185-1.184l.292.159a1.873 1.873 0 0 0 2.692-1.115z"/>
-                </svg>
-            </button>
-        </div>
-    </div>
-
-    <!-- Conteúdo principal -->
-    <div class="dash-content">
-
-        <div class="dash-card-info">
-            <p class="dash-info-title">Rotas Privadas Ativa:</p>
-            <p class="dash-info-desc">Gerencie funcionários, alunos e veículos da sua organização, ideal para empresas, escolas e instituições.</p>
-        </div>
-
-        <div class="dash-tabs">
-            <button class="dash-tab active" id="dashTabUsuarios" onclick="trocarTabDash('usuarios')">
-                <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" viewBox="0 0 16 16">
-                    <path d="M15 14s1 0 1-1-1-4-5-4-5 3-5 4 1 1 1 1zm-7.978-1L7 12.996c.001-.264.167-1.03.76-1.72C8.312 10.629 9.282 10 11 10c1.717 0 2.687.63 3.24 1.276.593.69.758 1.457.76 1.72l-.008.002-.014.002zM11 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4m3-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0M6.936 9.28a6 6 0 0 0-1.23-.247A7 7 0 0 0 5 9c-4 0-5 3-5 4q0 1 1 1h4.216A2.24 2.24 0 0 1 5 13c0-1.01.377-2.042 1.09-2.904.243-.294.526-.569.846-.816M4.92 10A5.5 5.5 0 0 0 4 13H1c0-.26.164-1.03.76-1.724.545-.636 1.492-1.256 3.16-1.275ZM1.5 5.5a3 3 0 1 1 6 0 3 3 0 0 1-6 0m3-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4"/>
-                </svg>
-                Usuários Autorizados
-            </button>
-
-            <button class="dash-tab" id="dashTabVeiculos" onclick="trocarTabDash('veiculos')">
-                <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" viewBox="0 0 16 16">
-                    <path d="M5 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0m8 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0m-6-1a1 1 0 1 0 0 2h2a1 1 0 1 0 0-2zm1-6c-1.876 0-3.426.109-4.552.226A.5.5 0 0 0 3 4.723v3.554a.5.5 0 0 0 .448.497C4.574 8.891 6.124 9 8 9s3.426-.109 4.552-.226A.5.5 0 0 0 13 8.277V4.723a.5.5 0 0 0-.448-.497A44 44 0 0 0 8 4m0-1c-1.837 0-3.353.107-4.448.22a.5.5 0 1 1-.104-.994A44 44 0 0 1 8 2c1.837 0 3.426.109 4.552.226a.5.5 0 1 1-.104.994A43 43 0 0 0 8 3"/>
-                    <path d="M15 8a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1V2.64c0-1.188-.845-2.232-2.064-2.372A44 44 0 0 0 8 0C5.9 0 4.208.136 3.064.268 1.845.408 1 1.452 1 2.64V4a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1v3.5c0 .818.393 1.544 1 2v2a.5.5 0 0 0 .5.5h2a.5.5 0 0 0 .5-.5V14h6v1.5a.5.5 0 0 0 .5.5h2a.5.5 0 0 0 .5-.5v-2c.607-.456 1-1.182 1-2zM8 1c2.056 0 3.71.134 4.822.261.676.078 1.178.66 1.178 1.379v8.86a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 11.5V2.64c0-.72.502-1.301 1.178-1.379A43 43 0 0 1 8 1"/>
-                </svg>
-                Veículos
-            </button>
-        </div>
-
-        <div class="dash-card-gestao" id="dashPainelUsuarios">
-            <div class="dash-gestao-text">
-                <p class="dash-gestao-title">Gestão de Usuários Autorizados:</p>
-                <p class="dash-gestao-desc">Cadastre funcionários, alunos ou membros autorizados para rastreamento</p>
-            </div>
-            <button class="dash-btn-add">
-                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" viewBox="0 0 16 16">
-                    <path d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2"/>
-                </svg>
-                Adicionar Usuário
-            </button>
-        </div>
-
-        <div class="dash-card-gestao" id="dashPainelVeiculos" style="display:none;">
-            <div class="dash-gestao-text">
-                <p class="dash-gestao-title">Gestão de Frota</p>
-                <p class="dash-gestao-desc">Gerencie veículos e seus rastreadores</p>
-            </div>
-            <button class="dash-btn-add">
-                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" viewBox="0 0 16 16">
-                    <path d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2"/>
-                </svg>
-                Adicionar Veículo
-            </button>
-        </div>
-
-    </div>
-</div>
-
-<!-- /paginaDashboard -->
 <footer id="contato" class="main-footer">
     <div class="container">
+
         <div class="footer-grid">
+
             <div class="footer-brand">
                 <div class="footer-logo">
                     <div class="logo-box">
@@ -590,7 +629,7 @@
                     <span class="brand-name">TransCamaçari</span>
                 </div>
                 <p class="brand-description">
-                    Sistema inteligente de rastreamento de transporte público e privado desenvolvido por estudantes do SENAI Camaçari. Nosso objetivo é revolucionar a mobilidade urbana e facilitar o deslocamento dos cidadãos de Camaçari.
+                    Sistema inteligente de rastreamento de transporte público e privado desenvolvido pela LinkaTech. Nosso objetivo é revolucionar a mobilidade urbana e facilitar o deslocamento dos cidadãos de Camaçari.
                 </p>
                 <div class="social-links">
                     <a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a>
@@ -605,7 +644,7 @@
                     <a href="#">Início</a>
                     <a href="#sobre">Sobre o Projeto</a>
                     <a href="#funcionalidades">Funcionalidades</a>
-                    <a href="#equipe">Equipe SENAI</a>
+                    <a href="#equipe">Equipe LinkaTech</a>
                     <a href="#contato">Contato</a>
                 </nav>
             </div>
@@ -613,8 +652,8 @@
             <div class="footer-column">
                 <h4>Contato</h4>
                 <address>
-                    <p><i class="fas fa-map-marker-alt"></i> SENAI Camaçari - BA, Brasil</p>
-                    <p><i class="fas fa-envelope"></i> contato@transcamacari.com</p>
+                    <p><i class="fas fa-map-marker-alt"></i> LinkaTech - BA, Brasil</p>
+                    <p><i class="fas fa-envelope"></i> contato@linkatech.com</p>
                     <p><i class="fas fa-phone"></i> (75) 3621-0000</p>
                 </address>
             </div>
@@ -622,7 +661,7 @@
         </div>
 
         <div class="footer-legal">
-            <p>© 2026 TransCamaçari - TCC SENAI. Todos os direitos reservados.</p>
+            <p>© 2026 LinkaTech. Todos os direitos reservados.</p>
             <div class="legal-links">
                 <a href="#">Política de Privacidade</a>
                 <a href="#">Termos de Uso</a>
@@ -630,116 +669,14 @@
         </div>
 
         <div class="footer-credits">
-            <p>Projeto desenvolvido como Trabalho de Conclusão de Curso (TCC) pelos estudantes do SENAI Camaçari - Turma 2026</p>
+            <p>Projeto desenvolvido pela equipe da LinkaTech - Turma 2026</p>
             <p class="tech-stack">Tecnologias: React • TypeScript • Tailwind CSS • Supabase • GPS/Bluetooth</p>
         </div>
 
     </div>
 </footer>
 
-<!--TELA DO DASHBOARD (oculta por padrão)-->
-<div id="paginaDashboard" style="display:none; min-height:100vh; background:#f9fafb;">
 
-    <!-- Navbar do dashboard -->
-    <header class="navbar">
-        <div class="container nav-wrapper">
-            <div class="logo-area">
-                <div class="logo-icon-placeholder">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="white" viewBox="0 0 16 16">
-                        <path d="M5 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0m8 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0m-6-1a1 1 0 1 0 0 2h2a1 1 0 1 0 0-2zm1-6c-1.876 0-3.426.109-4.552.226A.5.5 0 0 0 3 4.723v3.554a.5.5 0 0 0 .448.497C4.574 8.891 6.124 9 8 9s3.426-.109 4.552-.226A.5.5 0 0 0 13 8.277V4.723a.5.5 0 0 0-.448-.497A44 44 0 0 0 8 4m0-1c-1.837 0-3.353.107-4.448.22a.5.5 0 1 1-.104-.994A44 44 0 0 1 8 2c1.837 0 3.426.109 4.552.226a.5.5 0 1 1-.104.994A43 43 0 0 0 8 3"/>
-                        <path d="M15 8a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1V2.64c0-1.188-.845-2.232-2.064-2.372A44 44 0 0 0 8 0C5.9 0 4.208.136 3.064.268 1.845.408 1 1.452 1 2.64V4a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1v3.5c0 .818.393 1.544 1 2v2a.5.5 0 0 0 .5.5h2a.5.5 0 0 0 .5-.5V14h6v1.5a.5.5 0 0 0 .5.5h2a.5.5 0 0 0 .5-.5v-2c.607-.456 1-1.182 1-2zM8 1c2.056 0 3.71.134 4.822.261.676.078 1.178.66 1.178 1.379v8.86a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 11.5V2.64c0-.72.502-1.301 1.178-1.379A43 43 0 0 1 8 1"/>
-                    </svg>
-                </div>
-                <div class="brand-text-wrapper">
-                    <span class="brand-name">TransCamaçari</span>
-                    <span class="brand-sub">Rápida mobilidade</span>
-                </div>
-            </div>
-            <nav class="nav-menu">
-                <ul>
-                    <li><a href="#" onclick="irParaHome(); return false;">início</a></li>
-                    <li><a href="#">funcionalidades</a></li>
-                    <li><a href="#">sobre o projeto</a></li>
-                    <li><a href="#">Instituições</a></li>
-                    <li><a href="#">equipe LinkaTech</a></li>
-                    <li><a href="#" style="color:#2563eb; font-weight:700;">Rota Privada</a></li>
-                </ul>
-            </nav>
-            <button class="btn-black" onclick="irParaHome()">Sair</button>
-        </div>
-    </header>
-
-    <!--Banner azul-->
-    <div class="dash-hero">
-        <div class="container dash-hero-inner">
-            <div>
-                <h1 class="dash-titulo">Gerenciamento de Rotas Privadas</h1>
-                <p class="dash-handle">@EmpresaResponsavel</p>
-            </div>
-            <button class="dash-btn-config" title="Configurações">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
-                    <path d="M8 4.754a3.246 3.246 0 1 0 0 6.492 3.246 3.246 0 0 0 0-6.492M5.754 8a2.246 2.246 0 1 1 4.492 0 2.246 2.246 0 0 1-4.492 0"/>
-                    <path d="M9.796 1.343c-.527-1.79-3.065-1.79-3.592 0l-.094.319a.873.873 0 0 1-1.255.52l-.292-.16c-1.64-.892-3.433.902-2.54 2.541l.159.292a.873.873 0 0 1-.52 1.255l-.319.094c-1.79.527-1.79 3.065 0 3.592l.319.094a.873.873 0 0 1 .52 1.255l-.16.292c-.892 1.64.901 3.434 2.541 2.54l.292-.159a.873.873 0 0 1 1.255.52l.094.319c.527 1.79 3.065 1.79 3.592 0l.094-.319a.873.873 0 0 1 1.255-.52l.292.16c1.64.893 3.434-.902 2.54-2.541l-.159-.292a.873.873 0 0 1 .52-1.255l.319-.094c1.79-.527 1.79-3.065 0-3.592l-.319-.094a.873.873 0 0 1-.52-1.255l.16-.292c.893-1.64-.902-3.433-2.541-2.54l-.292.159a.873.873 0 0 1-1.255-.52zm-2.633.283c.246-.835 1.428-.835 1.674 0l.094.319a1.873 1.873 0 0 0 2.693 1.115l.291-.16c.764-.415 1.6.42 1.184 1.185l-.159.292a1.873 1.873 0 0 0 1.116 2.692l.318.094c.835.246.835 1.428 0 1.674l-.319.094a1.873 1.873 0 0 0-1.115 2.693l.16.291c.415.764-.42 1.6-1.185 1.184l-.291-.159a1.873 1.873 0 0 0-2.693 1.116l-.094.318c-.246.835-1.428.835-1.674 0l-.094-.319a1.873 1.873 0 0 0-2.692-1.115l-.292.16c-.764.415-1.6-.42-1.184-1.185l.159-.291A1.873 1.873 0 0 0 1.945 8.93l-.319-.094c-.835-.246-.835-1.428 0-1.674l.319-.094A1.873 1.873 0 0 0 3.06 4.377l-.16-.292c-.415-.764.42-1.6 1.185-1.184l.292.159a1.873 1.873 0 0 0 2.692-1.115z"/>
-                </svg>
-            </button>
-        </div>
-    </div>
-
-    <!--Conteúdo principal-->
-    <div class="dash-content">
-
-        <div class="dash-card-info">
-            <p class="dash-info-title">Rotas Privadas Ativa:</p>
-            <p class="dash-info-desc">Gerencie funcionários, alunos e veículos da sua organização, ideal para empresas, escolas e instituições.</p>
-        </div>
-
-        <div class="dash-tabs">
-            <button class="dash-tab active" id="dashTabUsuarios" onclick="trocarTabDash('usuarios')">
-                <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" viewBox="0 0 16 16">
-                    <path d="M15 14s1 0 1-1-1-4-5-4-5 3-5 4 1 1 1 1zm-7.978-1L7 12.996c.001-.264.167-1.03.76-1.72C8.312 10.629 9.282 10 11 10c1.717 0 2.687.63 3.24 1.276.593.69.758 1.457.76 1.72l-.008.002-.014.002zM11 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4m3-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0M6.936 9.28a6 6 0 0 0-1.23-.247A7 7 0 0 0 5 9c-4 0-5 3-5 4q0 1 1 1h4.216A2.24 2.24 0 0 1 5 13c0-1.01.377-2.042 1.09-2.904.243-.294.526-.569.846-.816M4.92 10A5.5 5.5 0 0 0 4 13H1c0-.26.164-1.03.76-1.724.545-.636 1.492-1.256 3.16-1.275ZM1.5 5.5a3 3 0 1 1 6 0 3 3 0 0 1-6 0m3-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4"/>
-                </svg>
-                Usuários Autorizados
-            </button>
-            <button class="dash-tab" id="dashTabVeiculos" onclick="trocarTabDash('veiculos')">
-                <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" viewBox="0 0 16 16">
-                    <path d="M5 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0m8 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0m-6-1a1 1 0 1 0 0 2h2a1 1 0 1 0 0-2zm1-6c-1.876 0-3.426.109-4.552.226A.5.5 0 0 0 3 4.723v3.554a.5.5 0 0 0 .448.497C4.574 8.891 6.124 9 8 9s3.426-.109 4.552-.226A.5.5 0 0 0 13 8.277V4.723a.5.5 0 0 0-.448-.497A44 44 0 0 0 8 4m0-1c-1.837 0-3.353.107-4.448.22a.5.5 0 1 1-.104-.994A44 44 0 0 1 8 2c1.837 0 3.426.109 4.552.226a.5.5 0 1 1-.104.994A43 43 0 0 0 8 3"/>
-                    <path d="M15 8a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1V2.64c0-1.188-.845-2.232-2.064-2.372A44 44 0 0 0 8 0C5.9 0 4.208.136 3.064.268 1.845.408 1 1.452 1 2.64V4a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1v3.5c0 .818.393 1.544 1 2v2a.5.5 0 0 0 .5.5h2a.5.5 0 0 0 .5-.5V14h6v1.5a.5.5 0 0 0 .5.5h2a.5.5 0 0 0 .5-.5v-2c.607-.456 1-1.182 1-2zM8 1c2.056 0 3.71.134 4.822.261.676.078 1.178.66 1.178 1.379v8.86a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 11.5V2.64c0-.72.502-1.301 1.178-1.379A43 43 0 0 1 8 1"/>
-                </svg>
-                Veículos
-            </button>
-        </div>
-
-        <div class="dash-card-gestao" id="dashPainelUsuarios">
-            <div class="dash-gestao-text">
-                <p class="dash-gestao-title">Gestão de Usuários Autorizados:</p>
-                <p class="dash-gestao-desc">Cadastre funcionários, alunos ou membros autorizados para rastreamento</p>
-            </div>
-            <button class="dash-btn-add">
-                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" viewBox="0 0 16 16">
-                    <path d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2"/>
-                </svg>
-                Adicionar Usuário
-            </button>
-        </div>
-
-        <div class="dash-card-gestao" id="dashPainelVeiculos" style="display:none;">
-            <div class="dash-gestao-text">
-                <p class="dash-gestao-title">Gestão de Frota</p>
-                <p class="dash-gestao-desc">Gerencie veículos e seus rastreadores</p>
-            </div>
-            <button class="dash-btn-add">
-                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" viewBox="0 0 16 16">
-                    <path d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2"/>
-                </svg>
-                Adicionar Veículo
-            </button>
-        </div>
-    </div>
-</div>
-
-<!-- /paginaDashboard -->
-<script src="src/js/index.js"></script>
-
+<script src="../js/index.js"></script>
 </body>
-
-</html> 
+</html>
