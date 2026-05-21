@@ -1,11 +1,234 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Interface pós login Veiculo - Keyla</title>
+    <title>TransCamaçari - Rotas Privadas</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/DashboardV.css">
+    
+   
+   
 </head>
 <body>
-    
+
+
+<header class="cabeçalho">
+    <div class="nav-inner">
+        <a href="javascript:void(0);" class="nav-logo" onclick="scrollToSection('dashboardInicio')">
+            <div class="nav-logo-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="white" viewBox="0 0 16 16">
+                    <path d="M5 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0m8 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0m-6-1a1 1 0 1 0 0 2h2a1 1 0 1 0 0-2zm1-6c-1.876 0-3.426.109-4.552.226A.5.5 0 0 0 3 4.723v3.554a.5.5 0 0 0 .448.497C4.574 8.891 6.124 9 8 9s3.426-.109 4.552-.226A.5.5 0 0 0 13 8.277V4.723a.5.5 0 0 0-.448-.497A44 44 0 0 0 8 4m0-1c-1.837 0-3.353.107-4.448.22a.5.5 0 1 1-.104-.994A44 44 0 0 1 8 2c1.837 0 3.426.109 4.552.226a.5.5 0 1 1-.104.994A43 43 0 0 0 8 3"/>
+                    <path d="M15 8a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1V2.64c0-1.188-.845-2.232-2.064-2.372A44 44 0 0 0 8 0C5.9 0 4.208.136 3.064.268 1.845.408 1 1.452 1 2.64V4a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1v3.5c0 .818.393 1.544 1 2v2a.5.5 0 0 0 .5.5h2a.5.5 0 0 0 .5-.5V14h6v1.5a.5.5 0 0 0 .5.5h2a.5.5 0 0 0 .5-.5v-2c.607-.456 1-1.182 1-2zM8 1c2.056 0 3.71.134 4.822.261.676.078 1.178.66 1.178 1.379v8.86a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 11.5V2.64c0-.72.502-1.301 1.178-1.379A43 43 0 0 1 8 1"/>
+                </svg>
+            </div>
+            <div class="nav-logo-text">
+                <strong>TransCamaçari</strong>
+                <span>Rápida mobilidade</span>
+            </div>
+        </a>
+<ul class="nav-links">
+  <li><a href="../../homeLogada.html#paginaHome">Início</a></li>
+  <li><a href="../../homeLogada.html#funcionalidades">Funcionalidades</a></li>
+  <li><a href="../../homeLogada.html#sobre">Sobre o Projeto</a></li>
+  <li><a href="../../homeLogada.html#contato">Instituições</a></li>
+  <li><a href="../../homeLogada.html#equipe">Equipe SENAI</a></li>
+  <li><a href="#" class="active">Rota Privada</a></li>
+</ul>
+
+
+        <button class="btn-sair" onclick="window.location.href='../../index.html'">Sair</button>
+    </div>
+</header>
+
+
+<section class="section-inicio" id="dashboardInicio">
+    <div class="hero-inner">
+        <div class="hero-text">
+            <h1>Gerenciamento de Rotas Privadas</h1>
+            <p class="empresa-handle">LinkaTech</p>
+        </div>
+        <button class="btn-config" title="Configurações">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+                <path d="M8 4.754a3.246 3.246 0 1 0 0 6.492 3.246 3.246 0 0 0 0-6.492M5.754 8a2.246 2.246 0 1 1 4.492 0 2.246 2.246 0 0 1-4.492 0"/>
+                <path d="M9.796 1.343c-.527-1.79-3.065-1.79-3.592 0l-.094.319a.873.873 0 0 1-1.255.52l-.292-.16c-1.64-.892-3.433.902-2.54 2.541l.159.292a.873.873 0 0 1-.52 1.255l-.319.094c-1.79.527-1.79 3.065 0 3.592l.319.094a.873.873 0 0 1 .52 1.255l-.16.292c-.892 1.64.901 3.434 2.541 2.54l.292-.159a.873.873 0 0 1 1.255.52l.094.319c.527 1.79 3.065 1.79 3.592 0l.094-.319a.873.873 0 0 1 1.255-.52l.292.16c1.64.893 3.434-.902 2.54-2.541l-.159-.292a.873.873 0 0 1 .52-1.255l.319-.094c1.79-.527 1.79-3.065 0-3.592l-.319-.094a.873.873 0 0 1-.52-1.255l.16-.292c.893-1.64-.902-3.433-2.541-2.54l-.292.159a.873.873 0 0 1-1.255-.52zm-2.633.283c.246-.835 1.428-.835 1.674 0l.094.319a1.873 1.873 0 0 0 2.693 1.115l.291-.16c.764-.415 1.6.42 1.184 1.185l-.159.292a1.873 1.873 0 0 0 1.116 2.692l.318.094c.835.246.835 1.428 0 1.674l-.319.094a1.873 1.873 0 0 0-1.115 2.693l.16.291c.415.764-.42 1.6-1.185 1.184l-.291-.159a1.873 1.873 0 0 0-2.693 1.116l-.094.318c-.246.835-1.428.835-1.674 0l-.094-.319a1.873 1.873 0 0 0-2.692-1.115l-.292.16c-.764.415-1.6-.42-1.184-1.185l.159-.291A1.873 1.873 0 0 0 1.945 8.93l-.319-.094c-.835-.246-.835-1.428 0-1.674l.319-.094A1.873 1.873 0 0 0 3.06 4.377l-.16-.292c-.415-.764.42-1.6 1.185-1.184l.292.159a1.873 1.873 0 0 0 2.692-1.115z"/>
+            </svg>
+        </button>
+    </div>
+</section>
+
+
+<main class="main-content" id="dashboardMain">
+
+
+    <div class="card-info">
+        <p class="info-title">Rotas Privadas Ativa:</p>
+        <p class="info-desc">Gerencie funcionários, alunos e veículos da sua organização, ideal para empresas, escolas e instituições.</p>
+    </div>
+
+
+    <div class="u_a-1">
+        <button class="tab-btn active" id="tabUsuarios" onclick="trocarTabDash('usuarios')">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                <path d="M15 14s1 0 1-1-1-4-5-4-5 3-5 4 1 1 1 1zm-7.978-1L7 12.996c.001-.264.167-1.03.76-1.72C8.312 10.629 9.282 10 11 10c1.717 0 2.687.63 3.24 1.276.593.69.758 1.457.76 1.72l-.008.002-.014.002zM11 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4m3-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0M6.936 9.28a6 6 0 0 0-1.23-.247A7 7 0 0 0 5 9c-4 0-5 3-5 4q0 1 1 1h4.216A2.24 2.24 0 0 1 5 13c0-1.01.377-2.042 1.09-2.904.243-.294.526-.569.846-.816M4.92 10A5.5 5.5 0 0 0 4 13H1c0-.26.164-1.03.76-1.724.545-.636 1.492-1.256 3.16-1.275ZM1.5 5.5a3 3 0 1 1 6 0 3 3 0 0 1-6 0m3-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4"/>
+            </svg>
+            Usuários Autorizados
+        </button>
+
+
+        <button class="tab-btn" id="tabVeiculos" onclick="trocarTabDash('veiculos')">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                <path d="M5 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0m8 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0m-6-1a1 1 0 1 0 0 2h2a1 1 0 1 0 0-2zm1-6c-1.876 0-3.426.109-4.552.226A.5.5 0 0 0 3 4.723v3.554a.5.5 0 0 0 .448.497C4.574 8.891 6.124 9 8 9s3.426-.109 4.552-.226A.5.5 0 0 0 13 8.277V4.723a.5.5 0 0 0-.448-.497A44 44 0 0 0 8 4m0-1c-1.837 0-3.353.107-4.448.22a.5.5 0 1 1-.104-.994A44 44 0 0 1 8 2c1.837 0 3.426.109 4.552.226a.5.5 0 1 1-.104.994A43 43 0 0 0 8 3"/>
+                <path d="M15 8a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1V2.64c0-1.188-.845-2.232-2.064-2.372A44 44 0 0 0 8 0C5.9 0 4.208.136 3.064.268 1.845.408 1 1.452 1 2.64V4a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1v3.5c0 .818.393 1.544 1 2v2a.5.5 0 0 0 .5.5h2a.5.5 0 0 0 .5-.5V14h6v1.5a.5.5 0 0 0 .5.5h2a.5.5 0 0 0 .5-.5v-2c.607-.456 1-1.182 1-2zM8 1c2.056 0 3.71.134 4.822.261.676.078 1.178.66 1.178 1.379v8.86a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 11.5V2.64c0-.72.502-1.301 1.178-1.379A43 43 0 0 1 8 1"/>
+            </svg>
+            Veículos
+        </button>
+    </div>
+
+
+    <div class="card card-gestao" id="painelUsuarios">
+        <div class="gestao-text">
+            <p class="gestao-title">Gestão de Usuários Autorizados:</p>
+            <p class="gestao-desc">Cadastre funcionários, alunos ou membros autorizados para rastreamento</p>
+        </div>
+        <button class="btn-adicionar" onclick="abrirModalAdicionarUsuario()">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                <path d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2"/>
+            </svg>
+            Adicionar Usuário
+        </button>
+    </div>
+
+
+    <div class="card card-gestao" id="painelVeiculos" style="display:none;">
+        <div class="gestao-text">
+            <p class="gestao-title">Gestão de Frota</p>
+            <p class="gestao-desc">Gerencie veículos e seus rastreadores</p>
+        </div>
+        <button class="btn-adicionar" onclick="abrirModalAdicionarVeiculo()">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                <path d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2"/>
+            </svg>
+            Adicionar Veículo
+        </button>
+    </div>
+
+
+</main>
+
+
+
+
+
+<div id="modalAdicionarUsuario" class="modal-overlay" style="display:none;">
+    <div class="modal-add-user-content">
+        <button class="modal-close-dark" onclick="fecharModalAdicionarUsuario()" title="Fechar">&times;</button>
+        <div class="modal-add-user-header">
+            <h3>Adicionar Usuário Autorizado</h3>
+            <p>Cadastre usuário, aluno ou membro para acesso ao rastreamento</p>
+        </div>
+        <form id="formAdicionarUsuario" class="modal-add-user-form" onsubmit="submitAdicionarUsuario(event)">
+            <div class="add-user-field">
+                <label for="addNome">Nome Completo</label>
+                <input id="addNome" type="text" placeholder="Ana Paula">
+                <span class="field-error" id="errAddNome"></span>
+            </div>
+            <div class="add-user-field">
+                <label for="addCpf">CPF</label>
+                <input id="addCpf" type="text" placeholder="000.000.000-00" maxlength="14">
+                <span class="field-error" id="errAddCpf"></span>
+            </div>
+            <div class="add-user-field">
+                <label for="addTelefone">Telefone</label>
+                <input id="addTelefone" type="text" placeholder="(71) 99999-9999" maxlength="15">
+                <span class="field-error" id="errAddTelefone"></span>
+            </div>
+            <div class="add-user-field">
+                <label for="addExpiracao">Data de Expiração <span style="font-weight:400; color:#9ca3af;">(opcional)</span></label>
+                <input id="addExpiracao" type="text" placeholder="dd/mm/aaaa" maxlength="10">
+                <span class="field-hint">Deixe em branco para acesso sem expiração</span>
+                <span class="field-error" id="errAddExpiracao"></span>
+            </div>
+            <div class="modal-add-user-actions">
+                <button type="button" class="btn-cancelar-user" onclick="fecharModalAdicionarUsuario()">Cancelar</button>
+                <button type="submit" class="btn-salvar-user">Salvar</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<div id="modalAdicionarVeiculo" class="modal-overlay" style="display:none;">
+    <div class="modal-add-user-content">
+        <button class="modal-close-dark" onclick="fecharModalAdicionarVeiculo()" title="Fechar">&times;</button>
+
+
+        <div class="modal-add-user-header">
+            <h3>Adicionar Veículo</h3>
+            <p>Cadastrar um novo veículo com foto, placa e pontos de encontro</p>
+        </div>
+
+
+        <form id="formAdicionarVeiculo" class="modal-add-user-form" onsubmit="event.preventDefault();">
+           
+            <div class="form-row-grid">
+                <div class="add-user-field">
+                    <label for="addNomeVeiculo">Nome/identificação *</label>
+                    <input id="addNomeVeiculo" type="text" placeholder="Veículo 01">
+                </div>
+                <div class="add-user-field">
+                    <label for="addPlacaVeiculo">Placa do Veículo *</label>
+                    <input id="addPlacaVeiculo" type="text" placeholder="ABC-1234">
+                </div>
+            </div>
+
+
+            <div class="add-user-field">
+                <label>Foto do Veículo *</label>
+                <div class="file-upload-wrapper" onclick="document.getElementById('hiddenFileInput').click()">
+                    <strong>Escolher arquivo</strong> <span>(Nenhum arquivo escolhido)</span>
+                </div>
+                <input type="file" id="hiddenFileInput" style="display:none;">
+                <span class="field-hint">Selecione uma foto do veículo para ajudar os usuários a identificá-lo</span>
+            </div>
+
+
+            <div>
+                <p class="map-section-title">Defina os Pontos de Encontro no Mapa *</p>
+                <div class="map-actions-row">
+                    <button type="button" class="btn-map-action add-point">
+                        <i class="fa-solid fa-plus"></i> Adicionar Ponto
+                    </button>
+                    <button type="button" class="btn-map-action remove-point">
+                        <i class="fa-solid fa-trash"></i> Remover Último Ponto
+                    </button>
+                </div>
+               
+                <button type="button" class="btn-salvar-mapa">
+                    <i class="fa-solid fa-floppy-disk"></i> Salvar Mapa (2 pontos)
+                </button>
+
+
+                <div class="mock-map-container">
+                    <img src="https://api.mapbox.com/styles/v1/mapbox/streets-v11/static/-38.4222,-12.6975,13,0/500x250?access_token=mock" alt="Mapa de Camaçari" class="mock-map-img" onerror="this.src='https://placehold.co/500x250/e2e8f0/475569?text=Visualizacao+do+Mapa+Camaçari'">
+                </div>
+            </div>
+
+
+            <div class="modal-add-user-actions">
+                <button type="button" class="btn-cancelar-user" onclick="fecharModalAdicionarVeiculo()">Cancelar</button>
+                <button type="submit" class="btn-salvar-user">Salvar Veículo</button>
+            </div>
+
+
+        </form>
+    </div>
+</div>
+
+<script src="../js/DashboardV.js"></script>
+
 </body>
 </html>
+
+
+
