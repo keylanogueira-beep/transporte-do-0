@@ -1,0 +1,600 @@
+
+    
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+
+        :root {
+            --blue:       #2563eb;
+            --blue-dark:  #1d4ed8;
+            --blue-light: #e8f0fe;
+            --text-dark:  #111827;
+            --text-mid:   #374151;
+            --text-soft:  #6b7280;
+            --border:     #e5e7eb;
+            --bg:         #f9fafb;
+            --white:      #ffffff;
+            --radius:     14px;
+        }
+
+
+        html { scroll-behavior: smooth; }
+
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg);
+            color: var(--text-dark);
+            min-height: 100vh;
+            -webkit-font-smoothing: antialiased;
+        }
+
+
+        /* ── Navbar ── */
+        .cabeçalho {
+            background: var(--white);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+
+        .nav-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            gap: 0;
+        }
+
+
+        /* Logo */
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            flex-shrink: 0;
+            margin-right: 40px;
+        }
+
+
+        .nav-logo-icon {
+            width: 36px;
+            height: 36px;
+            background: var(--blue);
+            border-radius: 9px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+
+        .nav-logo-text strong {
+            display: block;
+            font-size: 1rem;
+            font-weight: 800;
+            color: var(--blue);
+            line-height: 1.1;
+        }
+
+
+        .nav-logo-text span {
+            font-size: 0.7rem;
+            color: var(--text-soft);
+            font-weight: 400;
+        }
+
+
+        /* Links */
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            flex: 1;
+            list-style: none;
+        }
+
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-mid);
+            font-size: 0.88rem;
+            font-weight: 500;
+            padding: 6px 12px;
+            border-radius: 7px;
+            transition: background 0.18s, color 0.18s;
+            white-space: nowrap;
+        }
+
+
+        .nav-links a:hover {
+            background: var(--bg);
+            color: var(--text-dark);
+        }
+
+
+        .nav-links a.active {
+            color: var(--blue);
+            font-weight: 600;
+        }
+
+
+        /* Botão Sair */
+        .btn-sair {
+            background: var(--white);
+            color: var(--text-dark);
+            border: 1.5px solid var(--border);
+            padding: 7px 20px;
+            border-radius: 8px;
+            font-size: 0.88rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.18s, border-color 0.18s;
+            flex-shrink: 0;
+        }
+
+
+        .btn-sair:hover {
+            background: var(--bg);
+            border-color: #d1d5db;
+        }
+
+
+        /* ── Hero Banner ── */
+        .section-inicio {
+            background: var(--blue);
+            padding: 32px 0 28px;
+            position: relative;
+            overflow: hidden;
+        }
+
+
+        .section-inicio::before {
+            content: '';
+            position: absolute;
+            top: -60px; right: -60px;
+            width: 280px; height: 280px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 50%;
+        }
+
+
+        .section-inicio::after {
+            content: '';
+            position: absolute;
+            bottom: -80px; left: 30%;
+            width: 200px; height: 200px;
+            background: rgba(255,255,255,0.04);
+            border-radius: 50%;
+        }
+
+
+        .hero-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+        }
+
+
+        .hero-text h1 {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--white);
+            margin-bottom: 6px;
+            letter-spacing: -0.5px;
+        }
+
+
+        .hero-text .empresa-handle {
+            font-size: 1rem;
+            font-weight: 600;
+            color: rgba(255,255,255,0.85);
+        }
+
+
+        .btn-config {
+            background: rgba(255,255,255,0.15);
+            border: 1px solid rgba(255,255,255,0.25);
+            border-radius: 10px;
+            width: 42px; height: 42px;
+            display: flex; align-items: center; justify-content: center;
+            cursor: pointer;
+            color: white;
+            transition: background 0.2s;
+            flex-shrink: 0;
+        }
+
+
+        .btn-config:hover { background: rgba(255,255,255,0.25); }
+
+
+        /* ── Main Content ── */
+        .main-content {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 0 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            animation: fadeUp 0.4s ease both;
+        }
+
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(16px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+
+        /* ── Card base ── */
+        .card {
+            background: var(--white);
+            border: 1.5px solid var(--border);
+            border-radius: var(--radius);
+            padding: 24px 28px;
+        }
+
+
+        /* Card info (banner azul claro) */
+        .card-info {
+            background: var(--blue-light);
+            border: 1.5px solid #c7d9fb;
+            border-radius: var(--radius);
+            padding: 22px 28px;
+        }
+
+
+        .card-info .info-title {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 6px;
+        }
+
+
+        .card-info .info-desc {
+            font-size: 0.88rem;
+            color: var(--text-mid);
+            line-height: 1.55;
+        }
+
+
+        /* ── Tabs ── */
+        .tabs-row {
+            display: flex;
+            gap: 8px;
+        }
+
+
+        .tab-btn {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            padding: 8px 16px;
+            border: 1.5px solid var(--border);
+            border-radius: 8px;
+            background: var(--white);
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--text-mid);
+            cursor: pointer;
+            transition: border-color 0.18s, background 0.18s, color 0.18s;
+        }
+
+
+        .tab-btn:hover {
+            border-color: #9ca3af;
+            color: var(--text-dark);
+        }
+
+
+        .tab-btn.active {
+            border-color: var(--blue);
+            color: var(--blue);
+            background: #f0f5ff;
+            font-weight: 600;
+        }
+
+
+        .tab-btn svg {
+            flex-shrink: 0;
+        }
+
+
+        /* ── Card de gestão ── */
+        .card-gestao {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+
+        .gestao-text .gestao-title {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 5px;
+        }
+
+
+        .gestao-text .gestao-desc {
+            font-size: 0.85rem;
+            color: var(--text-soft);
+            line-height: 1.5;
+            max-width: 400px;
+        }
+
+
+        .btn-adicionar {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--text-dark);
+            color: var(--white);
+            border: none;
+            padding: 11px 20px;
+            border-radius: 10px;
+            font-size: 0.88rem;
+            font-weight: 700;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: background 0.18s, transform 0.15s;
+            flex-shrink: 0;
+        }
+
+
+        .btn-adicionar:hover {
+            background: #1f2937;
+            transform: translateY(-1px);
+        }
+
+
+        /* ── Modal Overlay ── */
+        .modal-overlay {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+
+
+        /* ── Modal Content ── */
+        .modal-add-user-content {
+            background: var(--white);
+            border-radius: var(--radius);
+            padding: 28px;
+            max-width: 500px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+            position: relative;
+            animation: modalSlideIn 0.3s ease both;
+        }
+
+
+        @keyframes modalSlideIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+
+        /* ── Modal Close Button ── */
+        .modal-close-dark {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            background: none;
+            border: none;
+            font-size: 28px;
+            color: var(--text-soft);
+            cursor: pointer;
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: color 0.18s;
+            z-index: 10;
+        }
+
+
+        .modal-close-dark:hover { color: var(--text-dark); }
+
+
+        /* ── Modal Header ── */
+        .modal-add-user-header { margin-bottom: 24px; }
+        .modal-add-user-header h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 6px;
+        }
+        .modal-add-user-header p {
+            font-size: 0.88rem;
+            color: var(--text-soft);
+            line-height: 1.5;
+        }
+
+
+        /* ── Modal Form ── */
+        .modal-add-user-form {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+
+
+        /* ── Row Dupla (Nome e Placa) ── */
+        .form-row-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+
+        /* ── Form Field ── */
+        .add-user-field {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+
+        .add-user-field label {
+            font-size: 0.88rem;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+
+        .add-user-field input {
+            padding: 10px 12px;
+            border: 1.5px solid var(--border);
+            border-radius: 8px;
+            font-size: 0.88rem;
+            font-family: 'Inter', sans-serif;
+            transition: border-color 0.18s, box-shadow 0.18s;
+            background: #fdfdfd;
+        }
+
+
+        .add-user-field input:focus {
+            outline: none;
+            border-color: var(--blue);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+
+
+        /* Input de Arquivo Customizado */
+        .file-upload-wrapper {
+            border: 1.5px solid var(--border);
+            border-radius: 8px;
+            padding: 10px 12px;
+            background: #f3f4f6;
+            cursor: pointer;
+            font-size: 0.88rem;
+            color: var(--text-mid);
+            display: flex;
+            gap: 4px;
+        }
+        .file-upload-wrapper span { color: var(--text-soft); }
+
+
+        /* ── Seção do Mapa do Veículo ── */
+        .map-section-title {
+            font-size: 0.88rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 8px;
+        }
+
+
+        .map-actions-row {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+
+
+        .btn-map-action {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 14px;
+            border: 1.5px solid var(--border);
+            background: var(--white);
+            font-size: 0.85rem;
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+        .btn-map-action.add-point { color: var(--text-dark); }
+        .btn-map-action.remove-point { color: #ef4444; border-color: #fca5a5; }
+
+
+        .btn-salvar-mapa {
+            background: var(--blue);
+            color: var(--white);
+            border: none;
+            padding: 10px 16px;
+            border-radius: 8px;
+            font-size: 0.88rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            margin-bottom: 12px;
+            box-shadow: 0 2px 4px rgba(37, 99, 235, 0.2);
+        }
+
+
+        /* Container do Mapa Falso */
+        .mock-map-container {
+            width: 100%;
+            height: 250px;
+            border-radius: 12px;
+            border: 1.5px solid var(--border);
+            background: #e5e7eb;
+            position: relative;
+            overflow: hidden;
+        }
+        .mock-map-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+
+        /* ── Field Hint e Error ── */
+        .field-hint { font-size: 0.78rem; color: var(--text-soft); font-weight: 400; }
+        .field-error { font-size: 0.78rem; color: #ef4444; font-weight: 500; min-height: 16px; }
+
+
+        /* ── Modal Actions ── */
+        .modal-add-user-actions {
+            display: flex;
+            gap: 12px;
+            margin-top: 24px;
+            justify-content: flex-end;
+        }
+
+
+        .btn-cancelar-user, .btn-salvar-user {
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-size: 0.88rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.18s, border-color 0.18s, transform 0.15s;
+            border: 1.5px solid var(--border);
+        }
+
+
+        .btn-cancelar-user { background: var(--white); color: var(--text-dark); }
+        .btn-cancelar-user:hover { background: var(--bg); border-color: #d1d5db; }
+        .btn-salvar-user { background: var(--blue); color: var(--white); border-color: var(--blue); }
+        .btn-salvar-user:hover { background: var(--blue-dark); border-color: var(--blue-dark); transform: translateY(-1px); }
+
+
+        /* Responsivo */
+        @media (max-width: 640px) {
+            .hero-text h1 { font-size: 1.5rem; }
+            .card-gestao { flex-direction: column; align-items: flex-start; }
+            .btn-adicionar { width: 100%; justify-content: center; }
+            .nav-links { display: none; }
+            .modal-add-user-content { width: 95%; padding: 20px; }
+            .form-row-grid { grid-template-columns: 1fr; gap: 12px; }
+        }
+   

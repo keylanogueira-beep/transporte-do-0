@@ -1,11 +1,49 @@
 <!DOCTYPE html>
-<html lang="PT-BR">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Interface de login - Eduardo</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Acesso às Rotas Privadas</title>
+    <link rel="stylesheet" href="../css/login.css" />
 </head>
 <body>
-    
+    <main class="auth-page">
+        <section class="auth-card">
+            <header class="card-top">
+                <div>
+                    <h1>Acesso às Rotas privadas</h1>
+                    <p>Entrar ou crie uma conta para gerenciar suas rotas privadas</p>
+                </div>
+                <button type="button" class="close-btn" aria-label="Fechar">×</button>
+            </header>
+
+            <div class="plan-badge">
+                <span>Plano selecionado:</span>
+                <strong>mensal (R$ 26,90/mês)</strong>
+            </div>
+
+            <div class="tab-switcher">
+                <button class="tab active" type="button">Entrar</button>
+                <button class="tab" type="button">Criar conta</button>
+            </div>
+
+            <form class="auth-form" action="#" method="post">
+                <label class="form-field">
+                    <span>Email</span>
+                    <input type="email" placeholder="seu@email.com" name="email" />
+                </label>
+
+                <label class="form-field">
+                    <span>Senha</span>
+                    <input type="password" placeholder="••••••••••••" name="senha" />
+                </label>
+
+                <button class="submit-btn" type="submit">Entrar</button>
+                <div class="forgot-password">
+                    <a href="#">Esqueceu a senha?</a>
+                </div>
+            </form>
+        </section>
+    </main>
 </body>
 </html>
