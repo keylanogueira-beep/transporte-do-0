@@ -1,11 +1,53 @@
 <!DOCTYPE html>
-<html lang="PT-BR">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Interface de adição de funcionário - Thairan</title>
+    <title>Cadastro</title>
+    <link rel="stylesheet" href="/src/css/adicionarfuncionario.css">
 </head>
 <body>
-    
+
+
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="modal-card">
+            <button type="button" class="btn-close-x" id="btnFecharX">&times;</button>
+            
+            <div class="modal-header">
+                <h1>Adicionar Usuário Autorizado</h1>
+                <p>Cadastre usuário, aluno ou membro para acesso ao rastreamento</p>
+            </div>
+
+            <form id="formUsuario">
+                <div class="form-group">
+                    <label for="nome">Nome Completo</label>
+                    <input type="text" id="nome" placeholder="Ana Paula" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="cpf">CPF</label>
+                    <input type="text" id="cpf" placeholder="000.000.000-00" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="telefone">Telefone</label>
+                    <input type="text" id="telefone" placeholder="(71) 99999-9999" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="expiracao">Data de Expiração (opcional)</label>
+                    <input type="text" id="expiracao" placeholder="dd/mm/aaaa">
+                    <span class="helper-text">Deixe em branco para acesso sem expiração</span>
+                </div>
+
+                <div class="modal-actions">
+                    <button type="button" class="btn-cancelar" id="btnCancelar">Cancelar</button>
+                    <button type="submit" class="btn-salvar">Salvar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/adicionarfuncionario"></script>
 </body>
 </html>
