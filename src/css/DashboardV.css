@@ -218,7 +218,7 @@
         .main-content {
             max-width: 800px;
             margin: 40px auto;
-            padding: 0 24px;
+            padding: 24px;
             display: flex;
             flex-direction: column;
             gap: 20px;
@@ -291,6 +291,7 @@
         .tab-btn:hover {
             border-color: #9ca3af;
             color: var(--text-dark);
+            
         }
 
 
@@ -299,6 +300,7 @@
             color: var(--blue);
             background: #f0f5ff;
             font-weight: 600;
+            margin-bottom: 10px;
         }
 
 
