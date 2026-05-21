@@ -1,0 +1,237 @@
+/* Configurações Gerais e Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    background-color: #7A7E85; /* Fundo cinza do print original */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* Container Principal Branco */
+.main-card {
+    background-color: #FFFFFF;
+    width: 100%;
+    max-width: 960px;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    padding-bottom: 40px;
+}
+
+/* Cabeçalho Azul */
+.header-blue {
+    background-color: #1D5BF2;
+    color: #FFFFFF;
+    text-align: center;
+    padding: 24px 20px;
+}
+
+.header-blue h1 {
+    font-size: 28px;
+    font-weight: 800;
+    margin-bottom: 6px;
+}
+
+.header-blue p {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+/* Container dos Cards de Planos */
+.plans-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 40px 30px 30px 30px;
+}
+
+/* Estrutura Base de cada Card */
+.plan-card {
+    background: #FFFFFF;
+    border: 1px solid #1D5BF2;
+    border-radius: 16px;
+    flex: 1;
+    min-width: 260px;
+    max-width: 280px;
+    padding: 24px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+/* Ajustes de bordas específicas dos planos */
+.plan-card.mensal { border-color: #4A5568; }
+.plan-card.anual { border-color: #1D5BF2; }
+
+/* Ícones Superiores */
+.icon-wrapper {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 12px;
+    font-size: 20px;
+}
+
+.gratuito .icon-wrapper { background-color: #E2ECFF; color: #1D5BF2; }
+.mensal .icon-wrapper { background-color: #4A5568; color: #FFFFFF; border-radius: 35%; } 
+.anual .icon-wrapper { background-color: #E6FFFA; color: #00B574; }
+
+/* Títulos e Preços */
+.plan-title {
+    font-size: 22px;
+    font-weight: 700;
+    color: #1A202C;
+}
+
+.plan-subtitle {
+    font-size: 12px;
+    color: #718096;
+    margin-bottom: 16px;
+}
+
+.plan-price {
+    font-size: 26px;
+    font-weight: 800;
+    color: #000000;
+    line-height: 1.1;
+}
+
+.anual .plan-price {
+    color: #00B574;
+}
+
+.plan-period {
+    font-size: 11px;
+    color: #718096;
+    margin-top: 2px;
+    margin-bottom: 24px;
+}
+
+/* Preços Especiais do Plano Anual */
+.old-price {
+    font-size: 11px;
+    color: #A0AEC0;
+    text-decoration: line-through;
+    margin-bottom: 2px;
+}
+
+.monthly-equivalent {
+    font-size: 12px;
+    font-weight: 700;
+    color: #00B574;
+    margin-top: 4px;
+}
+
+/* Lista de Benefícios */
+.features-list {
+    list-style: none;
+    width: 100%;
+    text-align: left;
+    margin-bottom: 30px;
+    flex-grow: 1; /* Garante que os botões fiquem alinhados embaixo */
+}
+
+.features-list li {
+    font-size: 11.5px;
+    font-weight: 600;
+    color: #2D3748;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: flex-start;
+    line-height: 1.3;
+}
+
+.features-list li i {
+    margin-right: 8px;
+    margin-top: 2px;
+    font-size: 12px;
+}
+
+.features-list li.checked i { color: #00B574; }
+.features-list li.unchecked { color: #A0AEC0; }
+.features-list li.unchecked i { color: #A0AEC0; }
+
+/* Botões de Ação */
+.btn-action {
+    width: 100%;
+    padding: 12px;
+    border-radius: 20px;
+    border: none;
+    font-size: 13px;
+    font-weight: 700;
+    color: #FFFFFF;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.gratuito .btn-action { background-color: #1D5BF2; box-shadow: 0 4px 10px rgba(29,91,242,0.3); }
+.mensal .btn-action { background-color: #000000; }
+.anual .btn-action { background-color: #00B574; box-shadow: 0 4px 10px rgba(0,181,116,0.3); }
+
+.btn-action:hover {
+    opacity: 0.9;
+}
+
+/* Seção Inferior: Quem pode usar */
+.info-section {
+    margin: 10px 30px 0 30px;
+    border: 1px solid #BEE3F8;
+    background-color: #F7FAFC;
+    border-radius: 16px;
+    padding: 20px;
+    text-align: center;
+}
+
+.info-title {
+    font-size: 15px;
+    font-weight: 800;
+    color: #000000;
+    margin-bottom: 16px;
+}
+
+.info-grid {
+    display: flex;
+    justify-content: space-around;
+}
+
+.info-group {
+    flex: 1;
+    padding: 0 10px;
+}
+
+.info-group h4 {
+    font-size: 13px;
+    font-weight: 700;
+    color: #1D5BF2;
+    margin-bottom: 4px;
+}
+
+.info-group p {
+    font-size: 12px;
+    color: #718096;
+    font-weight: 500;
+}
+/* Efeito de transição suave nos cards */
+.plan-card {
+    transition: transform 0.3s ease, border-width 0.2s ease, box-shadow 0.3s ease;
+}
+
+/* Estilo do card quando for selecionado via JavaScript */
+.plan-card.selected-plan {
+    border-width: 3px !important;
+    transform: scale(1.03);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
