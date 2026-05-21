@@ -1,11 +1,78 @@
 <!DOCTYPE html>
-<html lang="PT-BR">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Interface de adição de veículo - Thairan</title>
+    <title>Adicionar Veículo</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    
+    <link rel="stylesheet" href="/src/css/adicionarveiculo.css">
 </head>
 <body>
-    
+
+    <div class="modal-card">
+        
+        <button class="close-x" type="button"><i class="fa-solid fa-xmark"></i></button>
+
+        <div class="modal-header">
+            <h2>Adicionar Veículo</h2>
+            <p>Cadastrar um novo veículo com foto, placa e pontos de encontro</p>
+        </div>
+
+        <form id="vehicleForm">
+            
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="vehicleName">Nome/identificação *</label>
+                    <input type="text" id="vehicleName" placeholder="Veículo 01" required>
+                </div>
+                <div class="form-group">
+                    <label for="vehiclePlate">Placa do Veículo *</label>
+                    <input type="text" id="vehiclePlate" placeholder="ABC-1234" required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="vehiclePhoto">Foto do Veículo *</label>
+                <div class="file-upload-wrapper">
+                    <button type="button" class="btn-file-dummy">Escolher arquivo</button>
+                    <span id="fileNameDisplay" class="file-name-text">(Nenhum arquivo escolhido)</span>
+                    <input type="file" id="vehiclePhoto" accept="image/*" required>
+                </div>
+                <p class="helper-text">Selecione uma foto do veículo para ajudar os usuários a identificá-lo</p>
+            </div>
+
+            <div class="map-section">
+                <label class="map-label">Defina os Pontos de Encontro no Mapa *</label>
+                
+                <div class="map-controls">
+                    <button type="button" id="addPointBtn" class="btn-map-control btn-add">
+                        <i class="fa-solid fa-plus"></i> Adicionar Ponto
+                    </button>
+                    <button type="button" id="removePointBtn" class="btn-map-control btn-remove">
+                        <i class="fa-solid fa-trash-can"></i> Remover Último Ponto
+                    </button>
+                </div>
+
+                <button type="button" id="saveMapBtn" class="btn-save-map">
+                    <i class="fa-solid fa-floppy-disk"></i> Salvar Mapa (<span id="pointCount">0</span> pontos)
+                </button>
+
+                <div id="map"></div>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn-footer btn-cancel">Cancelar</button>
+                <button type="submit" class="btn-footer btn-submit">Salvar Veículo</button>
+            </div>
+
+        </form>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="/src/js/adicionarveiculo.js"></script>
 </body>
 </html>
