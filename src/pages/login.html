@@ -23,11 +23,16 @@
             </div>
 
             <div class="tab-switcher">
-                <button class="tab active" type="button">Entrar</button>
-                <button class="tab" type="button">Criar conta</button>
+                <button id="btnEntrar" class="tab active" type="button">
+                Entrar
+                </button>
+
+                <button id="btnCriar" class="tab" type="button">
+                Criar conta
+                </button>
             </div>
 
-            <form class="auth-form" action="#" method="post">
+            <form id="formLogin" class="auth-form" action="#" method="post">
                 <label class="form-field">
                     <span>Email</span>
                     <input type="email" placeholder="seu@email.com" name="email" />
@@ -43,7 +48,38 @@
                     <a href="#">Esqueceu a senha?</a>
                 </div>
             </form>
+
+            <form id="formCadastro" class="auth-form hidden" action="#" method="post">
+                <label class="form-field">
+                    <span>Nome completo</span>
+                    <input type="text" placeholder="Ana Paula" name="nome" />
+                </label>
+
+                <label class="form-field">
+                    <span>CPF</span>
+                    <input type="text" placeholder="000.000.000-00" name="cpf" />
+                </label>
+
+                <label class="form-field">
+                    <span>Email</span>
+                    <input type="email" placeholder="seu@email.com" name="email" />
+                </label>
+
+                <label class="form-field">
+                    <span>Senha</span>
+                    <input type="password" placeholder="••••••••••••" name="senha" />
+                </label>
+
+                <div class="info-card">
+                    <p><strong>Conta para Instituição:</strong> Cadastre sua empresa, escola ou organizações para gerenciar rotas privadas e veículos.</p>
+                    <p><strong>Funcionários/Alunos:</strong> Não precisa de uma conta, use a busca por CPF na página inicial.</p>
+                </div>
+
+                <button class="submit-btn" type="submit">Criar Conta</button>
+            </form>
+
         </section>
     </main>
+    <script src="../js/login.js"></script>
 </body>
 </html>

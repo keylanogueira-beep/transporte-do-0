@@ -211,6 +211,10 @@ body {
     background: #111827;
 }
 
+.hidden {
+    display: none;
+}
+
 @media (max-width: 420px) {
     .auth-card {
         padding: 20px;
