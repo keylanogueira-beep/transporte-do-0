@@ -629,8 +629,7 @@ window.addEventListener('click', function(event) {
 // =========================================
 
 function abrirModalPlanos() {
-    document.getElementById('modalPlanos').style.display = 'flex';
-    document.body.style.overflow = 'hidden';
+    window.location.href = 'Premium.html';
 }
 
 function fecharModalPlanos() {
