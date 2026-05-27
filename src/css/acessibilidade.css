@@ -1,0 +1,20 @@
+/* Garante que o botão do VLibras fique visível, mas não atrapalhe o layout */
+[vw] {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    z-index: 999999;
+}
+
+/* Exemplo de classe para Alto Contraste caso decida implementar */
+body.alto-contraste {
+    background-color: #000000 !important;
+    color: #ffff00 !important;
+}
+
+body.alto-contraste input, 
+body.alto-contraste button {
+    background-color: #111 !important;
+    border: 2px solid #ffff00 !important;
+    color: #ffff00 !important;
+}
