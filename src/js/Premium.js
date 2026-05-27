@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             // Simula a ação do plano
             if (planName.toLowerCase() === "gratuito") {
-                alert(" Perfeito! Você ativou o Plano Gratuito para rotas públicas.");
+                window.location.href = "index.html";
             } else {
                 alert(`Redirecionando para o checkout do Plano ${planName}...`);
             }
