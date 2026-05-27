@@ -22,52 +22,10 @@
                 <strong>mensal (R$ 26,90/mês)</strong>
             </div>
 
-            <div class="tab-switcher">
-                <button id="btnEntrar" class="tab active" type="button">
-                Entrar
-                </button>
-
-                <button id="btnCriar" class="tab" type="button">
-                Criar conta
-                </button>
-            </div>
-
             <form id="formLogin" class="auth-form" action="#" method="post">
                 <label class="form-field">
-                    <span>Email</span>
-                    <input type="email" placeholder="seu@email.com" name="email" required />
-                </label>
-
-                <label class="form-field">
-                    <span>Senha</span>
-                    <input type="password" placeholder="••••••••••••" name="senha" required />
-                </label>
-
-                <button class="submit-btn" type="submit">Entrar</button>
-                <div class="forgot-password">
-                    <a href="#">Esqueceu a senha?</a>
-                </div>
-            </form>
-
-            <form id="formCadastro" class="auth-form hidden" action="#" method="post">
-                <label class="form-field">
-                    <span>Nome completo</span>
-                    <input type="text" placeholder="Ana Paula" name="nome" required />
-                </label>
-
-                <label class="form-field">
-                    <span>CPF</span>
-                    <input type="text" placeholder="000.000.000-00" name="cpf" required />
-                </label>
-
-                <label class="form-field">
-                    <span>Email</span>
-                    <input type="email" placeholder="seu@email.com" name="email" required />
-                </label>
-
-                <label class="form-field">
-                    <span>Senha</span>
-                    <input type="password" placeholder="••••••••••••" name="senha" required />
+                    <span>Email ou CPF</span>
+                    <input type="email" placeholder="seu@email.com ou 000.000.000-00" name="email" required />
                 </label>
 
                 <div class="info-card">
@@ -75,7 +33,10 @@
                     <p><strong>Funcionários/Alunos:</strong> Não precisa de uma conta, use a busca por CPF na página inicial.</p>
                 </div>
 
-                <button class="submit-btn" type="submit">Criar Conta</button>
+                <button class="submit-btn" type="submit">Enviar código</button>
+                <div class="forgot-password">
+                    <a href="#">Voltar para login</a>
+                </div>
             </form>
 
         </section>
