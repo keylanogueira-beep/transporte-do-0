@@ -19,7 +19,7 @@ body {
 .modal-card {
     background-color: #FFFFFF;
     width: 100%;
-    max-width: 520px;
+    max-width: 400px;
     border-radius: 35px;
     padding: 32px 35px;
     position: relative;
