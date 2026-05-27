@@ -1,4 +1,30 @@
 // =========================================
+//  CONTROLE DE ESTADO DO USUÁRIO
+// =========================================
+
+// Verifica se o usuário veio do painel privado
+document.addEventListener("DOMContentLoaded", () => {
+    const usuarioVeioDoPrivado = localStorage.getItem('usuarioVeioDoPrivado');
+    
+    if (usuarioVeioDoPrivado === 'true') {
+        // Oculta o botão "Acessar Rotas Privadas"
+        const btnAcessar = document.getElementById('btnAcessarRotas');
+        if (btnAcessar) {
+            btnAcessar.style.display = 'none';
+        }
+        
+        // Mostra o link "Rota Privada" na navbar
+        const navRotaPrivada = document.getElementById('navRotaPrivada');
+        if (navRotaPrivada) {
+            navRotaPrivada.style.display = 'block';
+        }
+        
+        // Limpa o flag para não manter persistentemente
+        localStorage.removeItem('usuarioVeioDoPrivado');
+    }
+});
+
+// =========================================
 //  BUSCA DE LINHAS DE ÔNIBUS  (Leaflet)
 // =========================================
 

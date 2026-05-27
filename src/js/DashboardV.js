@@ -1,3 +1,8 @@
+function voltarParaHome() {
+    localStorage.setItem('usuarioVeioDoPrivado', 'true');
+    window.location.href = 'index.html';
+}
+
 function trocarTabDash(aba) {
         document.getElementById('tabUsuarios').classList.toggle('active', aba === 'usuarios');
         document.getElementById('tabVeiculos').classList.toggle('active', aba === 'veiculos');
