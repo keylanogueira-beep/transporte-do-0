@@ -6,6 +6,211 @@
     <title>Document</title>
 </head>
 <body>
-    
+  
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        @page {
+            size: A4;
+            margin: 0;
+            background-color: #f4f7f9;
+        }
+        * {
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #f4f7f9;
+            color: #333;
+        }
+        .header {
+            background-color: #2b6df3;
+            color: white;
+            padding: 40px 60px;
+            position: relative;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 28pt;
+            font-weight: bold;
+        }
+        .header p {
+            margin: 5px 0 0 0;
+            opacity: 0.9;
+            font-size: 14pt;
+        }
+        .config-icon {
+            position: absolute;
+            right: 60px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 40px;
+            height: 40px;
+            border: 2px solid rgba(255,255,255,0.5);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .container {
+            padding: 40px 60px;
+        }
+        .card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            border: 1px solid #e1e8ed;
+        }
+        .section-title {
+            font-size: 16pt;
+            font-weight: bold;
+            color: #1a202c;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        .section-desc {
+            color: #718096;
+            font-size: 11pt;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+        .action-row {
+            display: table;
+            width: 100%;
+            border-bottom: 1px solid #edf2f7;
+            padding: 15px 0;
+        }
+        .action-row:last-child {
+            border-bottom: none;
+        }
+        .action-info {
+            display: table-cell;
+            vertical-align: middle;
+        }
+        .action-button-cell {
+            display: table-cell;
+            vertical-align: middle;
+            text-align: right;
+            width: 200px;
+        }
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 10pt;
+            cursor: pointer;
+            border: none;
+        }
+        .btn-outline {
+            border: 1px solid #2b6df3;
+            color: #2b6df3;
+            background: transparent;
+        }
+        .btn-danger {
+            background-color: #e53e3e;
+            color: white;
+        }
+        .btn-dark {
+            background-color: #1a202c;
+            color: white;
+        }
+        .danger-zone {
+            border: 1px solid #feb2b2;
+            background-color: #fff5f5;
+        }
+        .danger-text {
+            color: #c53030;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Configurações do Sistema</h1>
+        <p>LinkaTech</p>
+        <div class="config-icon">⚙️</div>
+    </div>
+
+    <div class="container">
+        <!-- Card de Gerenciamento de Usuários -->
+        <div class="card">
+            <div class="section-title">Gerenciar Usuários e Veículos</div>
+            <p class="section-desc">Controle o acesso de membros e a disponibilidade da frota na plataforma.</p>
+            
+            <div class="action-row">
+                <div class="action-info">
+                    <strong>Remover Usuário Cadastrado</strong>
+                    <div style="font-size: 9pt; color: #a0aec0;">Exclua permanentemente um funcionário ou aluno.</div>
+                </div>
+                <div class="action-button-cell">
+                    <button class="btn btn-outline">Selecionar Usuário</button>
+                </div>
+            </div>
+
+            <div class="action-row">
+                <div class="action-info">
+                    <strong>Limpar Dados de Veículos</strong>
+                    <div style="font-size: 9pt; color: #a0aec0;">Remova todos os veículos vinculados à rota privada.</div>
+                </div>
+                <div class="action-button-cell">
+                    <button class="btn btn-outline">Limpar Frota</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card de Preferências -->
+        <div class="card">
+            <div class="section-title">Preferências e Segurança</div>
+            <p class="section-desc">Ajuste as permissões de visibilidade e segurança da sua organização.</p>
+            
+            <div class="action-row">
+                <div class="action-info">
+                    <strong>Privacidade da Rota</strong>
+                    <div style="font-size: 9pt; color: #a0aec0;">Tornar a rota visível apenas para usuários selecionados.</div>
+                </div>
+                <div class="action-button-cell">
+                    <button class="btn btn-dark">Ativado</button>
+                </div>
+            </div>
+            
+            <div class="action-row">
+                <div class="action-info">
+                    <strong>Alterar Senha de Acesso</strong>
+                    <div style="font-size: 9pt; color: #a0aec0;">Atualize a credencial master do painel LinkaTech.</div>
+                </div>
+                <div class="action-button-cell">
+                    <button class="btn btn-outline">Redefinir</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Zona de Perigo -->
+        <div class="card danger-zone">
+            <div class="section-title danger-text"></div>
+            <p class="section-desc"></p>
+            
+            <div class="action-row">
+                <div class="action-info">
+                    <strong class="danger-text">Excluir Conta da Organização</strong>
+                    <div style="font-size: 9pt; color: #c53030;">Aviso: Todos os dados, rotas e históricos serão apagados permanentemente.</div>
+                </div>
+                <div class="action-button-cell">
+                    <button class="btn btn-danger">Excluir Tudo</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
 </body>
 </html>
