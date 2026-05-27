@@ -1,8 +1,8 @@
 :root {
     --bg-input: #F1F1F1;
     --text-label: #1A1A1A;
-    --text-placeholder: #A6A6A6;
-    --text-helper: #B3B3B3;
+    --text-placeholder: #242323;
+    --text-helper: #353333;
     --btn-dark: #080813; /* Cor quase preta do botão Salvar */
     --border-btn: #E0E0E0;
 }
