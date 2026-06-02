@@ -6,12 +6,16 @@
     <title>TransCamaçari - Rotas Privadas</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/DashboardV.css">
-    
+   
    
    
 </head>
 <body>
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 50ad6127059c9fdf6bb1b3fd0a360f842e0397c9
 <!-- cabeçalho -->
 <header class="cabeçalho">
     <div class="nav-inner">
@@ -37,10 +41,16 @@
 </ul>
 
 
+
+
         <button class="btn-sair" onclick="window.location.href='../../index.html'">Sair</button>
     </div>
 </header>
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 50ad6127059c9fdf6bb1b3fd0a360f842e0397c9
 <!-- outra parte -->
 <section class="section-inicio" id="dashboardInicio">
     <div class="hero-inner">
@@ -57,14 +67,22 @@
     </div>
 </section>
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 50ad6127059c9fdf6bb1b3fd0a360f842e0397c9
  <!-- main -->
 <main class="main-content" id="dashboardMain">
+
+
 
 
     <div class="card-info">
         <p class="info-title">Rotas Privadas Ativa:</p>
         <p class="info-desc">Gerencie funcionários, alunos e veículos da sua organização, ideal para empresas, escolas e instituições.</p>
     </div>
+
+
 
 
     <div class="u_a-1">
@@ -76,6 +94,8 @@
         </button>
 
 
+
+
         <button class="tab-btn" id="tabVeiculos" onclick="trocarTabDash('veiculos')">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
                 <path d="M5 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0m8 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0m-6-1a1 1 0 1 0 0 2h2a1 1 0 1 0 0-2zm1-6c-1.876 0-3.426.109-4.552.226A.5.5 0 0 0 3 4.723v3.554a.5.5 0 0 0 .448.497C4.574 8.891 6.124 9 8 9s3.426-.109 4.552-.226A.5.5 0 0 0 13 8.277V4.723a.5.5 0 0 0-.448-.497A44 44 0 0 0 8 4m0-1c-1.837 0-3.353.107-4.448.22a.5.5 0 1 1-.104-.994A44 44 0 0 1 8 2c1.837 0 3.426.109 4.552.226a.5.5 0 1 1-.104.994A43 43 0 0 0 8 3"/>
@@ -84,6 +104,8 @@
             Veículos
         </button>
     </div>
+
+
 
 
     <div class="card card-gestao" id="painelUsuarios">
@@ -100,6 +122,8 @@
     </div>
 
 
+
+
     <div class="card card-gestao" id="painelVeiculos" style="display:none;">
         <div class="gestao-text">
             <p class="gestao-title">Gestão de Frota</p>
@@ -114,10 +138,16 @@
     </div>
 
 
+
+
 </main>
 
 
 <!-- parte de baixo que não tem nome -->
+
+<!-- parte de baixo que não tem nome -->
+
+
 
 
 <div id="modalAdicionarUsuario" class="modal-overlay" style="display:none;">
@@ -158,15 +188,21 @@
 </div>
 
 
+
+
 <div id="modalAdicionarVeiculo" class="modal-overlay" style="display:none;">
     <div class="modal-add-user-content">
         <button class="modal-close-dark" onclick="fecharModalAdicionarVeiculo()" title="Fechar">&times;</button>
+
+
 
 
         <div class="modal-add-user-header">
             <h3>Adicionar Veículo</h3>
             <p>Cadastrar um novo veículo com foto, placa e pontos de encontro</p>
         </div>
+
+
 
 
         <form id="formAdicionarVeiculo" class="modal-add-user-form" onsubmit="event.preventDefault();">
@@ -183,6 +219,8 @@
             </div>
 
 
+
+
             <div class="add-user-field">
                 <label>Foto do Veículo *</label>
                 <div class="file-upload-wrapper" onclick="document.getElementById('hiddenFileInput').click()">
@@ -191,6 +229,8 @@
                 <input type="file" id="hiddenFileInput" style="display:none;">
                 <span class="field-hint">Selecione uma foto do veículo para ajudar os usuários a identificá-lo</span>
             </div>
+
+
 
 
             <div>
@@ -209,10 +249,14 @@
                 </button>
 
 
+
+
                 <div class="mock-map-container">
                     <img src="https://api.mapbox.com/styles/v1/mapbox/streets-v11/static/-38.4222,-12.6975,13,0/500x250?access_token=mock" alt="Mapa de Camaçari" class="mock-map-img" onerror="this.src='https://placehold.co/500x250/e2e8f0/475569?text=Visualizacao+do+Mapa+Camaçari'">
                 </div>
             </div>
+
+
 
 
             <div class="modal-add-user-actions">
@@ -221,14 +265,16 @@
             </div>
 
 
+
+
         </form>
     </div>
 </div>
 
+
 <script src="../js/DashboardV.js"></script>
+
 
 </body>
 </html>
-
-
 

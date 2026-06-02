@@ -34,40 +34,40 @@
 
             <form id="formLogin" class="auth-form" action="#" method="post">
                 <label class="form-field">
-                    <span>Email</span>
-                    <input type="email" placeholder="seu@email.com" name="email" />
+                    <span>CPF</span>
+                    <input type="text" placeholder="000.000.000-00" name="cpf" required />
                 </label>
 
                 <label class="form-field">
                     <span>Senha</span>
-                    <input type="password" placeholder="••••••••••••" name="senha" />
+                    <input type="password" placeholder="••••••••••••" name="senha" required />
                 </label>
 
                 <button class="submit-btn" type="submit">Entrar</button>
                 <div class="forgot-password">
-                    <a href="#">Esqueceu a senha?</a>
+                    <a href="recuperacao.html">Esqueceu a senha?</a>
                 </div>
             </form>
 
             <form id="formCadastro" class="auth-form hidden" action="#" method="post">
                 <label class="form-field">
                     <span>Nome completo</span>
-                    <input type="text" placeholder="Ana Paula" name="nome" />
+                    <input type="text" placeholder="Ana Paula" name="nome" required />
                 </label>
 
                 <label class="form-field">
                     <span>CPF</span>
-                    <input type="text" placeholder="000.000.000-00" name="cpf" />
+                    <input type="text" placeholder="000.000.000-00" name="cpf" required />
                 </label>
 
                 <label class="form-field">
                     <span>Email</span>
-                    <input type="email" placeholder="seu@email.com" name="email" />
+                    <input type="email" placeholder="seu@email.com" name="email" required />
                 </label>
 
                 <label class="form-field">
                     <span>Senha</span>
-                    <input type="password" placeholder="••••••••••••" name="senha" />
+                    <input type="password" placeholder="••••••••••••" name="senha" required />
                 </label>
 
                 <div class="info-card">
@@ -81,5 +81,15 @@
         </section>
     </main>
     <script src="../js/login.js"></script>
+    <head>
+    <meta charset="UTF-8">
+    <title>Pagamento</title>
+    
+    <link rel="stylesheet" href="../css/acessibilidade.css">
+    <link rel="stylesheet" href="../css/pagamento.css">
+</head>
+<script src="../js/acessibilidade.js"></script>
+    <script src="../js/pagamento.js"></script>
+</body>
 </body>
 </html>

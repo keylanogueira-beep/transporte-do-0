@@ -25,9 +25,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
             // Simula a ação do plano
             if (planName.toLowerCase() === "gratuito") {
-                alert(" Perfeito! Você ativou o Plano Gratuito para rotas públicas.");
+                window.location.href = "index.html";
             } else {
-                alert(`Redirecionando para o checkout do Plano ${planName}...`);
+                // Extrai o valor do plano
+                const priceElement = currentCard.querySelector(".plan-price");
+                const price = priceElement ? priceElement.innerText.replace("R$ ", "").replace(",", ".") : "0";
+                
+                // Cria a URL com parâmetros do plano
+                const params = new URLSearchParams();
+                params.append("plano", planName.toLowerCase());
+                params.append("valor", price);
+                
+                // Redireciona para pagamento.html
+                window.location.href = `pagamento.html?${params.toString()}`;
             }
         });
     });

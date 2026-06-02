@@ -23,3 +23,44 @@ btnCriar.addEventListener("click", () => {
     btnEntrar.classList.remove("active");
 
 });
+
+// Validação de Campos - Formulário de Cadastro
+const inputNome = document.querySelector("#formCadastro input[name='nome']");
+const inputCPF = document.querySelector("#formCadastro input[name='cpf']");
+const inputLoginCPF = document.querySelector("#formLogin input[name='cpf']");
+
+const formatCPF = (value) => {
+    const digits = value.replace(/\D/g, "").slice(0, 11);
+    return digits
+        .replace(/^(\d{3})(\d)/, "$1.$2")
+        .replace(/^(\d{3})\.(\d{3})(\d)/, "$1.$2.$3")
+        .replace(/^(\d{3})\.(\d{3})\.(\d{3})(\d)/, "$1.$2.$3-$4");
+};
+// Permitir apenas letras e espaços no campo de nome
+inputNome.addEventListener("input", (e) => {
+    e.target.value = e.target.value.replace(/[^a-záéíóúàâêôãõñç\s]/gi, "");
+});
+
+// Permitir apenas números no campo de CPF
+inputCPF.addEventListener("input", (e) => {
+    e.target.value = formatCPF(e.target.value);
+});
+
+// Permitir apenas números no campo de CPF do login
+if (inputLoginCPF) {
+    inputLoginCPF.addEventListener("input", (e) => {
+        e.target.value = formatCPF(e.target.value);
+    });
+}
+
+// Ação de Envio - Formulário de Login
+formLogin.addEventListener("submit", (e) => {
+    e.preventDefault(); // Impede o recarregamento da página
+    // O navegador cuida da mensagem "Preencha este campo"
+});
+
+// Ação de Envio - Formulário de Cadastro
+formCadastro.addEventListener("submit", (e) => {
+    e.preventDefault(); // Impede o recarregamento da página
+    // O navegador cuida da mensagem "Preencha este campo"
+});

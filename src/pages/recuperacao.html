@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Acesso às Rotas Privadas</title>
+    <link rel="stylesheet" href="../css/login.css" />
+</head>
+<body>
+    <main class="auth-page">
+        <section class="auth-card">
+            <header class="card-top">
+                <div>
+                    <h1>Recuperar senha</h1>
+                    <p>informe seu email ou seu CPF para receber o link de recuperação.</p>
+                </div>
+                <button type="button" class="close-btn" aria-label="Fechar">×</button>
+            </header>
+
+            <div class="plan-badge">
+                <span>Plano selecionado:</span>
+                <strong>mensal (R$ 26,90/mês)</strong>
+            </div>
+
+            <form id="formRecuperacao" class="auth-form" action="#" method="post">
+                <label class="form-field">
+                    <span>Email ou CPF</span>
+                    <input type="text" placeholder="seu@email.com ou 000.000.000-00" name="identificador" required />
+                </label>
+
+                <div class="info-card">
+                    <p> Enviaremos um código de recuperação para o email ou telefone cadastrado na sua conta.</p>
+                </div>
+
+                <button class="submit-btn" type="submit">Enviar código</button>
+                <div class="forgot-password">
+                    <a href="login.html">Voltar para login</a>
+                </div>
+            </form>
+
+        </section>
+    </main>
+    <script src="../js/recuperacao.js"></script>
+    <script src="../js/login.js"></script>
+    <head>
+
+</body>
+</html>

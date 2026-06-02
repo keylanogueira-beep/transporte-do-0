@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagamento - Rotas Privadas</title>
+    <link rel="stylesheet" href="/src/css/pagamento.css">
+    <style>
+        /* ================= MODAL DE CARREGAMENTO ================= */
+        .modal-pagamento {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+
+        .modal-pagamento.ativo {
+            display: flex;
+        }
+
+        .modal-pagamento-content {
+            background-color: #ffffff;
+            border-radius: 20px;
+            padding: 40px 30px;
+            text-align: center;
+            max-width: 400px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+        }
+
+        .spinner {
+            width: 50px;
+            height: 50px;
+            margin: 0 auto 20px;
+            border: 4px solid #e7ebf7;
+            border-top: 4px solid #2563eb;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .modal-pagamento-content h3 {
+            color: #1a1a1a;
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+
+        .modal-pagamento-content p {
+            color: #666;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card-pagamento">
+        <button class="btn-fechar" aria-label="Fechar">&times;</button>
+        
+        <h2>Pagamento da Assinatura</h2>
+        <p class="subtitulo">Escolha a melhor forma de pagamento</p>
+
+        <div class="banner-plano" id="bannerPlano">
+            Plano selecionado: mensal (R$ 26,90/mês)
+        </div>
+
+        <div class="Abas-pagamento">
+            <button class="aba-btn ativa" data-alvo="cartao">Cartão</button>
+            <button class="aba-btn" data-alvo="pix">Pix</button>
+            <button class="aba-btn" data-alvo="boleto">Boleto</button>
+        </div>
+
+        <div id="conteudo-cartao" class="conteudo-aba ativo">
+            <form id="formCartao">
+                <div class="form-group">
+                    <label for="cardName">Nome no cartão</label>
+                    <input type="text" id="cardName" class="input-campo" placeholder="Como está gravado no cartão" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="cardNumber">Número do cartão</label>
+                    <input type="text" id="cardNumber" class="input-campo" placeholder="0000 0000 0000 0000" maxlength="19" required>
+                </div>
+
+                <div class="row-dupla">
+                    <div class="form-group">
+                        <label for="cardExpiry">Validade</label>
+                        <input type="text" id="cardExpiry" class="input-campo" placeholder="MM/AA" maxlength="5" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="cardCvv">CVV</label>
+                        <input type="text" id="cardCvv" class="input-campo" placeholder="000" maxlength="4" required>
+                    </div>
+                </div>
+
+                <div class="banner-info">
+                    <strong>Ambiente Seguro:</strong> Seus dados de cartão são criptografados. A renovação é automática a cada mês.
+                </div>
+
+                <button type="submit" class="btn-pagar">Finalizar com Cartão</button>
+            </form>
+        </div>
+
+        <div id="conteudo-pix" class="conteudo-aba">
+            <div class="alinhamento-central">
+                <div class="alerta-pix">
+                    O código Pix gerado tem validade de <strong>10 minutos</strong>.
+                </div>
+                
+                <div class="qr-code-container">
+                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=00020101021126580014br.gov.bcb.pix0136e3a" alt="QR Code Pix" class="qr-code-img">
+                </div>
+
+                <div class="form-group" style="width: 100%; text-align: left;">
+                    <label>Código Copia e Cola</label>
+                    <input type="text" id="pixCodigo" class="input-campo" value="00020101021126580014br.gov.bcb.pix0136e3a" readonly>
+                </div>
+
+                <button type="button" id="btnCopiarPix" class="btn-secundario">Copiar Código Pix</button>
+            </div>
+            
+            <div class="banner-info">
+                <strong>Liberação Instantânea:</strong> O acesso às rotas privadas é liberado imediatamente após a confirmação do Pix.
+            </div>
+            
+            <button type="button" id="btnConfirmarPix" class="btn-pagar">Já efetuei o Pix</button>
+        </div>
+
+        <div id="conteudo-boleto" class="conteudo-aba">
+            <form id="formBoleto">
+                <div class="form-group">
+                    <label for="boletoCpf">Confirme seu CPF</label>
+                    <input type="text" id="boletoCpf" class="input-campo" placeholder="000.000.000-00" maxlength="14" required>
+                </div>
+
+                <div class="banner-info">
+                    <strong>Prazo de Compensação:</strong> Boletos bancários levam de 1 a 2 dias úteis para serem processados pelo banco.
+                </div>
+
+                <button type="submit" class="btn-pagar">Gerar Boleto Bancário</button>
+            </form>
+        </div>
+
+    </div>
+
+    <!-- Modal de Processamento de Pagamento -->
+    <div id="modalPagamento" class="modal-pagamento">
+        <div class="modal-pagamento-content">
+            <div class="spinner"></div>
+            <h3>Processando Pagamento</h3>
+            <p id="mensagemProcessamento">Por favor, aguarde alguns segundos enquanto confirmamos seu pagamento...</p>
+        </div>
+    </div>
+
+    <script src="/src/js/pagamento.js"></script>
+    <head>
+    <meta charset="UTF-8">
+    <title>Pagamento</title>
+    
+    <link rel="stylesheet" href="../css/acessibilidade.css">
+    <link rel="stylesheet" href="../css/pagamento.css">
+</head>
+<script src="../js/acessibilidade.js"></script>
+    <script src="../js/pagamento.js"></script>
+</body>
+</body>
+</html>
