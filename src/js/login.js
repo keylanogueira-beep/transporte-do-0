@@ -36,13 +36,19 @@ function redirectAfterAuth() {
 function configurarModo() {
     const planBadge = document.querySelector('.plan-badge');
     const avisoPremium = document.getElementById('loginAvisoPremium');
+    const headerTitle = document.querySelector('.card-top h1');
+    const headerDesc = document.querySelector('.card-top p');
 
     if (mode === 'criar' || (selectedPlan && selectedValor)) {
+        if (headerTitle) headerTitle.textContent = 'Criar conta';
+        if (headerDesc) headerDesc.textContent = 'Crie sua conta Premium para acessar as rotas privadas e gerenciar o plano escolhido.';
         if (planBadge) planBadge.style.display = 'block';
         if (avisoPremium) avisoPremium.style.display = 'none';
         formLogin.classList.add('hidden');
         formCadastro.classList.remove('hidden');
     } else {
+        if (headerTitle) headerTitle.textContent = 'Entrar';
+        if (headerDesc) headerDesc.textContent = 'Faça login para acessar sua conta Premium e continuar usando as rotas privadas.';
         if (planBadge) planBadge.style.display = 'none';
         if (avisoPremium) avisoPremium.style.display = 'block';
         formLogin.classList.remove('hidden');
