@@ -263,6 +263,8 @@ function montarMapa(linha) {
     var map = L.map(elId, { zoomControl: true, scrollWheelZoom: false })
                 .setView(linha.centro, linha.zoom);
 
+    map.invalidateSize();
+
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '© <a href="https://www.openstreetmap.org/">OpenStreetMap</a>',
         maxZoom: 19
@@ -273,6 +275,7 @@ function montarMapa(linha) {
     if (coords.length > 1) {
         desenharRotaReal(map, coords).catch(function() {
             L.polyline(coords, { color: '#2563eb', weight: 4, opacity: 0.85 }).addTo(map);
+            map.invalidateSize();
         });
     }
 
@@ -334,6 +337,8 @@ function desenharRotaReal(map, coords) {
         if (routeLayer.getBounds && routeLayer.getBounds().isValid()) {
             map.fitBounds(routeLayer.getBounds(), { padding: [30, 30] });
         }
+        
+        map.invalidateSize();
     });
 }
 
