@@ -123,6 +123,12 @@ section {
     color: var(--main-blue);
 }
 
+.header-actions {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
 .btn-black {
     background: #0f172a;
     color: #fff;
@@ -133,6 +139,21 @@ section {
     border: none;
     cursor: pointer;
     transition: opacity 0.2s;
+}
+
+.btn-outline-blue {
+    background: transparent;
+    color: var(--main-blue);
+    border: 2px solid var(--main-blue);
+    padding: 10px 22px;
+    border-radius: 8px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.btn-outline-blue:hover {
+    background: rgba(37, 99, 235, 0.08);
 }
 
 .btn-black:hover {

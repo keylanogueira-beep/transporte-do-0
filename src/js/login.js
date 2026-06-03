@@ -1,28 +1,5 @@
-const btnEntrar = document.getElementById("btnEntrar");
-const btnCriar = document.getElementById("btnCriar");
-
 const formLogin = document.getElementById("formLogin");
 const formCadastro = document.getElementById("formCadastro");
-
-btnEntrar.addEventListener("click", () => {
-
-    formLogin.classList.remove("hidden");
-    formCadastro.classList.add("hidden");
-
-    btnEntrar.classList.add("active");
-    btnCriar.classList.remove("active");
-
-});
-
-btnCriar.addEventListener("click", () => {
-
-    formCadastro.classList.remove("hidden");
-    formLogin.classList.add("hidden");
-
-    btnCriar.classList.add("active");
-    btnEntrar.classList.remove("active");
-
-});
 
 // Validação de Campos - Formulário de Cadastro
 const inputNome = document.querySelector("#formCadastro input[name='nome']");
@@ -38,6 +15,7 @@ const formatCPF = (value) => {
 };
 
 const urlParams = new URLSearchParams(window.location.search);
+const mode = urlParams.get('mode');
 const selectedPlan = urlParams.get('plano');
 const selectedValor = urlParams.get('valor');
 const planBadgeStrong = document.querySelector('.plan-badge strong');
@@ -54,6 +32,25 @@ function redirectAfterAuth() {
         window.location.href = "Dashboard.html";
     }
 }
+
+function configurarModo() {
+    const planBadge = document.querySelector('.plan-badge');
+    const avisoPremium = document.getElementById('loginAvisoPremium');
+
+    if (mode === 'criar' || (selectedPlan && selectedValor)) {
+        if (planBadge) planBadge.style.display = 'block';
+        if (avisoPremium) avisoPremium.style.display = 'none';
+        formLogin.classList.add('hidden');
+        formCadastro.classList.remove('hidden');
+    } else {
+        if (planBadge) planBadge.style.display = 'none';
+        if (avisoPremium) avisoPremium.style.display = 'block';
+        formLogin.classList.remove('hidden');
+        formCadastro.classList.add('hidden');
+    }
+}
+
+configurarModo();
 
 // Permitir apenas letras e espaços no campo de nome
 inputNome.addEventListener("input", (e) => {
@@ -83,3 +80,12 @@ formCadastro.addEventListener("submit", (e) => {
     e.preventDefault(); // Impede o recarregamento da página
     redirectAfterAuth();
 });
+
+function fecharLogin() {
+    const isPremiumFlow = mode === 'criar' || (selectedPlan && selectedValor);
+    if (isPremiumFlow) {
+        window.location.href = 'index.html?openPremium=1';
+    } else {
+        window.location.href = 'index.html';
+    }
+}

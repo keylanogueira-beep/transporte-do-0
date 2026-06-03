@@ -11,25 +11,19 @@
         <section class="auth-card">
             <header class="card-top">
                 <div>
-                    <h1>Acesso às Rotas privadas</h1>
-                    <p>Entrar ou crie uma conta para gerenciar suas rotas privadas</p>
+                    <h1>Entrar</h1>
+                    <p>Faça login para acessar sua conta Premium e continuar usando as rotas privadas.</p>
                 </div>
-                <button type="button" class="close-btn" aria-label="Fechar" onclick="window.location.href='index.html?openPremium=1';">×</button>
+                <button type="button" class="close-btn" aria-label="Fechar" onclick="fecharLogin();">×</button>
             </header>
+
+            <div id="loginAvisoPremium" class="info-card">
+                <p>Este acesso é somente para usuários com plano Premium. Pessoas comuns não precisam criar conta para usar o serviço público.</p>
+            </div>
 
             <div class="plan-badge">
                 <span>Plano selecionado:</span>
                 <strong>mensal (R$ 26,90/mês)</strong>
-            </div>
-
-            <div class="tab-switcher">
-                <button id="btnEntrar" class="tab active" type="button">
-                Entrar
-                </button>
-
-                <button id="btnCriar" class="tab" type="button">
-                Criar conta
-                </button>
             </div>
 
             <form id="formLogin" class="auth-form" action="#" method="post">
@@ -86,15 +80,6 @@
         </section>
     </main>
     <script src="../js/login.js"></script>
-    <head>
-    <meta charset="UTF-8">
-    <title>Pagamento</title>
-    
-    <link rel="stylesheet" href="../css/acessibilidade.css">
-    <link rel="stylesheet" href="../css/pagamento.css">
-</head>
-<script src="../js/acessibilidade.js"></script>
-    <script src="../js/pagamento.js"></script>
-</body>
+    <script src="../js/acessibilidade.js"></script>
 </body>
 </html>

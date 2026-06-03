@@ -43,6 +43,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 const params = new URLSearchParams();
                 params.append("plano", planName.toLowerCase());
                 params.append("valor", price);
+                params.append("mode", "criar");
                 
                 // Redireciona para a página de login antes do pagamento
                 window.location.href = `login.html?${params.toString()}`;

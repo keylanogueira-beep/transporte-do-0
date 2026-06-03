@@ -13,14 +13,14 @@
             <header class="card-top">
                 <div>
                     <h1>Recuperar senha</h1>
-                    <p>informe seu email ou seu CPF para receber o link de recuperação.</p>
+                    <p>Informe seu e-mail ou telefone para receber o link de recuperação.</p>
                 </div>
                 <button type="button" class="close-btn" aria-label="Fechar" onclick="window.history.back();">×</button>
             </header>
 
-            <div class="plan-badge">
-                <span>Plano selecionado:</span>
-                <strong>mensal (R$ 26,90/mês)</strong>
+            <div class="tab-switcher method-switcher">
+                <button type="button" id="btnMetodoEmail" class="tab active">Email</button>
+                <button type="button" id="btnMetodoTelefone" class="tab">Telefone</button>
             </div>
 
             <form id="formRecuperacao" class="auth-form" action="#" method="post">
@@ -30,12 +30,12 @@
                 </label>
 
                 <div class="info-card">
-                    <p> Enviaremos um código de recuperação para o email ou telefone cadastrado na sua conta.</p>
+                    <p id="recuperacaoMensagem">Enviaremos um código de recuperação para o seu email, verifique sua caixa de entrada.</p>
                 </div>
 
                 <button class="submit-btn" type="submit">Enviar código</button>
                 <div class="forgot-password">
-                    <a href="login.html">Voltar para login</a>
+                    <a href="login.html?mode=entrar">Voltar para login</a>
                 </div>
             </form>
 

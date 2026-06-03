@@ -129,6 +129,8 @@ if (formBoleto) {
 const btnFechar = document.querySelector('.btn-fechar');
 if (btnFechar) {
     btnFechar.addEventListener('click', () => {
-        window.location.href = 'login.html';
+        const params = new URLSearchParams(window.location.search);
+        params.set('mode', 'criar');
+        window.location.href = `login.html?${params.toString()}`;
     });
 }

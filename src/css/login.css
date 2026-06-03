@@ -180,9 +180,14 @@ body {
     border: 1px solid #bfdbfe;
     border-radius: 20px;
     padding: 16px 18px;
+    margin-bottom: 20px;
     color: #374151;
     font-size: 0.92rem;
     line-height: 1.7;
+}
+
+#loginAvisoPremium {
+    margin-top: 16px;
 }
 
 .info-card p {
