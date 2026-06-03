@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TransCamaçari - Home</title>
     <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="../css/acessibilidade.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <!-- Leaflet -->
@@ -613,6 +614,103 @@
 </section>
 
 
+<!--MODAL DE PLANOS-->
+<div id="modalPlanos" class="modal-planos-overlay">
+    <div class="modal-planos-content">
+        <button class="modal-planos-close" onclick="fecharModalPlanos()">&times;</button>
+        
+        <div class="plans-modal-header">
+            <h1>Escolha Seu Plano</h1>
+            <p>transporte público é GRATUITO! LOGIN NECESSÁRIO APENAS PARA ROTAS PRIVADAS</p>
+        </div>
+
+        <div class="plans-container-modal">
+            
+            <div class="plan-card gratuito">
+                <div class="icon-wrapper">
+                    <i class="fa-solid fa-users"></i>
+                </div>
+                <h2 class="plan-title">Gratuito</h2>
+                <p class="plan-subtitle">transporte público</p>
+                <div class="plan-price">R$ 0</div>
+                <p class="plan-period">para sempre</p>
+                
+                <ul class="features-list">
+                    <li class="checked"><i class="fa-solid fa-check"></i> rastreamento de ônibus público em tempo real</li>
+                    <li class="checked"><i class="fa-solid fa-check"></i> Todas as linhas de camaçari</li>
+                    <li class="checked"><i class="fa-solid fa-check"></i> Horários atualizados</li>
+                    <li class="checked"><i class="fa-solid fa-check"></i> Mapas interativos</li>
+                    <li class="unchecked"><i class="fa-solid fa-xmark"></i> Sem acesso a criação de rotas</li>
+                </ul>
+                
+                <button class="btn-action">Usar Gratuitamente</button>
+            </div>
+
+            <div class="plan-card mensal">
+                <div class="icon-wrapper">
+                    <i class="fa-solid fa-shield-halved"></i>
+                </div>
+                <h2 class="plan-title">Mensal</h2>
+                <p class="plan-subtitle">Rotas privadas</p>
+                <div class="plan-price">R$ 26,90</div>
+                <p class="plan-period">por mês</p>
+                
+                <ul class="features-list">
+                    <li class="checked"><i class="fa-solid fa-check"></i> Tudo do plano gratuito</li>
+                    <li class="checked"><i class="fa-solid fa-check"></i> Rotas privadas (empresas, escolas, etc)</li>
+                    <li class="checked"><i class="fa-solid fa-check"></i> Gestão de funcionários/alunos</li>
+                    <li class="checked"><i class="fa-solid fa-check"></i> Gestão de frota</li>
+                    <li class="checked"><i class="fa-solid fa-check"></i> Suporte prioritário</li>
+                </ul>
+                
+                <button class="btn-action">Comprar plano mensal</button>
+            </div>
+
+            <div class="plan-card anual">
+                <div class="icon-wrapper">
+                    <i class="fa-solid fa-bolt"></i>
+                </div>
+                <h2 class="plan-title">Anual</h2>
+                <p class="plan-subtitle">Rotas privadas</p>
+                <div class="old-price">R$ 322,80</div>
+                <div class="plan-price">R$ 225,00</div>
+                <p class="plan-period">por ano</p>
+                
+                <ul class="features-list">
+                    <li class="checked"><i class="fa-solid fa-check"></i> Tudo do plano Mensal</li>
+                    <li class="checked"><i class="fa-solid fa-check"></i> 30% de desconto</li>
+                    <li class="checked"><i class="fa-solid fa-check"></i> Economize R$ 97,80/ano</li>
+                    <li class="checked"><i class="fa-solid fa-check"></i> Suporte VIP</li>
+                    <li class="checked"><i class="fa-solid fa-check"></i> Primeiros contatos com novidades e muito mais..</li>
+                </ul>
+                
+                <div class="monthly-equivalent">R$ 18,75/mês</div>
+                <button class="btn-action" style="margin-top: 15px;">Comprar plano anual</button>
+            </div>
+
+        </div>
+
+        <div class="info-section-modal">
+            <h3 class="info-title">quem pode usar Rotas privadas?</h3>
+            <div class="info-grid">
+                <div class="info-group">
+                    <h4>empresas</h4>
+                    <p>transporte de funcionários</p>
+                </div>
+                <div class="info-group">
+                    <h4>escolas</h4>
+                    <p>Ônibus escolares e universitários</p>
+                </div>
+                <div class="info-group">
+                    <h4>instituições</h4>
+                    <p>Hospitais, clínicas, ONGs</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 <!--FOOTER-->
 <footer id="contato" class="main-footer">
     <div class="container">
@@ -677,6 +775,8 @@
     </div>
 </footer>
 <script src="../js/index.js"></script>
+<script src="../js/Premium.js"></script>
+<script src="../js/acessibilidade.js"></script>
 </body>
 </body>
 </html>

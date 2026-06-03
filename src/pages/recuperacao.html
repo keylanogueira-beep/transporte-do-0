@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Acesso às Rotas Privadas</title>
     <link rel="stylesheet" href="../css/login.css" />
+    <link rel="stylesheet" href="../css/acessibilidade.css" />
 </head>
 <body>
     <main class="auth-page">
@@ -14,7 +15,7 @@
                     <h1>Recuperar senha</h1>
                     <p>informe seu email ou seu CPF para receber o link de recuperação.</p>
                 </div>
-                <button type="button" class="close-btn" aria-label="Fechar">×</button>
+                <button type="button" class="close-btn" aria-label="Fechar" onclick="window.history.back();">×</button>
             </header>
 
             <div class="plan-badge">
@@ -42,7 +43,6 @@
     </main>
     <script src="../js/recuperacao.js"></script>
     <script src="../js/login.js"></script>
-    <head>
-
+    <script src="../js/acessibilidade.js"></script>
 </body>
 </html>

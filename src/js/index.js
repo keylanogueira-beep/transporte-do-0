@@ -654,14 +654,34 @@ window.addEventListener('click', function(event) {
     if (event.target === modalLogin) fecharModalLogin();
 });
 
+document.addEventListener('DOMContentLoaded', function() {
+    const params = new URLSearchParams(window.location.search);
+    if (params.get('openPremium') === '1') {
+        abrirModalPlanos();
+    }
+});
+
 
 // =========================================
 //  MODAL DE PLANOS
 // =========================================
 
 function abrirModalPlanos() {
-    window.location.href = 'Premium.html';
+    document.getElementById('modalPlanos').style.display = 'flex';
+    document.body.style.overflow = 'hidden';
 }
+
+function fecharModalPlanos() {
+    document.getElementById('modalPlanos').style.display = 'none';
+    document.body.style.overflow = 'auto';
+}
+
+window.addEventListener('click', function(event) {
+    const modal = document.getElementById('modalPlanos');
+    if (event.target === modal) {
+        fecharModalPlanos();
+    }
+});
 
 function fecharModalPlanos() {
     document.getElementById('modalPlanos').style.display = 'none';

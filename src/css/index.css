@@ -1606,6 +1606,326 @@ section {
     }
 }
 
+/* =========================================
+   MODAL DE PLANOS
+   ========================================= */
+
+.modal-planos-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(5px);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+.modal-planos-overlay.active {
+    display: flex;
+}
+
+.modal-planos-content {
+    background-color: #FFFFFF;
+    width: 100%;
+    max-width: 960px;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    padding-bottom: 40px;
+    position: relative;
+    animation: slideUp 0.3s ease-out;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.modal-planos-close {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 40px;
+    height: 40px;
+    border: none;
+    border-radius: 50%;
+    background: #f3f4f6;
+    color: #6b7280;
+    font-size: 28px;
+    line-height: 1;
+    cursor: pointer;
+    z-index: 10001;
+    transition: background 0.2s;
+}
+
+.modal-planos-close:hover {
+    background: #e5e7eb;
+}
+
+.plans-modal-header {
+    background-color: #1D5BF2;
+    color: #FFFFFF;
+    text-align: center;
+    padding: 24px 20px;
+}
+
+.plans-modal-header h1 {
+    font-size: 28px;
+    font-weight: 800;
+    margin-bottom: 6px;
+}
+
+.plans-modal-header p {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.plans-container-modal {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 40px 30px 30px 30px;
+}
+
+.plan-card {
+    background: #FFFFFF;
+    border: 1px solid #1D5BF2;
+    border-radius: 16px;
+    flex: 1;
+    min-width: 260px;
+    max-width: 280px;
+    padding: 24px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: transform 0.3s ease, border-width 0.2s ease, box-shadow 0.3s ease;
+}
+
+.plan-card.mensal { border-color: #4A5568; }
+.plan-card.anual { border-color: #1D5BF2; }
+
+.plan-card.selected-plan {
+    border-width: 3px !important;
+    transform: scale(1.03);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.icon-wrapper {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 12px;
+    font-size: 20px;
+}
+
+.gratuito .icon-wrapper { background-color: #E2ECFF; color: #1D5BF2; }
+.mensal .icon-wrapper { background-color: #4A5568; color: #FFFFFF; border-radius: 35%; }
+.anual .icon-wrapper { background-color: #E6FFFA; color: #00B574; }
+
+.plan-title {
+    font-size: 22px;
+    font-weight: 700;
+    color: #1A202C;
+}
+
+.plan-subtitle {
+    font-size: 12px;
+    color: #718096;
+    margin-bottom: 16px;
+}
+
+.plan-price {
+    font-size: 26px;
+    font-weight: 800;
+    color: #000000;
+    line-height: 1.1;
+}
+
+.anual .plan-price {
+    color: #00B574;
+}
+
+.plan-period {
+    font-size: 11px;
+    color: #718096;
+    margin-top: 2px;
+    margin-bottom: 24px;
+}
+
+.old-price {
+    font-size: 11px;
+    color: #A0AEC0;
+    text-decoration: line-through;
+    margin-bottom: 2px;
+}
+
+.monthly-equivalent {
+    font-size: 12px;
+    font-weight: 700;
+    color: #00B574;
+    margin-top: 4px;
+}
+
+.features-list {
+    list-style: none;
+    width: 100%;
+    text-align: left;
+    margin-bottom: 30px;
+    flex-grow: 1;
+}
+
+.features-list li {
+    font-size: 11.5px;
+    font-weight: 600;
+    color: #2D3748;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: flex-start;
+    line-height: 1.3;
+}
+
+.features-list li i {
+    margin-right: 8px;
+    margin-top: 2px;
+    font-size: 12px;
+}
+
+.features-list li.checked i { color: #00B574; }
+.features-list li.unchecked { color: #A0AEC0; }
+.features-list li.unchecked i { color: #A0AEC0; }
+
+.btn-action {
+    width: 100%;
+    padding: 12px;
+    border-radius: 20px;
+    border: none;
+    font-size: 13px;
+    font-weight: 700;
+    color: #FFFFFF;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.gratuito .btn-action { background-color: #1D5BF2; box-shadow: 0 4px 10px rgba(29,91,242,0.3); }
+.mensal .btn-action { background-color: #000000; }
+.anual .btn-action { background-color: #00B574; box-shadow: 0 4px 10px rgba(0,181,116,0.3); }
+
+.btn-action:hover {
+    opacity: 0.9;
+}
+
+.info-section-modal {
+    margin: 10px 30px 0 30px;
+    border: 1px solid #BEE3F8;
+    background-color: #F7FAFC;
+    border-radius: 16px;
+    padding: 20px;
+    text-align: center;
+}
+
+.info-title {
+    font-size: 15px;
+    font-weight: 800;
+    color: #000000;
+    margin-bottom: 16px;
+}
+
+.info-grid {
+    display: flex;
+    justify-content: space-around;
+}
+
+.info-group {
+    flex: 1;
+    padding: 0 10px;
+}
+
+.info-group h4 {
+    font-size: 13px;
+    font-weight: 700;
+    color: #1D5BF2;
+    margin-bottom: 4px;
+}
+
+.info-group p {
+    font-size: 12px;
+    color: #718096;
+    font-weight: 500;
+}
+
+@media (max-width: 768px) {
+    .modal-planos-content {
+        max-width: 95%;
+    }
+
+    .plans-container-modal {
+        padding: 30px 20px 20px 20px;
+    }
+
+    .plan-card {
+        min-width: 220px;
+        max-width: 240px;
+    }
+
+    .info-grid {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+@media (max-width: 640px) {
+    .modal-planos-overlay {
+        padding: 0;
+    }
+
+    .modal-planos-content {
+        max-width: 100%;
+        border-radius: 0;
+        max-height: 100vh;
+    }
+
+    .modal-planos-close {
+        top: 12px;
+        right: 12px;
+    }
+
+    .plans-modal-header {
+        padding: 20px 16px;
+    }
+
+    .plans-container-modal {
+        flex-direction: column;
+        align-items: center;
+        padding: 20px 16px;
+    }
+
+    .plan-card {
+        min-width: 100%;
+        max-width: 100%;
+    }
+
+    .info-section-modal {
+        margin: 10px 16px 0 16px;
+    }
+}
+
 @media (max-width: 600px) {
     .input-group {
         flex-direction: column;

@@ -5,6 +5,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const planCards = document.querySelectorAll(".plan-card");
     const actionButtons = document.querySelectorAll(".btn-action");
 
+    // Detecta se está em modal ou página separada
+    const isInModal = document.getElementById("modalPlanos") !== null;
+
     // Adiciona o evento de clique em cada botão
     actionButtons.forEach((button) => {
         button.addEventListener("click", (event) => {
@@ -25,7 +28,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
             // Simula a ação do plano
             if (planName.toLowerCase() === "gratuito") {
-                window.location.href = "index.html";
+                // Se está em modal, apenas fecha o modal. Senão, redireciona para index.html
+                if (isInModal && typeof fecharModalPlanos !== 'undefined') {
+                    fecharModalPlanos();
+                } else {
+                    window.location.href = "index.html";
+                }
             } else {
                 // Extrai a informação do plano selecionado
                 const priceElement = currentCard.querySelector(".plan-price");
