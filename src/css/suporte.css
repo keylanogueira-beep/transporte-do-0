@@ -1,0 +1,308 @@
+/* --- Variáveis de Cores e Padrões --- */
+:root {
+    --primary-color: #0f172a;    /* Azul Escuro (Confiança e Gestão) */
+    --secondary-color: #2563eb;  /* Azul de Destaque (Tecnologia/Ação) */
+    --hover-color: #1d4ed8;      
+    --bg-light: #f8fafc;         /* Fundo cinza claro para formulários */
+    --text-dark: #334155;        /* Texto principal */
+    --text-muted: #64748b;      
+    --white: #ffffff;
+    --success: #10b981;          /* Verde para chamados enviados */
+    --radius: 8px;
+    --transition: all 0.3s ease;
+}
+
+
+/* --- Resets --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+
+body {
+    background-color: var(--white);
+    color: var(--text-dark);
+    line-height: 1.6;
+}
+
+
+/* --- Layout --- */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+
+.container-small {
+    max-width: 650px;
+}
+
+
+.section {
+    padding: 60px 0;
+}
+
+
+.bg-light {
+    background-color: var(--bg-light);
+}
+
+
+.section-title {
+    text-align: center;
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+
+.section-subtitle {
+    text-align: center;
+    color: var(--text-muted);
+    margin-bottom: 40px;
+    font-size: 1rem;
+}
+
+
+/* --- Navbar --- */
+.navbar {
+    background-color: var(--primary-color);
+    padding: 20px 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.logo {
+    color: var(--white);
+    font-size: 1.3rem;
+    text-decoration: none;
+}
+
+
+.logo i {
+    color: var(--secondary-color);
+    margin-right: 5px;
+}
+
+
+nav a {
+    color: var(--white);
+    text-decoration: none;
+    margin-left: 20px;
+    font-size: 0.95rem;
+    transition: var(--transition);
+}
+
+
+nav a:hover {
+    color: var(--secondary-color);
+}
+
+
+.btn-primary {
+    background-color: var(--secondary-color);
+    padding: 8px 18px;
+    border-radius: var(--radius);
+}
+
+
+.btn-primary:hover {
+    background-color: var(--hover-color);
+    color: var(--white) !important;
+}
+
+
+/* --- Hero Section (Ajustada sem barra de busca) --- */
+.hero {
+    background: linear-gradient(135deg, var(--primary-color) 0%, #1e293b 100%);
+    color: var(--white);
+    padding: 90px 0;
+    text-align: center;
+}
+
+
+.hero h1 {
+    font-size: 2.6rem;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+
+.hero p {
+    color: #cbd5e1;
+    font-size: 1.15rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+
+/* --- Cards de Categorias (Três Públicos de Camaçari) --- */
+.grid-categories {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+
+.card {
+    background: var(--white);
+    border: 1px solid #e2e8f0;
+    border-radius: var(--radius);
+    padding: 35px 25px;
+    text-align: center;
+    transition: var(--transition);
+}
+
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    border-color: var(--secondary-color);
+}
+
+
+.card-icon {
+    font-size: 2.2rem;
+    color: var(--secondary-color);
+    margin-bottom: 18px;
+}
+
+
+.card h3 {
+    color: var(--primary-color);
+    margin-bottom: 12px;
+    font-size: 1.25rem;
+}
+
+
+.card p {
+    color: var(--text-muted);
+    font-size: 0.92rem;
+    text-align: justify;
+}
+
+
+/* --- Formulário de Suporte --- */
+.support-form {
+    background: var(--white);
+    padding: 40px;
+    border-radius: var(--radius);
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+}
+
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--primary-color);
+}
+
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #cbd5e1;
+    border-radius: var(--radius);
+    outline: none;
+    font-size: 1rem;
+    transition: var(--transition);
+}
+
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: var(--secondary-color);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+
+.btn-submit {
+    background-color: var(--secondary-color);
+    color: var(--white);
+    border: none;
+    padding: 14px 20px;
+    width: 100%;
+    border-radius: var(--radius);
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+
+.btn-submit:hover {
+    background-color: var(--hover-color);
+}
+
+
+/* Feedback do Sistema */
+.form-feedback {
+    margin-top: 15px;
+    padding: 12px;
+    border-radius: var(--radius);
+    text-align: center;
+    font-weight: 500;
+}
+
+
+.form-feedback.success {
+    background-color: #d1fae5;
+    color: #065f46;
+}
+
+
+.hidden {
+    display: none;
+}
+
+
+/* --- Rodapé --- */
+footer {
+    background-color: var(--primary-color);
+    color: #94a3b8;
+    padding: 30px 0;
+    text-align: center;
+    font-size: 0.88rem;
+}
+
+
+/* --- Responsividade --- */
+@media (max-width: 768px) {
+    .nav-container {
+        flex-direction: column;
+        gap: 15px;
+    }
+    nav a {
+        margin: 0 10px;
+    }
+    .hero h1 {
+        font-size: 2rem;
+    }
+    .support-form {
+        padding: 20px;
+    }
+}

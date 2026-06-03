@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Central de Suporte - transCamaçari</title>
+    <link rel="stylesheet" href="/src/css/suporte.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+
+    <header class="navbar">
+        <div class="container nav-container">
+            <a href="#" class="logo"><i class="fa-solid fa-bus"></i> trans<strong>Camaçari</strong></a>
+            <nav>
+                <a href="#faq">Base de Conhecimento</a>
+                <a href="#ticket" class="btn-primary">Abrir Chamado Técnico</a>
+            </nav>
+        </div>
+    </header>
+
+
+    <section class="hero">
+        <div class="container hero-content">
+            <h1>Suporte e Transparência em Mobilidade</h1>
+            <p>Canal de atendimento para cidadãos, cooperativas e empresas parceiras do Polo Industrial de Camaçari.</p>
+        </div>
+    </section>
+
+
+    <section id="faq" class="container section">
+        <h2 class="section-title">Como podemos ajudar?</h2>
+        <p class="section-subtitle">Selecione o tema para entender melhor o funcionamento da plataforma móvel.</p>
+       
+        <div class="grid-categories">
+            <div class="card">
+                <div class="card-icon"><i class="fa-solid fa-map-location-dot"></i></div>
+                <h3>Cidadão / Usuário Final</h3>
+                <p>Dúvidas sobre o uso do site gratuito, validação do sistema de login via CPF para rotas privadas e cobertura de frotas cooperativas integradas nos bairros de Camaçari.</p>
+            </div>
+
+
+            <div class="card">
+                <div class="card-icon"><i class="fa-solid fa-credit-card"></i></div>
+                <h3>Dúvidas sobre o Pagamento</h3>
+                <p>Esclarecimentos sobre os modelos de contratação: faturamento estruturado sob formato SaaS para entidades controladoras ou divisão proporcional do custo per capita por funcionário.</p>
+            </div>
+
+
+            <div class="card">
+                <div class="card-icon"><i class="fa-solid fa-industry"></i></div>
+                <h3>Setor Privado / Polo</h3>
+                <p>Suporte operacional para equipes de Recursos Humanos e logística corporativa. Informações sobre acompanhamento de frotas privadas e auditoria de pontualidade no Polo Industrial.</p>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="ticket" class="bg-light section">
+        <div class="container container-small">
+            <h2 class="section-title">Abertura de Chamado ou Prova de Conceito</h2>
+            <p class="section-subtitle">Reporte falhas de rotas, tire dúvidas financeiras ou envie solicitações comerciais do sistema municipal.</p>
+
+
+            <form id="supportForm" class="support-form">
+                <div class="form-group">
+                    <label for="name">Nome Completo / Instituição</label>
+                    <input type="text" id="name" required placeholder="Ex: João da Silva ou RH Empresa X">
+                </div>
+
+
+                <div class="form-group">
+                    <label for="email">E-mail de Contato</label>
+                    <input type="email" id="email" required placeholder="Ex: contato@empresa.com.br">
+                </div>
+
+
+                <div class="form-group">
+                    <label for="profile">Seu Perfil de Acesso</label>
+                    <select id="profile" required>
+                        <option value="" disabled selected>Selecione seu perfil...</option>
+                        <option value="usuario">Cidadão (Uso do CPF / Rotas por bairro)</option>
+                        <option value="empresa">Empresa Privada / Parceiro Comercial</option>
+                        <option value="financeiro">Dúvidas de Faturamento / Licenciamento</option>
+                    </select>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="subject">Assunto Principal</label>
+                    <select id="subject" required>
+                        <option value="" disabled selected>Selecione uma opção...</option>
+                        <option value="tecnico">Instabilidade no GPS / Atualização em Tempo Real</option>
+                        <option value="cadastro">Problema no Login via CPF (Rotas Privadas)</option>
+                        <option value="financeiro">Dúvida sobre Faturamento (SaaS / Per Capita)</option>
+                        <option value="cooperativa">Cadastrar Nova Frota Cooperativa / Autônoma</option>
+                    </select>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="message">Mensagem / Detalhes da Solicitação</label>
+                    <textarea id="message" rows="5" required placeholder="Descreva sua necessidade com base nas diretrizes de transporte de Camaçari..."></textarea>
+                </div>
+
+
+                <button type="submit" class="btn-submit">Enviar para Análise</button>
+                <div id="formFeedback" class="form-feedback hidden"></div>
+            </form>
+        </div>
+    </section>
+
+
+    <footer>
+        <div class="container footer-content">
+            <p>MobiCamaçari &copy; 2026. Tecnologia baseada na Lei Federal nº 12.587/2012 e dados estatísticos da STT / IBGE.</p>
+        </div>
+    </footer>
+
+
+    <script src="/src/js/suporte.js"></script>
+</body>
+</html>
