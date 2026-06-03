@@ -36,6 +36,25 @@ const formatCPF = (value) => {
         .replace(/^(\d{3})\.(\d{3})(\d)/, "$1.$2.$3")
         .replace(/^(\d{3})\.(\d{3})\.(\d{3})(\d)/, "$1.$2.$3-$4");
 };
+
+const urlParams = new URLSearchParams(window.location.search);
+const selectedPlan = urlParams.get('plano');
+const selectedValor = urlParams.get('valor');
+const planBadgeStrong = document.querySelector('.plan-badge strong');
+
+if (selectedPlan && selectedValor && planBadgeStrong) {
+    const textoPeriodo = selectedPlan === 'mensal' ? '/mês' : selectedPlan === 'anual' ? '/ano' : '';
+    planBadgeStrong.textContent = `${selectedPlan} (R$ ${selectedValor}${textoPeriodo})`;
+}
+
+function redirectAfterAuth() {
+    if (selectedPlan && selectedValor) {
+        window.location.href = `pagamento.html?plano=${encodeURIComponent(selectedPlan)}&valor=${encodeURIComponent(selectedValor)}`;
+    } else {
+        window.location.href = "Dashboard.html";
+    }
+}
+
 // Permitir apenas letras e espaços no campo de nome
 inputNome.addEventListener("input", (e) => {
     e.target.value = e.target.value.replace(/[^a-záéíóúàâêôãõñç\s]/gi, "");
@@ -56,11 +75,11 @@ if (inputLoginCPF) {
 // Ação de Envio - Formulário de Login
 formLogin.addEventListener("submit", (e) => {
     e.preventDefault(); // Impede o recarregamento da página
-    // O navegador cuida da mensagem "Preencha este campo"
+    redirectAfterAuth();
 });
 
 // Ação de Envio - Formulário de Cadastro
 formCadastro.addEventListener("submit", (e) => {
     e.preventDefault(); // Impede o recarregamento da página
-    // O navegador cuida da mensagem "Preencha este campo"
+    redirectAfterAuth();
 });

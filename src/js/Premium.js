@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
             if (planName.toLowerCase() === "gratuito") {
                 window.location.href = "index.html";
             } else {
-                // Extrai o valor do plano
+                // Extrai a informação do plano selecionado
                 const priceElement = currentCard.querySelector(".plan-price");
                 const price = priceElement ? priceElement.innerText.replace("R$ ", "").replace(",", ".") : "0";
                 
@@ -36,8 +36,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 params.append("plano", planName.toLowerCase());
                 params.append("valor", price);
                 
-                // Redireciona para pagamento.html
-                window.location.href = `pagamento.html?${params.toString()}`;
+                // Redireciona para a página de login antes do pagamento
+                window.location.href = `login.html?${params.toString()}`;
             }
         });
     });
