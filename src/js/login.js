@@ -69,7 +69,7 @@ function redirectAfterAuth() {
     if (selectedPlan && selectedValor) {
         window.location.href = `pagamento.html?plano=${encodeURIComponent(selectedPlan)}&valor=${encodeURIComponent(selectedValor)}`;
     } else {
-        window.location.href = "Dashboard.html";
+        window.location.href = "DashboardV.html";
     }
 }
 

@@ -545,7 +545,7 @@ function submitEntrar(e) {
     if (ok) {
         fecharModalLogin();
         localStorage.setItem("isLoggedIn", "true");
-        window.location.href = "Dashboard.html";
+        window.location.href = "DashboardV.html";
     }
 }
 
@@ -588,7 +588,7 @@ function submitCriar(e) {
     }
     if (ok) {
         fecharModalLogin();
-        window.location.href = "Dashboard.html";
+        window.location.href = "DashboardV.html";
     }
 }
 
