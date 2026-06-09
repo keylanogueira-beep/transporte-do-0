@@ -221,13 +221,148 @@
 }
 
 
-/* --- Rodapé --- */
-footer {
-    background-color: var(--primary-color);
+/* FOOTER */
+
+
+.main-footer {
+    background-color: #0f172a;
     color: #94a3b8;
-    padding: 30px 0;
+    padding: 60px 0 30px;
+    font-size: 0.9rem;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 40px;
+    padding-bottom: 40px;
+}
+
+.footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.footer-logo .logo-box {
+    background-color: #2563eb;
+    padding: 8px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer-logo .brand-name {
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 800;
+}
+
+.brand-description {
+    line-height: 1.6;
+    margin-bottom: 20px;
+    max-width: 450px;
+}
+
+.social-links {
+    display: flex;
+    gap: 15px;
+}
+
+.social-icon {
+    color: #94a3b8;
+    font-size: 1.2rem;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.social-icon:hover {
+    color: white;
+}
+
+.footer-column h4 {
+    color: white;
+    margin-bottom: 20px;
+    font-size: 1rem;
+}
+
+.footer-column nav {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.footer-column nav a {
+    color: #94a3b8;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.footer-column nav a:hover {
+    color: white;
+}
+
+.footer-column li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.footer-column address {
+    font-style: normal;
+}
+
+.footer-column address p {
+    margin-bottom: 12px;
+}
+
+.footer-legal {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.legal-links {
+    display: flex;
+    gap: 20px;
+}
+
+.legal-links a {
+    color: #94a3b8;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.legal-links a:hover {
+    color: white;
+}
+
+.footer-credits {
     text-align: center;
-    font-size: 0.88rem;
+    margin-top: 30px;
+    font-size: 0.8rem;
+    opacity: 0.6;
+    line-height: 1.5;
+}
+
+.tech-stack {
+    margin-top: 5px;
+}
+
+/* Buscar Rotas Privadas — cor do título */
+#buscarRotasPrivadas .search-header h2 {
+    color: #2563eb;
+}
+
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(14px); }
+    to   { opacity: 1; transform: translateY(0); }
 }
 
 
