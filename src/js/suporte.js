@@ -56,3 +56,24 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
+function abrirModalPlanos() {
+    const modal = document.getElementById('modalPlanos');
+    if (!modal) return;
+    modal.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+}
+
+function fecharModalPlanos() {
+    const modal = document.getElementById('modalPlanos');
+    if (!modal) return;
+    modal.style.display = 'none';
+    document.body.style.overflow = 'auto';
+}
+
+window.addEventListener('click', function(event) {
+    const modal = document.getElementById('modalPlanos');
+    if (event.target === modal) {
+        fecharModalPlanos();
+    }
+});
+

@@ -537,13 +537,7 @@ section {
     background-color: #ffffff;
     border: 1px solid #f3f4f6;
     border-radius: 16px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-}
-
-.feature-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.07);
 }
 
 .feature-icon-box {
@@ -1520,6 +1514,12 @@ section {
 
 .footer-column nav a:hover {
     color: white;
+}
+
+.footer-column li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
 }
 
 .footer-column address {

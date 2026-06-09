@@ -2,10 +2,10 @@
 :root {
     --primary-color: #0f172a;    /* Azul Escuro (Confiança e Gestão) */
     --secondary-color: #2563eb;  /* Azul de Destaque (Tecnologia/Ação) */
-    --hover-color: #1d4ed8;      
+    --hover-color: #1d4ed8;
     --bg-light: #f8fafc;         /* Fundo cinza claro para formulários */
     --text-dark: #334155;        /* Texto principal */
-    --text-muted: #64748b;      
+    --text-muted: #64748b;
     --white: #ffffff;
     --success: #10b981;          /* Verde para chamados enviados */
     --radius: 8px;
@@ -13,30 +13,7 @@
 }
 
 
-/* --- Resets --- */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-
-body {
-    background-color: var(--white);
-    color: var(--text-dark);
-    line-height: 1.6;
-}
-
-
-/* --- Layout --- */
-.container {
-    width: 90%;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-
+/* --- Layout de Suporte --- */
 .container-small {
     max-width: 650px;
 }
@@ -68,91 +45,34 @@ body {
 }
 
 
-/* --- Navbar --- */
-.navbar {
-    background-color: var(--primary-color);
-    padding: 20px 0;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-}
-
-
-.nav-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-
-.logo {
-    color: var(--white);
-    font-size: 1.3rem;
-    text-decoration: none;
-}
-
-
-.logo i {
-    color: var(--secondary-color);
-    margin-right: 5px;
-}
-
-
-nav a {
-    color: var(--white);
-    text-decoration: none;
-    margin-left: 20px;
-    font-size: 0.95rem;
-    transition: var(--transition);
-}
-
-
-nav a:hover {
-    color: var(--secondary-color);
-}
-
-
-.btn-primary {
-    background-color: var(--secondary-color);
-    padding: 8px 18px;
-    border-radius: var(--radius);
-}
-
-
-.btn-primary:hover {
-    background-color: var(--hover-color);
-    color: var(--white) !important;
-}
-
-
-/* --- Hero Section (Ajustada sem barra de busca) --- */
+/* --- Hero Section --- */
 .hero {
     background: linear-gradient(135deg, var(--primary-color) 0%, #1e293b 100%);
     color: var(--white);
-    padding: 90px 0;
+    padding: 110px 0;
     text-align: center;
 }
 
 
 .hero h1 {
-    font-size: 2.6rem;
-    margin-bottom: 15px;
-    font-weight: 700;
+    font-size: 3rem;
+    margin-bottom: 20px;
+    font-weight: 800;
 }
 
 
 .hero p {
     color: #cbd5e1;
     font-size: 1.15rem;
-    max-width: 800px;
+    max-width: 760px;
     margin: 0 auto;
 }
 
 
-/* --- Cards de Categorias (Três Públicos de Camaçari) --- */
+/* --- Cards de Categorias --- */
 .grid-categories {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 30px;
     margin-top: 40px;
 }
@@ -191,7 +111,7 @@ nav a:hover {
 
 .card p {
     color: var(--text-muted);
-    font-size: 0.92rem;
+    font-size: 0.95rem;
     text-align: justify;
 }
 
@@ -214,7 +134,7 @@ nav a:hover {
     display: block;
     margin-bottom: 8px;
     font-weight: 600;
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     color: var(--primary-color);
 }
 
@@ -223,7 +143,7 @@ nav a:hover {
 .form-group select,
 .form-group textarea {
     width: 100%;
-    padding: 12px;
+    padding: 14px;
     border: 1px solid #cbd5e1;
     border-radius: var(--radius);
     outline: none;
@@ -248,7 +168,7 @@ nav a:hover {
     width: 100%;
     border-radius: var(--radius);
     font-size: 1rem;
-    font-weight: 600;
+    font-weight: 700;
     cursor: pointer;
     transition: var(--transition);
 }
@@ -256,6 +176,27 @@ nav a:hover {
 
 .btn-submit:hover {
     background-color: var(--hover-color);
+}
+
+
+.form-feedback {
+    margin-top: 20px;
+    padding: 16px;
+    border-radius: var(--radius);
+    border: 1px solid transparent;
+    font-weight: 600;
+}
+
+
+.form-feedback.success {
+    background-color: #ecfdf5;
+    border-color: #10b981;
+    color: #0f172a;
+}
+
+
+.hidden {
+    display: none;
 }
 
 
