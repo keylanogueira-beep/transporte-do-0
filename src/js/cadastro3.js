@@ -76,6 +76,6 @@ form?.addEventListener("submit", (e) => {
         window.location.href =
             `pagamento.html?plano=${plan}&valor=${value}`;
     } else {
-        window.location.href = "DashboardV.html";
+        window.location.href = "pagamento.html";
     }
 });
