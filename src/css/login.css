@@ -24,6 +24,23 @@ body {
     background: #e7ebf7;
 }
 
+.close-btn {
+   width: 34px;
+    height: 34px;
+    border: none;
+    border-radius: 50%;
+    background: #f3f4f6;
+    color: #6b7280;
+    font-size: 1.3rem;
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+}
+
 .auth-page {
     width: min(100%, 380px);
     max-width: 380px;
