@@ -20,8 +20,21 @@ body {
     align-items: center;
     justify-content: center;
     min-height: 100vh;
-    padding: 16px;
-    background: #e7ebf7;
+    margin: 0;
+    position: relative;
+    overflow: hidden;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: url("../img/fundo_login_cadastro.png") center/cover no-repeat;
+
+  
+    transform: scale(1.1);  
+
+    z-index: -1;
 }
 
 .close-btn {

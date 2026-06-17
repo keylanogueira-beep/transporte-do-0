@@ -4,6 +4,8 @@
 
 :root {
     --main-blue:        #2563eb;
+    --orange:       #f97316;
+    --roxo:         #7E2F8A;
     --hover-blue:       #1e40af;
     --dark-text:        #111827;
     --body-text:        #4b5563;
@@ -70,18 +72,18 @@ section {
 }
 
 .logo-icon-placeholder {
-    width: 38px;
-    height: 38px;
-    background: var(--main-blue);
+    width: 70px;
+    height: 70px;
     border-radius: 8px;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.logo-icon-placeholder svg {
-    width: 70%;
-    height: 70%;
+.logo-icon-placeholder img{
+    width: 200%;
+    height: 150%;
+    padding-right: 30px;
     display: block;
 }
 
@@ -130,7 +132,7 @@ section {
 }
 
 .btn-black {
-    background: #0f172a;
+    background: #7E2F8A;
     color: #fff;
     padding: 10px 22px;
     border-radius: 8px;
@@ -143,8 +145,8 @@ section {
 
 .btn-outline-blue {
     background: transparent;
-    color: var(--main-blue);
-    border: 2px solid var(--main-blue);
+    color: var(--roxo);
+    border: 2px solid var(--roxo);
     padding: 10px 22px;
     border-radius: 8px;
     font-weight: 700;
@@ -303,8 +305,8 @@ section {
 }
 
 .status-banner {
-    background-color: #f0fdf4;
-    border: 1px solid #bbf7d0;
+    background-color: #ffdfba;
+    border: 1px solid var(--orange);
     border-radius: 8px;
     padding: 12px 16px;
     display: flex;
@@ -319,11 +321,11 @@ section {
     display: flex;
     align-items: center;
     gap: 8px;
-    color: #166534;
+    color: #000000;
 }
 
 .status-right {
-    color: #166534;
+    color: #000000;
     font-size: 0.9rem;
 }
 
@@ -360,7 +362,7 @@ section {
 }
 
 .btn-search {
-    background-color: #2563eb;
+    background-color: var(--roxo);
     color: white;
     border: none;
     padding: 12px 24px;
@@ -490,7 +492,7 @@ section {
 .impact-icon-circle {
     width: 45px;
     height: 45px;
-    background-color: #3b82f6;
+    background-color: #94BE1F;
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -573,7 +575,7 @@ section {
 }
 
 .main-team-card {
-    background-color: #2563eb;
+    background-color: #94BE1F;
     border-radius: 24px;
     padding: 48px;
     display: grid;
@@ -1117,13 +1119,13 @@ section {
     align-items: center;
     gap: 12px;
     padding: 14px 20px;
-    background: #eff6ff;
+    background: #7e2f8a2d;
     border-bottom: 1px solid #dbeafe;
 }
 
 .sr-linha-icon {
     width: 34px; height: 34px;
-    background: #2563eb;
+    background: #a855f7;
     border-radius: 8px;
     display: flex; align-items: center; justify-content: center;
     flex-shrink: 0;
@@ -1132,7 +1134,7 @@ section {
 .sr-linha-nome {
     font-size: 1rem;
     font-weight: 700;
-    color: #1e3a8a;
+    color: #000000;
 }
 
 .sr-linha-body {
@@ -1190,7 +1192,7 @@ section {
 }
 
 .sr-tag {
-    background: #eff6ff;
+    background: #7e2f8a49;
     color: #2563eb;
     font-size: 0.75rem;
     font-weight: 600;
@@ -1272,7 +1274,7 @@ section {
 }
 
 .sr-ponto-item.chegando {
-    background: #eff6ff;
+    background: #7e2f8a28;
     border-color: #bfdbfe;
 }
 
@@ -1454,15 +1456,21 @@ section {
     align-items: center;
     gap: 10px;
     margin-bottom: 20px;
+    margin-top: -10px;
 }
 
 .footer-logo .logo-box {
-    background-color: #2563eb;
+     margin-top: 0;
     padding: 8px;
     border-radius: 8px;
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.logo-box img{
+    width: 80px;
+    height: 90px;
 }
 
 .footer-logo .brand-name {
@@ -1568,7 +1576,7 @@ section {
 
 /* Buscar Rotas Privadas — cor do título */
 #buscarRotasPrivadas .search-header h2 {
-    color: #2563eb;
+    color: #000000;
 }
 
 @keyframes fadeUp {
@@ -1658,7 +1666,7 @@ section {
     border-radius: 24px;
     overflow: hidden;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-    padding-bottom: 25px;
+    padding-bottom: 40px;
     position: relative;
     animation: slideUp 0.3s ease-out;
     max-height: calc(100vh - 60px);
@@ -1737,28 +1745,6 @@ section {
     align-items: center;
     text-align: center;
     transition: transform 0.3s ease, border-width 0.2s ease, box-shadow 0.3s ease;
-}
-
-.forgot-password {
-    display: flex;
-    justify-content: center;
-    margin-top: 18px;
-    text-align: center;
-}
-
-.forgot-password p {
-    margin: 0;
-    color: #6b7280;
-}
-
-.forgot-password a {
-    color: #2563eb;
-    text-decoration: none;
-    font-weight: 600;
-}
-
-.forgot-password a:hover {
-    text-decoration: underline;
 }
 
 .plan-card.mensal { border-color: #4A5568; }
