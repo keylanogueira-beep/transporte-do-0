@@ -23,7 +23,7 @@ body {
     border-radius: 24px;
     overflow: hidden;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-    padding-bottom: 40px;
+    padding-bottom: 25px;
 }
 
 /* Cabeçalho Azul */
@@ -183,6 +183,29 @@ body {
 
 .btn-action:hover {
     opacity: 0.9;
+}
+
+/* css "esqueceu senha" */
+.forgot-password {
+    display: flex;
+    justify-content: center;
+    margin-top: 18px;
+    text-align: center;
+}
+
+.forgot-password p {
+    margin: 0;
+    color: #6b7280;
+}
+
+.forgot-password a {
+    color: #2563eb;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.forgot-password a:hover {
+    text-decoration: underline;
 }
 
 /* Seção Inferior: Quem pode usar */
