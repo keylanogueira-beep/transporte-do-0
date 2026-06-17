@@ -45,8 +45,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 params.append("valor", price);
                 params.append("mode", "criar");
                 
-                // Redireciona para a página de login antes do pagamento
-                window.location.href = `login.html?${params.toString()}`;
+                // Redireciona para a página de cadastro antes do pagamento
+                window.location.href = `cadastro1.html?${params.toString()}`;
             }
         });
     });

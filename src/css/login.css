@@ -252,8 +252,8 @@ body {
 .forgot-password {
     display: flex;
     justify-content: center;
-    margin-top: -4px;
-    margin-bottom: 12px;
+    margin-top: 5px;
+    margin-bottom: 7px;
 }
 
 .forgot-password a {

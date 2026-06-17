@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro - Passo 2</title>
+    <link rel="stylesheet" href="../css/login.css">
+</head>
+<body>
+
+<main class="auth-page">
+    <section class="auth-card">
+
+        <header class="card-top">
+            <div>
+                <h1>Criar Conta</h1>
+                <p>Passo 2 de 3</p>
+            </div>
+        </header>
+
+        <div class="plan-badge">
+            <span>Plano selecionado:</span>
+            <strong>carregando...</strong>
+        </div>
+
+        <form id="cadastroPasso2">
+
+            <label class="form-field">
+                <span>Telefone</span>
+                <input type="tel" name="telefone" placeholder="(71) 99999-9999" required>
+            </label>
+
+            <label class="form-field">
+                <span>Email</span>
+                <input type="email" name="email" placeholder="seu@email.com" required>
+            </label>
+
+            <div class="step-actions">
+
+                <button type="button" id="btnVoltarPasso1" class="back-btn">
+                    Voltar
+                </button>
+
+                <button type="submit" class="submit-btn">
+                    Continuar
+                </button>
+
+            </div>
+
+        </form>
+
+        <div class="forgot-password">
+            <p>
+                Já possui conta?
+                <a href="login.html">Entrar</a>
+            </p>
+        </div>
+
+    </section>
+</main>
+
+<script src="../js/cadastro2.js"></script>
+
+</body>
+</html>

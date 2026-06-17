@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Recuperar Senha</title>
+
+    <link rel="stylesheet" href="../css/login.css" />
+    <link rel="stylesheet" href="../css/acessibilidade.css" />
+</head>
+
+<body>
+    <main class="auth-page">
+        <section class="auth-card">
+
+            <header class="card-top">
+                <div>
+                    <h1>Recuperar senha</h1>
+                    <p>Informe seu email para receber o link de recuperação.</p>
+                </div>
+
+                <button
+                    type="button"
+                    class="close-btn"
+                    aria-label="Fechar"
+                    onclick="window.history.back();"
+                >
+                    ×
+                </button>
+            </header>
+
+            <div class="tab-switcher method-switcher">
+                <button
+                    type="button"
+                    id="btnMetodoEmail"
+                    class="tab active"
+                >
+                    Email
+                </button>
+
+                <button
+                    type="button"
+                    id="btnMetodoTelefone"
+                    class="tab"
+                >
+                    Telefone
+                </button>
+            </div>
+
+            <form id="formRecuperacao" class="auth-form">
+                <label class="form-field">
+                    <span>Email</span>
+
+                    <input
+                        type="email"
+                        name="identificador"
+                        placeholder="seu@email.com"
+                        required
+                    />
+                </label>
+
+                <div class="info-card">
+                    <p>
+                        Enviaremos um código de recuperação para o seu email,
+                        verifique sua caixa de entrada.
+                    </p>
+                </div>
+
+                <button class="submit-btn" type="submit">
+                    Enviar código
+                </button>
+
+                <div class="forgot-password">
+                    <a href="login.html?mode=entrar">
+                        Voltar para login
+                    </a>
+                </div>
+            </form>
+
+        </section>
+    </main>
+
+    <script src="../js/recuperacao_email.js"></script>
+    <script src="../js/login.js"></script>
+    <script src="../js/acessibilidade.js"></script>
+</body>
+</html>
