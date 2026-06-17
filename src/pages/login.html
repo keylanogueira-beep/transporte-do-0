@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Acesso às Rotas Privadas</title>
-    <link rel="stylesheet" href="../css/login.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entrar</title>
+    <link rel="stylesheet" href="../css/login.css">
 </head>
 <body>
     <main class="auth-page">
@@ -18,7 +18,10 @@
             </header>
 
             <div id="loginAvisoPremium" class="info-card">
-                <p>Este acesso é somente para usuários com plano Premium. Pessoas comuns não precisam criar conta para usar o serviço público.</p>
+                <p>
+                    Este acesso é somente para usuários com plano Premium.
+                    Pessoas comuns não precisam criar conta para usar o serviço público.
+                </p>
             </div>
 
             <div class="plan-badge">
@@ -27,98 +30,36 @@
             </div>
 
             <form id="formLogin" class="auth-form" action="#" method="post">
+
                 <label class="form-field">
                     <span>CPF</span>
-                    <input type="text" placeholder="000.000.000-00" name="cpf" required />
+                    <input type="text" placeholder="000.000.000-00" name="cpf" required>
                 </label>
 
                 <label class="form-field">
                     <span>Senha</span>
-                    <input type="password" placeholder="••••••••••••" name="senha" required />
+                    <input type="password" placeholder="••••••••••••" name="senha" required>
                 </label>
 
-                <button class="submit-btn" type="submit">Entrar</button>
+                <button class="submit-btn" type="submit">
+                    Entrar
+                </button>
+
                 <div class="forgot-password">
                     <a href="recuperacao.html">Esqueceu a senha?</a>
                 </div>
+
+                <div class="forgot-password">
+                    <p>
+                        Não possui conta?
+                        <a href="cadastro.html">Criar Conta</a>
+                    </p>
+                </div>
+
             </form>
-
-            <form id="formCadastro" class="auth-form hidden" action="#" method="post">
-                <div class="step-indicator">
-                    <span id="stepIndicator">Passo 1 de 3</span>
-                </div>
-                <div class="form-step active" data-step="1">
-                    <label class="form-field">
-                        <span>Nome completo</span>
-                        <input type="text" placeholder="Ana Paula" name="nome" required />
-                        <span class="field-error" data-error-for="nome"></span>
-                    </label>
-
-                    <label class="form-field">
-                        <span>CPF</span>
-                        <input type="text" placeholder="000.000.000-00" name="cpf" required />
-                        <span class="field-error" data-error-for="cpf"></span>
-                    </label>
-
-                    <div class="step-actions">
-                        <button type="button" class="step-btn next-btn" data-next="2">Continuar</button>
-                    </div>
-                </div>
-
-                <div class="form-step" data-step="2">
-                    <label class="form-field">
-                        <span>Telefone</span>
-                        <input type="tel" placeholder="(71) 99999-9999" name="telefone" required />
-                        <span class="field-error" data-error-for="telefone"></span>
-                    </label>
-
-                    <label class="form-field">
-                        <span>Email</span>
-                        <input type="email" placeholder="seu@email.com" name="email" required />
-                        <span class="field-error" data-error-for="email"></span>
-                    </label>
-
-                    <div class="step-actions">
-                        <button type="button" class="step-btn back-btn" data-prev="1">Voltar</button>
-                        <button type="button" class="step-btn next-btn" data-next="3">Continuar</button>
-                    </div>
-                </div>
-
-                <div class="form-step" data-step="3">
-                    <label class="form-field password-field">
-                        <span>Senha</span>
-                        <div class="password-input-wrapper">
-                            <input type="password" placeholder="••••••••••••" name="senha" required />
-                            <button type="button" class="password-toggle" data-target="senha" aria-label="Mostrar senha">Mostrar</button>
-                        </div>
-                        <span class="field-error" data-error-for="senha"></span>
-                    </label>
-
-                    <label class="form-field password-field">
-                        <span>Confirmar senha</span>
-                        <div class="password-input-wrapper">
-                            <input type="password" placeholder="••••••••••••" name="senhaConfirm" required />
-                            <button type="button" class="password-toggle" data-target="senhaConfirm" aria-label="Mostrar senha">Mostrar</button>
-                        </div>
-                        <span class="field-error" data-error-for="senhaConfirm"></span>
-                    </label>
-
-                    <p id="passwordError" class="field-error"></p>
-
-                    <div class="info-card">
-                        <p><strong>Conta para Instituição:</strong> Cadastre sua empresa, escola ou organizações para gerenciar rotas privadas e veículos.</p>
-                        <p><strong>Funcionários/Alunos:</strong> Não precisa de uma conta, use a busca por CPF na página inicial.</p>
-                    </div>
-
-                    <div class="step-actions">
-                        <button type="button" class="step-btn back-btn" data-prev="2">Voltar</button>
-                        <button class="submit-btn" type="submit">Criar Conta</button>
-                    </div>
-                </div>
-            </form>
-
         </section>
     </main>
+
     <script src="../js/login.js"></script>
     <script src="../js/acessibilidade.js"></script>
 </body>
