@@ -4,7 +4,7 @@ describe('Cadastro - Passo 2', () => {
     cy.visit('src/pages/cadastro2.html');
   });
 
-  it('Telefone e email preenchidos corretamente', () => {
+  it('Todos os campos preenchidos corretamente', () => {
     cy.get('input[name="telefone"]')
       .type('71999999999');
 
@@ -15,7 +15,7 @@ describe('Cadastro - Passo 2', () => {
       .click();
   });
 
-  it('Telefone e email vazios', () => {
+  it('Todos os campos vazios', () => {
     cy.get('input[name="telefone"]').clear();
 
     cy.get('input[name="email"]').clear();

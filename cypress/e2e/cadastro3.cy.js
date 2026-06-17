@@ -26,4 +26,15 @@ describe('Cadastro - Passo 3', () => {
       .click();
   });
 
+   it('Campos não preenchidos', () => {
+    cy.get('input[name="senha"]')
+      .clear();
+
+    cy.get('input[name="senhaConfirm"]')
+      .clear();
+
+    cy.get('button[type="submit"]')
+      .click();
+  });
+
 });

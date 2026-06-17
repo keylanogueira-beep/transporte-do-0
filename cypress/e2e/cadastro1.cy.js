@@ -4,7 +4,7 @@ describe('Cadastro - Passo 1', () => {
     cy.visit('src/pages/cadastro1.html');
   });
 
-  it('Nome e CPF preenchidos corretamente', () => {
+  it('Todos os campos preenchidos corretamente', () => {
     cy.get('input[name="nome"]')
       .type('João da Silva');
 
@@ -15,7 +15,7 @@ describe('Cadastro - Passo 1', () => {
       .click();
   });
 
-  it('Nome e CPF vazios', () => {
+  it('Todos os campos vazios', () => {
     cy.get('input[name="nome"]').clear();
 
     cy.get('input[name="cpf"]').clear();

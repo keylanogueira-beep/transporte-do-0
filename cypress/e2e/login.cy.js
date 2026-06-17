@@ -4,7 +4,7 @@ describe('Tela de entrar', () => {
       cy.visit('src/pages/login.html');
     });
 
-    it('Os campos de CPF e senha deve estar preenchidos corretamente', () => {
+    it('Todos os campos preenchidos corretamente', () => {
       cy.get('#formLogin input[name="cpf"]')
         .type('12345678900')
 
