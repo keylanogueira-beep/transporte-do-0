@@ -72,18 +72,18 @@ section {
 }
 
 .logo-icon-placeholder {
-    width: 38px;
-    height: 38px;
-    background: var(--orange);
+    width: 70px;
+    height: 70px;
     border-radius: 8px;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.logo-icon-placeholder svg {
-    width: 70%;
-    height: 70%;
+.logo-icon-placeholder img{
+    width: 200%;
+    height: 150%;
+    padding-right: 30px;
     display: block;
 }
 
@@ -347,9 +347,9 @@ section {
 .input-group input {
     width: 100%;
     padding: 12px 16px;
-    border: 1px solid #7e2f8a4d;
+    border: 1px solid #e5e7eb;
     border-radius: 8px;
-    background-color: #7e2f8a04;
+    background-color: #f9fafb;
     outline: none;
     box-sizing: border-box;
     font-size: 1rem;
@@ -465,7 +465,7 @@ section {
 }
 
 .impact-card {
-    background-color: #f974161c;
+    background-color: #f0f7ff;
     padding: 30px;
     border-radius: 16px;
     display: flex;
@@ -473,7 +473,7 @@ section {
 }
 
 .impact-card h4 {
-    color: #000000;
+    color: #1e3a8a;
     margin-bottom: 30px;
     font-size: 1.3rem;
 }
@@ -1125,7 +1125,7 @@ section {
 
 .sr-linha-icon {
     width: 34px; height: 34px;
-    background: #f97316;
+    background: #a855f7;
     border-radius: 8px;
     display: flex; align-items: center; justify-content: center;
     flex-shrink: 0;
@@ -1193,7 +1193,7 @@ section {
 
 .sr-tag {
     background: #7e2f8a49;
-    color: #000000;
+    color: #2563eb;
     font-size: 0.75rem;
     font-weight: 600;
     padding: 4px 10px;
@@ -1209,7 +1209,7 @@ section {
 
 .sr-seq-rota {
     font-size: 0.8rem;
-    color: #000000;
+    color: #2563eb;
     font-weight: 500;
     line-height: 1.6;
     word-break: break-word;
@@ -1336,7 +1336,7 @@ section {
 }
 
 .sr-badge-tempo.normal   { background: #f0fdf4; color: #166534; }
-.sr-badge-tempo.chegando { background: #f97316; color: #fff; }
+.sr-badge-tempo.chegando { background: #2563eb; color: #fff; }
 
 .sr-badge-chegando-label {
     font-size: 0.65rem;
@@ -1355,7 +1355,7 @@ section {
     gap: 5px;
     background: none;
     border: none;
-    color: #000000;
+    color: #2563eb;
     font-size: 0.8rem;
     font-weight: 600;
     cursor: pointer;
@@ -1438,7 +1438,7 @@ section {
 
 
 .main-footer {
-    background-color: #0c0602;
+    background-color: #0f172a;
     color: #94a3b8;
     padding: 60px 0 30px;
     font-size: 0.9rem;
@@ -1456,15 +1456,21 @@ section {
     align-items: center;
     gap: 10px;
     margin-bottom: 20px;
+    margin-top: -10px;
 }
 
 .footer-logo .logo-box {
-    background-color: #f97316;
+     margin-top: 0;
     padding: 8px;
     border-radius: 8px;
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.logo-box img{
+    width: 80px;
+    height: 90px;
 }
 
 .footer-logo .brand-name {
@@ -1660,7 +1666,7 @@ section {
     border-radius: 24px;
     overflow: hidden;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-    padding-bottom: 25px;
+    padding-bottom: 40px;
     position: relative;
     animation: slideUp 0.3s ease-out;
     max-height: calc(100vh - 60px);
@@ -1739,28 +1745,6 @@ section {
     align-items: center;
     text-align: center;
     transition: transform 0.3s ease, border-width 0.2s ease, box-shadow 0.3s ease;
-}
-
-.forgot-password {
-    display: flex;
-    justify-content: center;
-    margin-top: 18px;
-    text-align: center;
-}
-
-.forgot-password p {
-    margin: 0;
-    color: #6b7280;
-}
-
-.forgot-password a {
-    color: #2563eb;
-    text-decoration: none;
-    font-weight: 600;
-}
-
-.forgot-password a:hover {
-    text-decoration: underline;
 }
 
 .plan-card.mensal { border-color: #4A5568; }
