@@ -4,6 +4,8 @@
 
 :root {
     --main-blue:        #2563eb;
+    --orange:       #f97316;
+    --roxo:         #7E2F8A;
     --hover-blue:       #1e40af;
     --dark-text:        #111827;
     --body-text:        #4b5563;
@@ -72,7 +74,7 @@ section {
 .logo-icon-placeholder {
     width: 38px;
     height: 38px;
-    background: var(--main-blue);
+    background: var(--orange);
     border-radius: 8px;
     display: flex;
     align-items: center;
@@ -130,7 +132,7 @@ section {
 }
 
 .btn-black {
-    background: #0f172a;
+    background: #7E2F8A;
     color: #fff;
     padding: 10px 22px;
     border-radius: 8px;
@@ -143,8 +145,8 @@ section {
 
 .btn-outline-blue {
     background: transparent;
-    color: var(--main-blue);
-    border: 2px solid var(--main-blue);
+    color: var(--roxo);
+    border: 2px solid var(--roxo);
     padding: 10px 22px;
     border-radius: 8px;
     font-weight: 700;
@@ -303,8 +305,8 @@ section {
 }
 
 .status-banner {
-    background-color: #f0fdf4;
-    border: 1px solid #bbf7d0;
+    background-color: #ffdfba;
+    border: 1px solid var(--orange);
     border-radius: 8px;
     padding: 12px 16px;
     display: flex;
@@ -319,11 +321,11 @@ section {
     display: flex;
     align-items: center;
     gap: 8px;
-    color: #166534;
+    color: #000000;
 }
 
 .status-right {
-    color: #166534;
+    color: #000000;
     font-size: 0.9rem;
 }
 
@@ -345,9 +347,9 @@ section {
 .input-group input {
     width: 100%;
     padding: 12px 16px;
-    border: 1px solid #e5e7eb;
+    border: 1px solid #7e2f8a4d;
     border-radius: 8px;
-    background-color: #f9fafb;
+    background-color: #7e2f8a04;
     outline: none;
     box-sizing: border-box;
     font-size: 1rem;
@@ -360,7 +362,7 @@ section {
 }
 
 .btn-search {
-    background-color: #2563eb;
+    background-color: var(--roxo);
     color: white;
     border: none;
     padding: 12px 24px;
@@ -463,7 +465,7 @@ section {
 }
 
 .impact-card {
-    background-color: #f0f7ff;
+    background-color: #f974161c;
     padding: 30px;
     border-radius: 16px;
     display: flex;
@@ -471,7 +473,7 @@ section {
 }
 
 .impact-card h4 {
-    color: #1e3a8a;
+    color: #000000;
     margin-bottom: 30px;
     font-size: 1.3rem;
 }
@@ -490,7 +492,7 @@ section {
 .impact-icon-circle {
     width: 45px;
     height: 45px;
-    background-color: #3b82f6;
+    background-color: #94BE1F;
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -573,7 +575,7 @@ section {
 }
 
 .main-team-card {
-    background-color: #2563eb;
+    background-color: #94BE1F;
     border-radius: 24px;
     padding: 48px;
     display: grid;
@@ -1117,13 +1119,13 @@ section {
     align-items: center;
     gap: 12px;
     padding: 14px 20px;
-    background: #eff6ff;
+    background: #7e2f8a2d;
     border-bottom: 1px solid #dbeafe;
 }
 
 .sr-linha-icon {
     width: 34px; height: 34px;
-    background: #2563eb;
+    background: #f97316;
     border-radius: 8px;
     display: flex; align-items: center; justify-content: center;
     flex-shrink: 0;
@@ -1132,7 +1134,7 @@ section {
 .sr-linha-nome {
     font-size: 1rem;
     font-weight: 700;
-    color: #1e3a8a;
+    color: #000000;
 }
 
 .sr-linha-body {
@@ -1190,8 +1192,8 @@ section {
 }
 
 .sr-tag {
-    background: #eff6ff;
-    color: #2563eb;
+    background: #7e2f8a49;
+    color: #000000;
     font-size: 0.75rem;
     font-weight: 600;
     padding: 4px 10px;
@@ -1207,7 +1209,7 @@ section {
 
 .sr-seq-rota {
     font-size: 0.8rem;
-    color: #2563eb;
+    color: #000000;
     font-weight: 500;
     line-height: 1.6;
     word-break: break-word;
@@ -1272,7 +1274,7 @@ section {
 }
 
 .sr-ponto-item.chegando {
-    background: #eff6ff;
+    background: #7e2f8a28;
     border-color: #bfdbfe;
 }
 
@@ -1334,7 +1336,7 @@ section {
 }
 
 .sr-badge-tempo.normal   { background: #f0fdf4; color: #166534; }
-.sr-badge-tempo.chegando { background: #2563eb; color: #fff; }
+.sr-badge-tempo.chegando { background: #f97316; color: #fff; }
 
 .sr-badge-chegando-label {
     font-size: 0.65rem;
@@ -1353,7 +1355,7 @@ section {
     gap: 5px;
     background: none;
     border: none;
-    color: #2563eb;
+    color: #000000;
     font-size: 0.8rem;
     font-weight: 600;
     cursor: pointer;
@@ -1436,7 +1438,7 @@ section {
 
 
 .main-footer {
-    background-color: #0f172a;
+    background-color: #0c0602;
     color: #94a3b8;
     padding: 60px 0 30px;
     font-size: 0.9rem;
@@ -1457,7 +1459,7 @@ section {
 }
 
 .footer-logo .logo-box {
-    background-color: #2563eb;
+    background-color: #f97316;
     padding: 8px;
     border-radius: 8px;
     display: flex;
@@ -1568,7 +1570,7 @@ section {
 
 /* Buscar Rotas Privadas — cor do título */
 #buscarRotasPrivadas .search-header h2 {
-    color: #2563eb;
+    color: #000000;
 }
 
 @keyframes fadeUp {
