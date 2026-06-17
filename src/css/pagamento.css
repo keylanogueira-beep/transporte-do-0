@@ -15,6 +15,23 @@ body {
     padding: 20px;
 }
 
+.card-pagamento .btn-fechar {
+   width: 34px;
+    height: 34px;
+    border: none;
+    border-radius: 50%;
+    background: #f3f4f6;
+    color: #6b7280;
+    font-size: 1.3rem;
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+}
+
 /* Estrutura do Card de Pagamento */
 .card-pagamento {
     background-color: #ffffff;
