@@ -1306,6 +1306,12 @@ section {
     min-width: 0;
 }
 
+.forgot-password {
+    padding-top: 1%;
+    justify-content: center;
+    display: flex;
+}
+
 .sr-ponto-nome {
     font-size: 0.82rem;
     font-weight: 600;
