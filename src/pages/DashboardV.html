@@ -153,13 +153,18 @@
         <form id="formAdicionarUsuario" class="modal-add-user-form" onsubmit="submitAdicionarUsuario(event)">
             <div class="add-user-field">
                 <label for="addNome">Nome Completo</label>
-                <input id="addNome" type="text" placeholder="Ana Paula">
+                <input id="addNome" type="text" placeholder="Nome ">
                 <span class="field-error" id="errAddNome"></span>
             </div>
             <div class="add-user-field">
                 <label for="addCpf">CPF</label>
                 <input id="addCpf" type="text" placeholder="000.000.000-00" maxlength="14">
                 <span class="field-error" id="errAddCpf"></span>
+            </div>
+            <div class="add-user-field">
+                <label for="addSenha">Senha</label>
+                <input id="addSenha" type="text" placeholder="Senha">
+                <span class="field-error" id="errAddSenha"></span>
             </div>
             <div class="add-user-field">
                 <label for="addTelefone">Telefone</label>
