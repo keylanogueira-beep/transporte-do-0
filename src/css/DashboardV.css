@@ -636,7 +636,8 @@ section {
         .btn-cancelar-user:hover { background: var(--bg); border-color: #d1d5db; }
         .btn-salvar-user { background: var(--green); color: var(--white); border-color: var(--green); }
         .btn-salvar-user:hover { background: var(--green-dark); border-color: var(--green-dark); transform: translateY(-1px); }
-
+        
+        
 
         /* Responsivo */
         @media (max-width: 640px) {
@@ -655,4 +656,64 @@ section {
 
      .vw-plugin-wrapper {
     z-index: 9999 !important;
+}
+
+
+/* ===== NAVBAR: estados de hover e página atual (Rotas Privadas) ===== */
+.nav-menu ul {
+    align-items: center;
+    gap: 8px;
+}
+
+.nav-menu li {
+    display: flex;
+    align-items: center;
+}
+
+.nav-menu a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 40px;
+    padding: 9px 12px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    line-height: 1.2;
+    transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+/* Os links continuam com suas cores originais, mas ganham aparência de botão no hover. */
+.nav-menu a:hover {
+    background-color: #f3e8f5;
+    color: #7E2F8A !important;
+    box-shadow: 0 2px 7px rgba(126, 47, 138, 0.14);
+    transform: translateY(-1px);
+}
+
+/* DashboardV é a página de Rotas Privadas: essa opção fica marcada sempre. */
+.nav-menu a.active,
+.nav-menu a[aria-current="page"] {
+    background-color: #f8eaf0;
+    color: #EA7A09 !important;
+    box-shadow: inset 0 -3px 0 #EA7A09;
+    font-weight: 700;
+}
+
+.nav-menu a.active:hover,
+.nav-menu a[aria-current="page"]:hover {
+    background-color: #f3e8f5;
+    color: #7E2F8A !important;
+    box-shadow: inset 0 -3px 0 #7E2F8A, 0 2px 7px rgba(126, 47, 138, 0.14);
+}
+
+.nav-menu a:focus-visible {
+    outline: 2px solid #7E2F8A;
+    outline-offset: 3px;
+}
+
+@media (max-width: 1050px) {
+    .nav-menu ul { gap: 4px; }
+    .nav-menu a { padding: 8px 7px; font-size: 0.82rem; }
 }
