@@ -9,7 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <!-- Leaflet -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.css"/>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
 </head>
 <body>
@@ -21,11 +21,7 @@
 
         <div class="logo-area">
             <div class="logo-icon-placeholder">
-                <img src="src/img/transcamaçari.png" alt="dhdghfd">
-                <!-- <svg xmlns="http://www.w3.org/2000/svg" fill="white" viewBox="0 0 16 16">
-                    <path d="M5 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0m8 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0m-6-1a1 1 0 1 0 0 2h2a1 1 0 1 0 0-2zm1-6c-1.876 0-3.426.109-4.552.226A.5.5 0 0 0 3 4.723v3.554a.5.5 0 0 0 .448.497C4.574 8.891 6.124 9 8 9s3.426-.109 4.552-.226A.5.5 0 0 0 13 8.277V4.723a.5.5 0 0 0-.448-.497A44 44 0 0 0 8 4m0-1c-1.837 0-3.353.107-4.448.22a.5.5 0 1 1-.104-.994A44 44 0 0 1 8 2c1.837 0 3.426.109 4.552.226a.5.5 0 1 1-.104.994A43 43 0 0 0 8 3"/>
-                    <path d="M15 8a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1V2.64c0-1.188-.845-2.232-2.064-2.372A44 44 0 0 0 8 0C5.9 0 4.208.136 3.064.268 1.845.408 1 1.452 1 2.64V4a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1v3.5c0 .818.393 1.544 1 2v2a.5.5 0 0 0 .5.5h2a.5.5 0 0 0 .5-.5V14h6v1.5a.5.5 0 0 0 .5.5h2a.5.5 0 0 0 .5-.5v-2c.607-.456 1-1.182 1-2zM8 1c2.056 0 3.71.134 4.822.261.676.078 1.178.66 1.178 1.379v8.86a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 11.5V2.64c0-.72.502-1.301 1.178-1.379A43 43 0 0 1 8 1"/>
-                </svg> -->
+                <img src="src/img/transcamaçari.png" alt="Logo TransCamaçari">
             </div>
             <div class="brand-text-wrapper">
                 <span class="brand-name">TransCamaçari</span>
@@ -58,7 +54,7 @@
 <div class="hero-slider-container">
     <main id="hero-master">
 
-        <!-- Slide 1 — Azul -->
+        <!-- Slide 1 — Verde -->
         <div class="hero-slide" style="background-color: #94BE1F;">
             <div class="container hero-wrapper">
 
@@ -148,8 +144,6 @@
 
     </main>
 </div>
-
-    
 
 
 <!--MODAL DE LOGIN / CADASTRO-->
@@ -348,7 +342,7 @@
     <div class="container">
 
         <div class="section-header">
-                <h2>Sobre o Projeto</h2>
+            <h2>Sobre o Projeto</h2>
             <p>Uma solução desenvolvida pela equipe da LinkaTech para melhorar a mobilidade urbana e a qualidade de vida dos cidadãos</p>
         </div>
 
@@ -540,7 +534,7 @@
                     </div>
                     <div class="tech-item">
                         <strong>Backend</strong>
-                        
+                        <span></span>
                     </div>
                     <div class="tech-item">
                         <strong>Rastreamento</strong>
@@ -607,7 +601,7 @@
                     <input type="text" id="inputCpf" placeholder="000.000.000-00">
                 </div>
                 <div>
-                    <input type="text" id="inputCpf" placeholder="Sua senha">
+                    <input type="password" id="inputSenha" placeholder="Sua senha">
                 </div>
                 <button class="btn-search" onclick="buscarRotasPrivadas()">Buscar</button>
             </div>
@@ -628,14 +622,14 @@
 <div id="modalPlanos" class="modal-planos-overlay">
     <div class="modal-planos-content">
         <button class="modal-planos-close" onclick="fecharModalPlanos()">&times;</button>
-        
+
         <div class="plans-modal-header">
             <h1>Escolha Seu Plano</h1>
             <p>transporte público é GRATUITO! LOGIN NECESSÁRIO APENAS PARA ROTAS PRIVADAS</p>
         </div>
 
         <div class="plans-container-modal">
-            
+
             <div class="plan-card gratuito">
                 <div class="icon-wrapper">
                     <i class="fa-solid fa-users"></i>
@@ -644,7 +638,7 @@
                 <p class="plan-subtitle">transporte público</p>
                 <div class="plan-price">R$ 0</div>
                 <p class="plan-period">para sempre</p>
-                
+
                 <ul class="features-list">
                     <li class="checked"><i class="fa-solid fa-check"></i> rastreamento de ônibus público em tempo real</li>
                     <li class="checked"><i class="fa-solid fa-check"></i> Todas as linhas de camaçari</li>
@@ -652,8 +646,8 @@
                     <li class="checked"><i class="fa-solid fa-check"></i> Mapas interativos</li>
                     <li class="unchecked"><i class="fa-solid fa-xmark"></i> Sem acesso a criação de rotas</li>
                 </ul>
-                
-                <button class="btn-action">Usar Gratuitamente</button>
+
+                <button class="btn-action" onclick="fecharModalPlanos()">Usar Gratuitamente</button>
             </div>
 
             <div class="plan-card mensal">
@@ -664,7 +658,7 @@
                 <p class="plan-subtitle">Rotas privadas</p>
                 <div class="plan-price">R$ 26,90</div>
                 <p class="plan-period">por mês</p>
-                
+
                 <ul class="features-list">
                     <li class="checked"><i class="fa-solid fa-check"></i> Tudo do plano gratuito</li>
                     <li class="checked"><i class="fa-solid fa-check"></i> Rotas privadas (empresas, escolas, etc)</li>
@@ -672,8 +666,8 @@
                     <li class="checked"><i class="fa-solid fa-check"></i> Gestão de frota</li>
                     <li class="checked"><i class="fa-solid fa-check"></i> Suporte prioritário</li>
                 </ul>
-                
-                <button class="btn-action">Comprar plano mensal</button>
+
+                <button class="btn-action" onclick="abrirModalLogin('mensal')">Comprar plano mensal</button>
             </div>
 
             <div class="plan-card anual">
@@ -685,7 +679,7 @@
                 <div class="old-price">R$ 322,80</div>
                 <div class="plan-price">R$ 225,00</div>
                 <p class="plan-period">por ano</p>
-                
+
                 <ul class="features-list">
                     <li class="checked"><i class="fa-solid fa-check"></i> Tudo do plano Mensal</li>
                     <li class="checked"><i class="fa-solid fa-check"></i> 30% de desconto</li>
@@ -693,9 +687,9 @@
                     <li class="checked"><i class="fa-solid fa-check"></i> Suporte VIP</li>
                     <li class="checked"><i class="fa-solid fa-check"></i> Primeiros contatos com novidades e muito mais..</li>
                 </ul>
-                
+
                 <div class="monthly-equivalent">R$ 18,75/mês</div>
-                <button class="btn-action" style="margin-top: 15px;">Comprar plano anual</button>
+                <button class="btn-action" style="margin-top: 15px;" onclick="abrirModalLogin('anual')">Comprar plano anual</button>
             </div>
 
         </div>
@@ -721,10 +715,10 @@
         <div class="forgot-password">
             <p>
                 Já possui conta?
-                <a href="login.html">Entrar</a>
+                <a href="src/pages/login.html">Entrar</a>
             </p>
         </div>
-        
+
     </div>
 </div>
 
@@ -737,7 +731,7 @@
             <div class="footer-brand">
                 <div class="footer-logo">
                     <div class="logo-box">
-                        <img src="../img/transcamaçari.png" alt="TransCamaçari">
+                        <img src="src/img/transcamaçari.png" alt="TransCamaçari">
                     </div>
                     <span class="brand-name">TransCamaçari</span>
                 </div>
@@ -752,15 +746,15 @@
             </div>
 
             <div class="footer-column">
-            <h4>Links Rápidos</h4>
-              <nav>
-                 <ul>
-                  <li><a href="#">Início</a></li>
-                  <li><a href="#sobre">Sobre o Projeto</a></li>
-                   <li><a href="#funcionalidades">Funcionalidades</a></li>
-                   <li><a href="#equipe">Equipe LinkaTech</a></li>
-                   <li><a href="suporte.html">Suporte</a></li>
-                  </ul>
+                <h4>Links Rápidos</h4>
+                <nav>
+                    <ul>
+                        <li><a href="#">Início</a></li>
+                        <li><a href="#sobre">Sobre o Projeto</a></li>
+                        <li><a href="#funcionalidades">Funcionalidades</a></li>
+                        <li><a href="#equipe">Equipe LinkaTech</a></li>
+                        <li><a href="suporte.html">Suporte</a></li>
+                    </ul>
                 </nav>
             </div>
 
@@ -785,14 +779,14 @@
 
         <div class="footer-credits">
             <p>Projeto desenvolvido pela equipe da LinkaTech - Turma 2026</p>
-            <p class="tech-stack">Tecnologias: React • TypeScript • Tailwind CSS • Supabase • GPS/Bluetooth</p>
+            <p class="tech-stack">Tecnologias: HTML • CSS • JavaScript • Leaflet • GPS/Bluetooth</p>
         </div>
 
     </div>
 </footer>
-<script src="../js/index.js"></script>
-<script src="../js/Premium.js"></script>
-<script src="../js/acessibilidade.js"></script>
-</body>
+
+<script src="src/js/index.js"></script>
+<script src="src/js/Premium.js"></script>
+<script src="src/js/acessibilidade.js"></script>
 </body>
 </html>
