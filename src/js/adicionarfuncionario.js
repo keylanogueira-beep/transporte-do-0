@@ -35,7 +35,7 @@ formUsuario.addEventListener('submit', (e) => {
         expiracao: document.getElementById('expiracao').value
     };
 
-    console.log("Dados salvos com sucesso no sistema TremCamaçari:", dados);
+    console.log("Dados salvos com sucesso no sistema da TransCamaçari:", dados);
     alert("Usuário " + dados.nome + " adicionado!");
     
     fecharModal();

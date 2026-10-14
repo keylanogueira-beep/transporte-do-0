@@ -49,7 +49,7 @@ if (formLogin) {
 formLogin.addEventListener("submit", (e) => {
 e.preventDefault();
 
-    // aqui você poderá colocar sua autenticação futuramente
+   
 
     redirectAfterAuth();
 });
