@@ -1,8 +1,4 @@
-
-    
-        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-
-
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
         :root {
             --main-blue:        #2563eb;
             --orange:       #f97316;
@@ -26,11 +22,7 @@
             --white:      #ffffff;
             --radius:     14px;
         }
-
-
         html { scroll-behavior: smooth; }
-
-
         body {
             font-family: 'Inter', sans-serif;
             background: var(--bg);
@@ -38,11 +30,9 @@
             min-height: 100vh;
             -webkit-font-smoothing: antialiased;
         }
-
         /* =========================================
    VARIÁVEIS E RESET
    ========================================= */
-
 *,
 *::before,
 *::after {
@@ -50,11 +40,9 @@
     padding: 0;
     box-sizing: border-box;
 }
-
 html {
     scroll-behavior: smooth;
 }
-
 body {
     font-family: 'Inter', sans-serif;
     background-color: #ffffff;
@@ -62,23 +50,17 @@ body {
     line-height: 1.5;
     -webkit-font-smoothing: antialiased;
 }
-
 .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
 }
-
 section {
     scroll-margin-top: 80px;
 }
-
-
-
         /* =========================================
         NAVBAR
         ========================================= */
-
         .navbar {
             background: #fff;
             padding: 15px 0;
@@ -87,19 +69,16 @@ section {
             top: 0;
             z-index: 1000;
         }
-
         .nav-wrapper {
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
-
         .logo-area {
             display: flex;
             align-items: center;
             gap: 12px;
         }
-
         .logo-icon-placeholder {
             width: 70px;
             height: 70px;
@@ -108,20 +87,17 @@ section {
             align-items: center;
             justify-content: center;
         }
-
         .logo-icon-placeholder img{
             width: 200%;
             height: 150%;
             padding-right: 30px;
             display: block;
         }
-
         .brand-text-wrapper {
             display: flex;
             flex-direction: column;
             justify-content: center;
         }
-
         .brand-name {
             display: block;
             font-weight: 700;
@@ -129,19 +105,16 @@ section {
             color: var(--dark-text);
             line-height: 1.1;
         }
-
         .brand-sub {
             font-size: 0.75rem;
             color: #9ca3af;
             font-weight: 400;
         }
-
         .nav-menu ul {
             display: flex;
             list-style: none;
             gap: 25px;
         }
-
         .nav-menu a {
             text-decoration: none;
             color: var(--body-text);
@@ -149,17 +122,14 @@ section {
             font-weight: 500;
             transition: color 0.2s;
         }
-
         .nav-menu a:hover {
             color: var(--main-blue);
         }
-
         .header-actions {
             display: flex;
             gap: 12px;
             align-items: center;
         }
-
         .btn-black {
             background: #7E2F8A;
             color: #fff;
@@ -171,7 +141,6 @@ section {
             cursor: pointer;
             transition: opacity 0.2s;
         }
-
         .btn-outline-blue {
             background: transparent;
             color: var(--roxo);
@@ -182,15 +151,12 @@ section {
             cursor: pointer;
             transition: background-color 0.2s, color 0.2s;
         }
-
         .btn-outline-blue:hover {
             background: rgba(37, 99, 235, 0.08);
         }
-
         .btn-black:hover {
             opacity: 0.9;
         }
-
         /* ── Hero Banner ── */
         .section-inicio {
             background: var(--green);
@@ -198,8 +164,6 @@ section {
             position: relative;
             overflow: hidden;
         }
-
-
         .section-inicio::before {
             content: '';
             position: absolute;
@@ -208,8 +172,6 @@ section {
             background: rgba(255,255,255,0.05);
             border-radius: 50%;
         }
-
-
         .section-inicio::after {
             content: '';
             position: absolute;
@@ -218,8 +180,6 @@ section {
             background: rgba(255,255,255,0.04);
             border-radius: 50%;
         }
-
-
         .hero-inner {
             max-width: 1200px;
             margin: 0 auto;
@@ -228,8 +188,6 @@ section {
             align-items: flex-start;
             justify-content: space-between;
         }
-
-
         .hero-text h1 {
             font-size: 2rem;
             font-weight: 800;
@@ -237,15 +195,11 @@ section {
             margin-bottom: 6px;
             letter-spacing: -0.5px;
         }
-
-
         .hero-text .empresa-handle {
             font-size: 1rem;
             font-weight: 600;
             color: rgba(255,255,255,0.85);
         }
-
-
         .btn-config {
             background: rgba(255,255,255,0.15);
             border: 1px solid rgba(255,255,255,0.25);
@@ -257,11 +211,7 @@ section {
             transition: background 0.2s;
             flex-shrink: 0;
         }
-
-
         .btn-config:hover { background: rgba(255,255,255,0.25); }
-
-
         /* ── Main Content ── */
         .main-content {
             max-width: 800px;
@@ -272,14 +222,10 @@ section {
             gap: 20px;
             animation: fadeUp 0.4s ease both;
         }
-
-
         @keyframes fadeUp {
             from { opacity: 0; transform: translateY(16px); }
             to   { opacity: 1; transform: translateY(0); }
         }
-
-
         /* ── Card base ── */
         .card {
             background: var(--white);
@@ -287,8 +233,6 @@ section {
             border-radius: var(--radius);
             padding: 24px 28px;
         }
-
-
         /* Card info (banner azul claro) */
         .card-info {
             background: var(--green-light);
@@ -296,30 +240,22 @@ section {
             border-radius: var(--radius);
             padding: 22px 28px;
         }
-
-
         .card-info .info-title {
             font-size: 0.95rem;
             font-weight: 700;
             color: var(--text-dark);
             margin-bottom: 6px;
         }
-
-
         .card-info .info-desc {
             font-size: 0.88rem;
             color: var(--text-mid);
             line-height: 1.55;
         }
-
-
         /* ── Tabs ── */
         .tabs-row {
             display: flex;
             gap: 8px;
         }
-
-
         .tab-btn {
             display: flex;
             align-items: center;
@@ -334,15 +270,11 @@ section {
             cursor: pointer;
             transition: border-color 0.18s, background 0.18s, color 0.18s;
         }
-
-
         .tab-btn:hover {
             border-color: #9ca3af;
             color: var(--text-dark);
             
         }
-
-
         .tab-btn.active {
             border-color: var(--orange);
             color: var(--orange);
@@ -350,13 +282,9 @@ section {
             font-weight: 600;
             margin-bottom: 10px;
         }
-
-
         .tab-btn svg {
             flex-shrink: 0;
         }
-
-
         /* ── Card de gestão ── */
         .card-gestao {
             display: flex;
@@ -364,24 +292,18 @@ section {
             justify-content: space-between;
             gap: 20px;
         }
-
-
         .gestao-text .gestao-title {
             font-size: 0.95rem;
             font-weight: 700;
             color: var(--text-dark);
             margin-bottom: 5px;
         }
-
-
         .gestao-text .gestao-desc {
             font-size: 0.85rem;
             color: var(--text-soft);
             line-height: 1.5;
             max-width: 400px;
         }
-
-
         .btn-adicionar {
             display: flex;
             align-items: center;
@@ -398,14 +320,10 @@ section {
             transition: background 0.18s, transform 0.15s;
             flex-shrink: 0;
         }
-
-
         .btn-adicionar:hover {
             background: #1f2937;
             transform: translateY(-1px);
         }
-
-
         /* ── Modal Overlay ── */
         .modal-overlay {
             position: fixed;
@@ -416,8 +334,6 @@ section {
             justify-content: center;
             z-index: 1000;
         }
-
-
         /* ── Modal Content ── */
         .modal-add-user-content {
             background: var(--white);
@@ -431,14 +347,10 @@ section {
             position: relative;
             animation: modalSlideIn 0.3s ease both;
         }
-
-
         @keyframes modalSlideIn {
             from { opacity: 0; transform: translateY(-20px); }
             to   { opacity: 1; transform: translateY(0); }
         }
-
-
         /* ── Modal Close Button ── */
         .modal-close-dark {
             position: absolute;
@@ -457,11 +369,7 @@ section {
             transition: color 0.18s;
             z-index: 10;
         }
-
-
         .modal-close-dark:hover { color: var(--text-dark); }
-
-
         /* ── Modal Header ── */
         .modal-add-user-header { margin-bottom: 24px; }
         .modal-add-user-header h3 {
@@ -475,39 +383,29 @@ section {
             color: var(--text-soft);
             line-height: 1.5;
         }
-
-
         /* ── Modal Form ── */
         .modal-add-user-form {
             display: flex;
             flex-direction: column;
             gap: 18px;
         }
-
-
         /* ── Row Dupla (Nome e Placa) ── */
         .form-row-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 16px;
         }
-
-
         /* ── Form Field ── */
         .add-user-field {
             display: flex;
             flex-direction: column;
             gap: 6px;
         }
-
-
         .add-user-field label {
             font-size: 0.88rem;
             font-weight: 600;
             color: var(--text-dark);
         }
-
-
         .add-user-field input {
             padding: 10px 12px;
             border: 1.5px solid var(--border);
@@ -517,15 +415,11 @@ section {
             transition: border-color 0.18s, box-shadow 0.18s;
             background: #fdfdfd;
         }
-
-
         .add-user-field input:focus {
             outline: none;
             border-color: var(--green);
             box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
         }
-
-
         /* Input de Arquivo Customizado */
         .file-upload-wrapper {
             border: 1.5px solid var(--border);
@@ -539,8 +433,6 @@ section {
             gap: 4px;
         }
         .file-upload-wrapper span { color: var(--text-soft); }
-
-
         /* ── Seção do Mapa do Veículo ── */
         .map-section-title {
             font-size: 0.88rem;
@@ -548,15 +440,11 @@ section {
             color: var(--text-dark);
             margin-bottom: 8px;
         }
-
-
         .map-actions-row {
             display: flex;
             gap: 12px;
             margin-bottom: 12px;
         }
-
-
         .btn-map-action {
             display: flex;
             align-items: center;
@@ -571,8 +459,6 @@ section {
         }
         .btn-map-action.add-point { color: var(--text-dark); }
         .btn-map-action.remove-point { color: #ef4444; border-color: #fca5a5; }
-
-
         .btn-salvar-mapa {
             background: var(--green);
             color: var(--white);
@@ -588,8 +474,6 @@ section {
             margin-bottom: 12px;
             box-shadow: 0 2px 4px rgba(37, 99, 235, 0.2);
         }
-
-
         /* Container do Mapa Falso */
         .mock-map-container {
             width: 100%;
@@ -605,13 +489,9 @@ section {
             height: 100%;
             object-fit: cover;
         }
-
-
         /* ── Field Hint e Error ── */
         .field-hint { font-size: 0.78rem; color: var(--text-soft); font-weight: 400; }
         .field-error { font-size: 0.78rem; color: #ef4444; font-weight: 500; min-height: 16px; }
-
-
         /* ── Modal Actions ── */
         .modal-add-user-actions {
             display: flex;
@@ -619,8 +499,6 @@ section {
             margin-top: 24px;
             justify-content: flex-end;
         }
-
-
         .btn-cancelar-user, .btn-salvar-user {
             padding: 10px 20px;
             border-radius: 8px;
@@ -630,15 +508,12 @@ section {
             transition: background 0.18s, border-color 0.18s, transform 0.15s;
             border: 1.5px solid var(--border);
         }
-
-
         .btn-cancelar-user { background: var(--white); color: var(--text-dark); }
         .btn-cancelar-user:hover { background: var(--bg); border-color: #d1d5db; }
         .btn-salvar-user { background: var(--green); color: var(--white); border-color: var(--green); }
         .btn-salvar-user:hover { background: var(--green-dark); border-color: var(--green-dark); transform: translateY(-1px); }
         
         
-
         /* Responsivo */
         @media (max-width: 640px) {
             .hero-text h1 { font-size: 1.5rem; }
@@ -653,23 +528,18 @@ section {
       [vw-access-button] {
        z-index: 9999 !important;
 }
-
      .vw-plugin-wrapper {
     z-index: 9999 !important;
 }
-
-
 /* ===== NAVBAR: estados de hover e página atual (Rotas Privadas) ===== */
 .nav-menu ul {
     align-items: center;
     gap: 8px;
 }
-
 .nav-menu li {
     display: flex;
     align-items: center;
 }
-
 .nav-menu a {
     display: inline-flex;
     align-items: center;
@@ -683,7 +553,6 @@ section {
     line-height: 1.2;
     transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
 }
-
 /* Os links continuam com suas cores originais, mas ganham aparência de botão no hover. */
 .nav-menu a:hover {
     background-color: #f3e8f5;
@@ -691,7 +560,6 @@ section {
     box-shadow: 0 2px 7px rgba(126, 47, 138, 0.14);
     transform: translateY(-1px);
 }
-
 /* DashboardV é a página de Rotas Privadas: essa opção fica marcada sempre. */
 .nav-menu a.active,
 .nav-menu a[aria-current="page"] {
@@ -700,19 +568,16 @@ section {
     box-shadow: inset 0 -3px 0 #EA7A09;
     font-weight: 700;
 }
-
 .nav-menu a.active:hover,
 .nav-menu a[aria-current="page"]:hover {
     background-color: #f3e8f5;
     color: #7E2F8A !important;
     box-shadow: inset 0 -3px 0 #7E2F8A, 0 2px 7px rgba(126, 47, 138, 0.14);
 }
-
 .nav-menu a:focus-visible {
     outline: 2px solid #7E2F8A;
     outline-offset: 3px;
 }
-
 @media (max-width: 1050px) {
     .nav-menu ul { gap: 4px; }
     .nav-menu a { padding: 8px 7px; font-size: 0.82rem; }

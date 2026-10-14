@@ -4,24 +4,14 @@ function trocarTabDash(aba) {
         document.getElementById('painelUsuarios').style.display = aba === 'usuarios' ? 'flex' : 'none';
         document.getElementById('painelVeiculos').style.display = aba === 'veiculos' ? 'flex' : 'none';
     }
-
-
-
-
     // Funções do Modal de Usuário
     function abrirModalAdicionarUsuario() 
     { document.getElementById('modalAdicionarUsuario').style.display = 'flex'; }
-
     function fecharModalAdicionarUsuario() 
     { document.getElementById('modalAdicionarUsuario').style.display = 'none'; }
-
-
-
-
     // Funções do Novo Modal de Veículo
     function abrirModalAdicionarVeiculo()
      { document.getElementById('modalAdicionarVeiculo').style.display = 'flex'; }
      
     function fecharModalAdicionarVeiculo() 
     { document.getElementById('modalAdicionarVeiculo').style.display = 'none'; }
-

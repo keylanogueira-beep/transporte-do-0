@@ -11,11 +11,9 @@
    
 </head>
 <body>
-
 <!--NAVBAR-->
 <header class="navbar">
     <div class="container nav-wrapper">
-
         <div class="logo-area">
             <div class="logo-icon-placeholder">
                 <img src="../img/transcamaçari.png" alt="Logo TransCamaçari">
@@ -25,26 +23,21 @@
                 <span class="brand-sub">Mobilidade Inteligente</span>
             </div>
         </div>
-
         <nav class="nav-menu">
             <ul>
                 <li><a href="../../index.html" style="color: #E30613;">Início</a></li>
                 <li><a href="../../index.html#sobre" style="color: #94BE1F;">Sobre o Projeto</a></li>
-                <li><a href="../../index.html#funcionalidades" style="color: #EA7A09;">Funcionalidades</a></li>
-                <li><a href="../../index.html#equipe" style="color: #7E2F8A;">Equipe LinkaTech</a></li>
-                <li><a href="../../index.html#contato" style="color: #E30613;">Contato</a></li>
-                <li><a href="suporte.html" style="color: #94BE1F;">Suporte</a></li>
-                <li><a href="#" class="active" aria-current="page">Rotas Privadas</a></li>
+                <li id="navRotaPrivada" style="display:none;"><a href="DashboardV.html">Rota Privada</a></li>  
+                <li><a href="#funcionalidades" style="color: #EA7A09;">Rota privada</a></li>
+                <li><a href="../../index.html#contato" style="color: #7E2F8A;">Contato e Suporte</a></li>
+                <li><a href="#" class="active" aria-current="page">Cadastro de Rotas</a></li>
             </ul>
         </nav>
-
         <div class="header-actions"> 
             <button id="btn-sair" class="btn-outline-blue" onclick="window.location.href='../../index.html'">Sair</button>
         </div>
-
     </div>
 </header>
-
 <!-- outra parte -->
 <section class="section-inicio" id="dashboardInicio">
     <div class="hero-inner">
@@ -60,22 +53,12 @@
         </button>
     </div>
 </section>
-
-
  <!-- main -->
 <main class="main-content" id="dashboardMain">
-
-
-
-
     <div class="card-info">
         <p class="info-title">Rotas Privadas Ativa:</p>
         <p class="info-desc">Gerencie funcionários, alunos e veículos da sua organização, ideal para empresas, escolas e instituições.</p>
     </div>
-
-
-
-
     <div class="u_a-1">
         <button class="tab-btn active" id="tabUsuarios" onclick="trocarTabDash('usuarios')">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
@@ -83,10 +66,6 @@
             </svg>
             Usuários Autorizados
         </button>
-
-
-
-
         <button class="tab-btn" id="tabVeiculos" onclick="trocarTabDash('veiculos')">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
                 <path d="M5 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0m8 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0m-6-1a1 1 0 1 0 0 2h2a1 1 0 1 0 0-2zm1-6c-1.876 0-3.426.109-4.552.226A.5.5 0 0 0 3 4.723v3.554a.5.5 0 0 0 .448.497C4.574 8.891 6.124 9 8 9s3.426-.109 4.552-.226A.5.5 0 0 0 13 8.277V4.723a.5.5 0 0 0-.448-.497A44 44 0 0 0 8 4m0-1c-1.837 0-3.353.107-4.448.22a.5.5 0 1 1-.104-.994A44 44 0 0 1 8 2c1.837 0 3.426.109 4.552.226a.5.5 0 1 1-.104.994A43 43 0 0 0 8 3"/>
@@ -95,10 +74,6 @@
             Veículos
         </button>
     </div>
-
-
-
-
     <div class="card card-gestao" id="painelUsuarios">
         <div class="gestao-text">
             <p class="gestao-title">Gestão de Usuários Autorizados:</p>
@@ -111,10 +86,6 @@
             Adicionar Usuário
         </button>
     </div>
-
-
-
-
     <div class="card card-gestao" id="painelVeiculos" style="display:none;">
         <div class="gestao-text">
             <p class="gestao-title">Gestão de Frota</p>
@@ -127,20 +98,9 @@
             Adicionar Veículo
         </button>
     </div>
-
-
-
-
 </main>
-
-
 <!-- parte de baixo que não tem nome -->
-
 <!-- parte de baixo que não tem nome -->
-
-
-
-
 <div id="modalAdicionarUsuario" class="modal-overlay" style="display:none;">
     <div class="modal-add-user-content">
         <button class="modal-close-dark" onclick="fecharModalAdicionarUsuario()" title="Fechar">&times;</button>
@@ -182,25 +142,13 @@
         </form>
     </div>
 </div>
-
-
-
-
 <div id="modalAdicionarVeiculo" class="modal-overlay" style="display:none;">
     <div class="modal-add-user-content">
         <button class="modal-close-dark" onclick="fecharModalAdicionarVeiculo()" title="Fechar">&times;</button>
-
-
-
-
         <div class="modal-add-user-header">
             <h3>Adicionar Veículo</h3>
             <p>Cadastrar um novo veículo com foto, placa e pontos de encontro</p>
         </div>
-
-
-
-
         <form id="formAdicionarVeiculo" class="modal-add-user-form" onsubmit="event.preventDefault();">
            
             <div class="form-row-grid">
@@ -213,10 +161,6 @@
                     <input id="addPlacaVeiculo" type="text" placeholder="ABC-1234">
                 </div>
             </div>
-
-
-
-
             <div class="add-user-field">
                 <label>Foto do Veículo *</label>
                 <div class="file-upload-wrapper" onclick="document.getElementById('hiddenFileInput').click()">
@@ -225,10 +169,6 @@
                 <input type="file" id="hiddenFileInput" style="display:none;">
                 <span class="field-hint">Selecione uma foto do veículo para ajudar os usuários a identificá-lo</span>
             </div>
-
-
-
-
             <div>
                 <p class="map-section-title">Defina os Pontos de Encontro no Mapa *</p>
                 <div class="map-actions-row">
@@ -243,30 +183,17 @@
                 <button type="button" class="btn-salvar-mapa">
                     <i class="fa-solid fa-floppy-disk"></i> Salvar Mapa (2 pontos)
                 </button>
-
-
-
-
                 <div class="mock-map-container">
                     <img src="https://api.mapbox.com/styles/v1/mapbox/streets-v11/static/-38.4222,-12.6975,13,0/500x250?access_token=mock" alt="Mapa de Camaçari" class="mock-map-img" onerror="this.src='https://placehold.co/500x250/e2e8f0/475569?text=Visualizacao+do+Mapa+Camaçari'">
                 </div>
             </div>
-
-
-
-
             <div class="modal-add-user-actions">
                 <button type="button" class="btn-cancelar-user" onclick="fecharModalAdicionarVeiculo()">Cancelar</button>
                 <button type="submit" class="btn-salvar-user">Salvar Veículo</button>
             </div>
-
-
-
-
         </form>
     </div>
 </div>
-
 <!-- VLibras -->
 <div vw class="enabled">
     <div vw-access-button class="active"></div>
@@ -274,15 +201,10 @@
         <div class="vw-plugin-top-wrapper"></div>
     </div>
 </div>
-
 <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
 <script>
     new window.VLibras.Widget('https://vlibras.gov.br/app');
 </script>
-
 <script src="../js/DashboardV.js"></script>
-
-
 </body>
 </html>
-

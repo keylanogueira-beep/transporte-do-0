@@ -2188,3 +2188,9 @@ section {
         transition: none;
     }
 }
+
+.hero-arrow:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+  pointer-events: none;
+}
