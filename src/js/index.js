@@ -876,3 +876,122 @@ function buscarRotasPrivadas() {
         mapaDiv.innerHTML = "";
     }
 }
+// ===== HERO SLIDER =====
+// Remova do index.js qualquer código antigo que use #heroPrev / #heroNext
+// para não ter dois scripts controlando o mesmo carrossel.
+
+(function () {
+    'use strict';
+
+    function initHeroSlider() {
+        const container = document.querySelector('.hero-slider-container');
+        if (!container) return;
+
+        const track   = container.querySelector('#hero-master');
+        const slides  = Array.from(track.querySelectorAll('.hero-slide'));
+        const prevBtn = container.querySelector('#heroPrev');
+        const nextBtn = container.querySelector('#heroNext');
+        const dotsBox = container.querySelector('#heroDots');
+        const total   = slides.length;
+        const AUTOPLAY_MS = 6000;
+
+        let current = 0;
+        let timer = null;
+
+        // Cria as bolinhas
+        const dots = slides.map(function (_, i) {
+            const dot = document.createElement('button');
+            dot.type = 'button';
+            dot.className = 'hero-dot';
+            dot.setAttribute('role', 'tab');
+            dot.setAttribute('aria-label', 'Ir para o slide ' + (i + 1));
+            dot.addEventListener('click', function () {
+                goTo(i);
+                restartAutoplay();
+            });
+            dotsBox.appendChild(dot);
+            return dot;
+        });
+
+        function goTo(index) {
+            current = (index + total) % total;   // volta ao início/fim (loop)
+            track.style.transform = 'translateX(-' + (current * 100) + '%)';
+
+            slides.forEach(function (slide, i) {
+                const active = i === current;
+                slide.setAttribute('aria-hidden', String(!active));
+                slide.inert = !active;            // botões de slides ocultos não recebem Tab
+            });
+
+            dots.forEach(function (dot, i) {
+                const active = i === current;
+                dot.classList.toggle('is-active', active);
+                dot.setAttribute('aria-selected', String(active));
+            });
+        }
+
+        function next() { goTo(current + 1); }
+        function prev() { goTo(current - 1); }
+
+        // Autoplay
+        function startAutoplay() {
+            if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+            stopAutoplay();
+            timer = setInterval(next, AUTOPLAY_MS);
+        }
+        function stopAutoplay() {
+            clearInterval(timer);
+            timer = null;
+        }
+        function restartAutoplay() {
+            stopAutoplay();
+            startAutoplay();
+        }
+
+        // Setas
+        prevBtn.addEventListener('click', function () { prev(); restartAutoplay(); });
+        nextBtn.addEventListener('click', function () { next(); restartAutoplay(); });
+
+        // Teclado (setas ← → com o foco dentro do carrossel)
+        container.addEventListener('keydown', function (e) {
+            if (e.key === 'ArrowLeft')  { prev(); restartAutoplay(); }
+            if (e.key === 'ArrowRight') { next(); restartAutoplay(); }
+        });
+
+        // Pausa ao passar o mouse / focar
+        container.addEventListener('mouseenter', stopAutoplay);
+        container.addEventListener('mouseleave', startAutoplay);
+        container.addEventListener('focusin', stopAutoplay);
+        container.addEventListener('focusout', startAutoplay);
+
+        // Pausa quando a aba não está visível
+        document.addEventListener('visibilitychange', function () {
+            if (document.hidden) stopAutoplay(); else startAutoplay();
+        });
+
+        // Arrastar com o dedo no celular
+        let startX = 0, startY = 0;
+        container.addEventListener('touchstart', function (e) {
+            startX = e.touches[0].clientX;
+            startY = e.touches[0].clientY;
+        }, { passive: true });
+
+        container.addEventListener('touchend', function (e) {
+            const dx = e.changedTouches[0].clientX - startX;
+            const dy = e.changedTouches[0].clientY - startY;
+            if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy)) {
+                if (dx < 0) next(); else prev();
+                restartAutoplay();
+            }
+        }, { passive: true });
+
+        goTo(0);
+        startAutoplay();
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initHeroSlider);
+    } else {
+        initHeroSlider();
+    }
+})();
