@@ -698,68 +698,176 @@ window.addEventListener('click', function(event) {
 });
 
 
-// =========================================
-//  HERO SLIDER AUTOMÁTICO
-// =========================================
+// ===== HERO SLIDER =====
+// Remova do index.js qualquer código antigo que use #heroPrev / #heroNext
+// para não ter dois scripts controlando o mesmo carrossel.
+(function () {
+  'use strict';
 
-(function() {
-    const slider = document.getElementById('hero-master');
-    if (!slider) return;
-
-    let onSecondSlide = false;
-    let autoInterval = 10000;
-    let intervalId = null;
-
-    function goToSecond() {
-        slider.style.transform = 'translateX(-50%)';
-        onSecondSlide = true;
-    }
-
-    function goToFirst() {
-        slider.style.transform = 'translateX(0)';
-        onSecondSlide = false;
-    }
-
-    function toggleSlide() {
-        if (!onSecondSlide) goToSecond(); else goToFirst();
-    }
-
-    function startAuto() {
-        if (intervalId) clearInterval(intervalId);
-        intervalId = setInterval(toggleSlide, autoInterval);
-    }
-
-    // Start automatic sliding
-    startAuto();
-
-    // Click navigation: only respond when tapping/clicking the left/right side zones
+  function initHeroSlider() {
     const container = document.querySelector('.hero-slider-container');
-    if (container) {
-        const SIDE_RATIO = 0.20; // 20% on each side
-        container.addEventListener('click', function(e) {
-            const rect = container.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const leftLimit = rect.width * SIDE_RATIO;
-            const rightLimit = rect.width * (1 - SIDE_RATIO);
+    if (!container) return;
 
-            // If we're on the first (blue) slide only respond to right-side taps
-            if (!onSecondSlide) {
-                if (x >= rightLimit) {
-                    goToSecond();
-                    startAuto();
-                }
-                return;
-            }
+    const track = container.querySelector('#hero-master');
+    const slides = Array.from(track.querySelectorAll('.hero-slide'));
+    const prevBtn = container.querySelector('#heroPrev');
+    const nextBtn = container.querySelector('#heroNext');
+    const dotsBox = container.querySelector('#heroDots');
+    const total = slides.length;
+    const AUTOPLAY_MS = 6000;
+    let current = 0;
+    let timer = null;
 
-            // If we're on the second (orange) slide only respond to left-side taps
-            if (onSecondSlide) {
-                if (x <= leftLimit) {
-                    goToFirst();
-                    startAuto();
-                }
-            }
-        });
+    // Cria as bolinhas (indicadores)
+    const dots = slides.map(function (_, i) {
+      const dot = document.createElement('button');
+      dot.type = 'button';
+      dot.className = 'hero-dot';
+      dot.setAttribute('role', 'tab');
+      dot.setAttribute('aria-label', 'Ir para o slide ' + (i + 1));
+      dot.addEventListener('click', function () {
+        goTo(i);
+        restartAutoplay();
+      });
+      dotsBox.appendChild(dot);
+      return dot;
+    });
+
+    function goTo(index) {
+      // Impede navegar para fora dos limites (sem loop infinito)
+      current = Math.max(0, Math.min(index, total - 1));
+
+      // Move o trilho dos slides
+      track.style.transform = 'translateX(-' + (current * 100) + '%)';
+
+      // Atualiza acessibilidade dos slides
+      slides.forEach(function (slide, i) {
+        const active = i === current;
+        slide.setAttribute('aria-hidden', String(!active));
+        slide.inert = !active;
+      });
+
+      // Atualiza estado das bolinhas
+      dots.forEach(function (dot, i) {
+        const active = i === current;
+        dot.classList.toggle('is-active', active);
+        dot.setAttribute('aria-selected', String(active));
+      });
+
+      // --- CONTROLE DOS BOTÕES ---
+      // Desativa o botão esquerdo no primeiro slide
+      if (prevBtn) {
+        prevBtn.disabled = (current === 0);
+      }
+
+      // Desativa o botão direito no último slide (segunda parte)
+      if (nextBtn) {
+        nextBtn.disabled = (current === total - 1);
+      }
     }
+
+    function next() {
+      if (current < total - 1) {
+        goTo(current + 1);
+      }
+    }
+
+    function prev() {
+      if (current > 0) {
+        goTo(current - 1);
+      }
+    }
+
+    // Autoplay
+    function startAutoplay() {
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      stopAutoplay();
+      timer = setInterval(function () {
+        // Se chegar ao final, para o autoplay ou volta se desejado
+        if (current < total - 1) {
+          next();
+        } else {
+          stopAutoplay();
+        }
+      }, AUTOPLAY_MS);
+    }
+
+    function stopAutoplay() {
+      clearInterval(timer);
+      timer = null;
+    }
+
+    function restartAutoplay() {
+      stopAutoplay();
+      startAutoplay();
+    }
+
+    // Setas (Clique)
+    if (prevBtn) {
+      prevBtn.addEventListener('click', function () {
+        prev();
+        restartAutoplay();
+      });
+    }
+
+    if (nextBtn) {
+      nextBtn.addEventListener('click', function () {
+        next();
+        restartAutoplay();
+      });
+    }
+
+    // Teclado (setas com o foco dentro do carrossel)
+    container.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowLeft') {
+        prev();
+        restartAutoplay();
+      } else if (e.key === 'ArrowRight') {
+        next();
+        restartAutoplay();
+      }
+    });
+
+    // Pausa ao passar o mouse / focar
+    container.addEventListener('mouseenter', stopAutoplay);
+    container.addEventListener('mouseleave', startAutoplay);
+    container.addEventListener('focusin', stopAutoplay);
+    container.addEventListener('focusout', startAutoplay);
+
+    // Pausa quando a aba não está visível
+    document.addEventListener('visibilitychange', function () {
+      if (document.hidden) stopAutoplay();
+      else startAutoplay();
+    });
+
+    // Arrastar com o dedo no celular (Touch)
+    let startX = 0, startY = 0;
+    container.addEventListener('touchstart', function (e) {
+      startX = e.touches[0].clientX;
+      startY = e.touches[0].clientY;
+    }, { passive: true });
+
+    container.addEventListener('touchend', function (e) {
+      const dx = e.changedTouches[0].clientX - startX;
+      const dy = e.changedTouches[0].clientY - startY;
+
+      if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy)) {
+        if (dx < 0) next();
+        else prev();
+      }
+      restartAutoplay();
+    }, { passive: true });
+
+    // Inicialização
+    goTo(0);
+    startAutoplay();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initHeroSlider);
+  } else {
+    initHeroSlider();
+  }
 })();
 
 
