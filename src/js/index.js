@@ -698,69 +698,6 @@ window.addEventListener('click', function(event) {
 });
 
 
-// =========================================
-//  HERO SLIDER AUTOMÁTICO
-// =========================================
-
-(function() {
-    const slider = document.getElementById('hero-master');
-    if (!slider) return;
-
-    let onSecondSlide = false;
-    let autoInterval = 10000;
-    let intervalId = null;
-
-    function goToSecond() {
-        slider.style.transform = 'translateX(-50%)';
-        onSecondSlide = true;
-    }
-
-    function goToFirst() {
-        slider.style.transform = 'translateX(0)';
-        onSecondSlide = false;
-    }
-
-    function toggleSlide() {
-        if (!onSecondSlide) goToSecond(); else goToFirst();
-    }
-
-    function startAuto() {
-        if (intervalId) clearInterval(intervalId);
-        intervalId = setInterval(toggleSlide, autoInterval);
-    }
-
-    // Start automatic sliding
-    startAuto();
-
-    // Click navigation: only respond when tapping/clicking the left/right side zones
-    const container = document.querySelector('.hero-slider-container');
-    if (container) {
-        const SIDE_RATIO = 0.20; // 20% on each side
-        container.addEventListener('click', function(e) {
-            const rect = container.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const leftLimit = rect.width * SIDE_RATIO;
-            const rightLimit = rect.width * (1 - SIDE_RATIO);
-
-            // If we're on the first (blue) slide only respond to right-side taps
-            if (!onSecondSlide) {
-                if (x >= rightLimit) {
-                    goToSecond();
-                    startAuto();
-                }
-                return;
-            }
-
-            // If we're on the second (orange) slide only respond to left-side taps
-            if (onSecondSlide) {
-                if (x <= leftLimit) {
-                    goToFirst();
-                    startAuto();
-                }
-            }
-        });
-    }
-})();
 
 
 // =========================================
